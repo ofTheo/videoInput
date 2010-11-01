@@ -1,0 +1,19 @@
+For USB Capture Devices and Webcams
+
+A lot of freeze issues where the camera stops working 
+seem to be due to windows putting the usb ports in a power 
+saving state.
+
+Before using videoInput disable power management on your usb ports.
+
+To do so follow these steps for all the USB Root Hub's listed in device manager:
+
+   1. In Windows, click on Start > Control Panel (or Start > Settings > Control Panel).
+   2. Double-click on System, then open the Hardware tab.
+   3. Click Device Manager.
+   4. Click the + at Universal Serial Bus Controllers.
+   5. Right-click USB Root Hub and select Properties.
+   6. Open the Power Management tab.
+   7. Clear the checkmark from Allow the computer to turn off this device to save power.
+   8. Click OK.
+   9. Repeat this procedure for the USB 2.0 Hub.

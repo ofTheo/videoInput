@@ -1,0 +1,20 @@
+to compile in dev-c++
+
+1) 	install direct-x devpak
+
+2) 	add include directory:
+	C:\Dev-Cpp\include\BaseClasses
+
+3) 	comment out this include in dxtrans.h (in dev-c++)
+	//#include <urlmon.h>
+	
+4) 	comment these includes from the theo's code (both places):
+	//#include "atlbase.h"
+	//#include "dxutil.h"
+
+5) 	asm -> in flipRGB, replace with regular c++  
+
+6) 	replace all occurances of SAFE_RELEASE
+	//SAFE_RELEASE(pControl);
+	with 
+	if ( (pControl) ) { (pControl)->Release(); (pControl) = 0; } 

@@ -1,0 +1,87 @@
+videoInput by Theodore Watson theo.watson@gmail.com
+
+videoInput.h Header file is best source of documentation.
+
+- New in 0.1995
+38)Moved to single threaded COM - as this causes less conflicts with other libraries - #define in videoInput.h to allow recompile as Multithreaded COM
+37)RestartDevice remembers all previously defined settings (like video format, framerate etc) 
+36)setAutoReconnectOnFreeze - for the few devices that seem to freeze after a period of time - you can set VI to reconnect to device on freeze.  
+35)getDeviceName - gives you back the devices name based on its id number.
+34)SetSyncSource set to NULL - should mean best capture rates possible
+33)Better device listing - tries all formats at size requested before searching for nearest match
+
+- New in 0.1993
+
+32) VS2008 projects
+31) setIdealFramerate - call before setupDevice to set the rate you want to capture at. Still experimental but seems to work.
+
+30) Camera settings controlled by code.
+29) Some bug fixes with nearest images size. 
+28) Fixed issues with initilaizng COM - videoInput should play a lot better with other libs that use COM
+29) device settings panel is now threaded so you can see the adjustments you are making live - thanks fabian for the tip!
+30) Some voddoo stuff that seems to help freeze issues on certain hardware
+31) General fixes of thinggs being freed when they shouldn't etc
+
+- New in 0.199
+27) fix to freeze bug on some hardware.
+26) setUseCallback(bool useCallback); - lets you switch the capture method
+
+- New in 0.1985
+25) choose between regular and callback capture - regular is safer!
+    callback can have issues with some hardware. 
+    change bCallback in videoInput.h - to select between
+
+- New in 0.198
+24) Better clean up if device is unable to init
+
+- New in 0.197
+20) getPixels is back in both pass in and return buffer style
+    also added option to flip the image.
+21) setFormat method - overides default capture card format - set VI_NTSC_M etc
+22) now in header file you can choose the callback method (incase one works better)
+23) dev-c++ lib and build project now included
+
+- New in 0.196 dev
+17) moved to critcalsection instead of events for mutexing
+18) getPixels has to be passed a buffer now - no more return pixels.
+19) small hack/fix for dev-c++
+
+- New in 0.195
+15) fixed #define constants to avoid clash with openCV's cvaux (thanks Golan!)
+16) spelling corrections for the .h file :)
+
+- New in 0.194
+
+This is a bugfix release with new features coming in next version 0.200!!
+
+13) BUGFIX - threaded grabber needed mutexes - resulted in crash after undetermined amnt of time
+14) BUGFIX - closest size checking returning non closest size or worst ignoring exact match
+Both these bugs are fixed in 0.194 - so it should be stable now.
+
+
+
+- New in 0.192
+
+10) option to have silent list devices - int numDevices = videoInput::listDevices(true);
+11) getPixels can now return a buffer or you can pass it your own buffer to fill
+12) lots of safety stuff - checking ids, buffers etc etc 
+
+
+
+
+videoinput 0.190 list of changes.
+
+1) moved to a callback method of grabbing frames - this means that your app won't hang waiting for data
+2) a lot of changes to function names etc to make it simpler to use - check the h file for new usage examples
+3) now you can get rgb and bgr pixels
+4) removed videoDevice.cpp - all code now in videoInput.cpp
+5) removed certain headers that made it hard to compile on devc++
+6) devices can be safey removed and restarted
+7) visual c 2005 express project READ NOTES in folder!!!
+8) More video formats supported
+9) If capture size not supported VI figures out closest capture size to what was requested.
+
+
+
+Todo:
+Port to c?
