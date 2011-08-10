@@ -1,0 +1,2812 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 15.00.21022.08 (42d6e52b).
+//
+// c:\users\gameover\code\videoinput\videoinputsrcanddemos\vc2008-videoinputdemowithsrc\debug\qedit.tlh
+//
+// C++ source equivalent of Win32 type library 78530B68-61F9-11D2-8CAD-00A024580902
+// compiler-generated file created 07/14/11 at 17:38:47 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+namespace DexterLib {
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("78530b68-61f9-11d2-8cad-00a024580902"))
+/* LIBID */ __DexterLib;
+struct __declspec(uuid("4ada63a0-72d5-11d2-952a-0060081840bc"))
+/* interface */ IResize;
+struct _AMMediaType;
+struct /* coclass */ AMTimeline;
+struct __declspec(uuid("78530b74-61f9-11d2-8cad-00a024580902"))
+/* interface */ IAMTimeline;
+struct __declspec(uuid("78530b77-61f9-11d2-8cad-00a024580902"))
+/* interface */ IAMTimelineObj;
+struct __declspec(uuid("ae9472bd-b0c3-11d2-8d24-00a0c9441e20"))
+/* interface */ IPropertySetter;
+struct __MIDL___MIDL_itf_qedit_0000_0000_0002;
+struct __MIDL___MIDL_itf_qedit_0000_0000_0003;
+enum __MIDL___MIDL_itf_qedit_0000_0000_0007;
+struct __declspec(uuid("9eed4f00-b8a6-11d2-8023-00c0df10d434"))
+/* interface */ IAMTimelineGroup;
+struct __declspec(uuid("78530b79-61f9-11d2-8cad-00a024580902"))
+/* interface */ IAMTimelineSrc;
+struct __declspec(uuid("288581e0-66ce-11d2-918f-00c0df10d434"))
+/* interface */ IMediaLocator;
+struct __declspec(uuid("963566da-be21-4eaf-88e9-35704f8f52a1"))
+/* interface */ IAMSetErrorLog;
+struct __declspec(uuid("e43e73a2-0efa-11d3-9601-00a0c9441e20"))
+/* interface */ IAMErrorLog;
+struct /* coclass */ AMTimelineObj;
+struct /* coclass */ AMTimelineSrc;
+struct __declspec(uuid("eae58537-622e-11d2-8cad-00a024580902"))
+/* interface */ IAMTimelineEffectable;
+struct __declspec(uuid("a0f840a0-d590-11d2-8d55-00a0c9441e20"))
+/* interface */ IAMTimelineSplittable;
+struct /* coclass */ AMTimelineTrack;
+struct __declspec(uuid("eae58538-622e-11d2-8cad-00a024580902"))
+/* interface */ IAMTimelineTrack;
+struct __declspec(uuid("378fa386-622e-11d2-8cad-00a024580902"))
+/* interface */ IAMTimelineTransable;
+struct __declspec(uuid("a8ed5f80-c2c7-11d2-8d39-00a0c9441e20"))
+/* interface */ IAMTimelineVirtualTrack;
+struct /* coclass */ AMTimelineComp;
+struct __declspec(uuid("eae58536-622e-11d2-8cad-00a024580902"))
+/* interface */ IAMTimelineComp;
+struct /* coclass */ AMTimelineGroup;
+struct /* coclass */ AMTimelineTrans;
+struct __declspec(uuid("bce0c265-622d-11d2-8cad-00a024580902"))
+/* interface */ IAMTimelineTrans;
+struct /* coclass */ AMTimelineEffect;
+struct __declspec(uuid("bce0c264-622d-11d2-8cad-00a024580902"))
+/* interface */ IAMTimelineEffect;
+struct /* coclass */ RenderEngine;
+struct __declspec(uuid("6bee3a81-66c9-11d2-918f-00c0df10d434"))
+/* interface */ IRenderEngine;
+struct __declspec(uuid("56a868a9-0ad4-11ce-b03a-0020af0ba770"))
+/* interface */ IGraphBuilder;
+struct __declspec(uuid("56a8689f-0ad4-11ce-b03a-0020af0ba770"))
+/* interface */ IFilterGraph;
+struct __declspec(uuid("56a86895-0ad4-11ce-b03a-0020af0ba770"))
+/* interface */ IBaseFilter;
+struct __declspec(uuid("56a86899-0ad4-11ce-b03a-0020af0ba770"))
+/* interface */ IMediaFilter;
+enum _FilterState;
+struct __declspec(uuid("56a86897-0ad4-11ce-b03a-0020af0ba770"))
+/* interface */ IReferenceClock;
+struct __declspec(uuid("56a86892-0ad4-11ce-b03a-0020af0ba770"))
+/* interface */ IEnumPins;
+struct __declspec(uuid("56a86891-0ad4-11ce-b03a-0020af0ba770"))
+/* interface */ IPin;
+struct _PinInfo;
+enum _PinDirection;
+struct __declspec(uuid("89c31040-846b-11ce-97d3-00aa0055595a"))
+/* interface */ IEnumMediaTypes;
+struct _FilterInfo;
+struct __declspec(uuid("56a86893-0ad4-11ce-b03a-0020af0ba770"))
+/* interface */ IEnumFilters;
+struct __declspec(uuid("ae9472be-b0c3-11d2-8d24-00a0c9441e20"))
+/* interface */ IGrfCache;
+struct __declspec(uuid("6bee3a82-66c9-11d2-918f-00c0df10d434"))
+/* interface */ IRenderEngine2;
+struct /* coclass */ SmartRenderEngine;
+struct __declspec(uuid("f03fa8ce-879a-4d59-9b2c-26bb1cf83461"))
+/* interface */ ISmartRenderEngine;
+struct __declspec(uuid("f03fa8de-879a-4d59-9b2c-26bb1cf83461"))
+/* interface */ IFindCompressorCB;
+struct /* coclass */ AudMixer;
+struct /* coclass */ Xml2Dex;
+struct __declspec(uuid("18c628ed-962a-11d2-8d08-00a0c9441e20"))
+/* interface */ IXml2Dex;
+struct /* coclass */ MediaLocator;
+struct /* coclass */ PropertySetter;
+struct /* coclass */ MediaDet;
+struct __declspec(uuid("65bd0710-24d2-4ff7-9324-ed2e5d3abafa"))
+/* interface */ IMediaDet;
+struct __declspec(uuid("6b652fff-11fe-4fce-92ad-0266b5d7c78f"))
+/* interface */ ISampleGrabber;
+struct __declspec(uuid("56a8689a-0ad4-11ce-b03a-0020af0ba770"))
+/* interface */ IMediaSample;
+struct __declspec(uuid("0579154a-2b53-4994-b0d0-e773148eff85"))
+/* interface */ ISampleGrabberCB;
+struct /* coclass */ SampleGrabber;
+struct /* coclass */ NullRenderer;
+struct /* coclass */ DxtCompositor;
+struct __declspec(uuid("bb44391e-6abd-422f-9e2e-385c9dff51fc"))
+/* dual interface */ IDxtCompositor;
+struct __declspec(uuid("e31fb81b-1335-11d1-8189-0000f87557db"))
+/* dual interface */ IDXEffect;
+struct /* coclass */ DxtAlphaSetter;
+struct __declspec(uuid("4ee9ead9-da4d-43d0-9383-06b90c08b12b"))
+/* dual interface */ IDxtAlphaSetter;
+struct /* coclass */ DxtJpeg;
+struct __declspec(uuid("de75d011-7a65-11d2-8cea-00a0c9441e20"))
+/* dual interface */ IDxtJpeg;
+struct /* coclass */ ColorSource;
+struct /* coclass */ DxtKey;
+struct __declspec(uuid("3255de56-38fb-4901-b980-94b438010d7b"))
+/* dual interface */ IDxtKey;
+typedef struct __MIDL___MIDL_itf_qedit_0000_0000_0002 DEXTER_PARAM;
+typedef struct __MIDL___MIDL_itf_qedit_0000_0000_0003 DEXTER_VALUE;
+typedef enum __MIDL___MIDL_itf_qedit_0000_0000_0007 TIMELINE_MAJOR_TYPE;
+#if !defined(_WIN64)
+typedef __w64 long LONG_PTR;
+#else
+typedef __int64 LONG_PTR;
+#endif
+#if !defined(_WIN64)
+typedef __w64 unsigned long ULONG_PTR;
+#else
+typedef unsigned __int64 ULONG_PTR;
+#endif
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IResize, __uuidof(IResize));
+_COM_SMARTPTR_TYPEDEF(IPropertySetter, __uuidof(IPropertySetter));
+_COM_SMARTPTR_TYPEDEF(IMediaLocator, __uuidof(IMediaLocator));
+_COM_SMARTPTR_TYPEDEF(IAMErrorLog, __uuidof(IAMErrorLog));
+_COM_SMARTPTR_TYPEDEF(IAMSetErrorLog, __uuidof(IAMSetErrorLog));
+_COM_SMARTPTR_TYPEDEF(IAMTimelineSplittable, __uuidof(IAMTimelineSplittable));
+_COM_SMARTPTR_TYPEDEF(IAMTimelineVirtualTrack, __uuidof(IAMTimelineVirtualTrack));
+_COM_SMARTPTR_TYPEDEF(IAMTimelineTrans, __uuidof(IAMTimelineTrans));
+_COM_SMARTPTR_TYPEDEF(IAMTimelineEffect, __uuidof(IAMTimelineEffect));
+_COM_SMARTPTR_TYPEDEF(IReferenceClock, __uuidof(IReferenceClock));
+_COM_SMARTPTR_TYPEDEF(IMediaFilter, __uuidof(IMediaFilter));
+_COM_SMARTPTR_TYPEDEF(IEnumMediaTypes, __uuidof(IEnumMediaTypes));
+_COM_SMARTPTR_TYPEDEF(IRenderEngine2, __uuidof(IRenderEngine2));
+_COM_SMARTPTR_TYPEDEF(IXml2Dex, __uuidof(IXml2Dex));
+_COM_SMARTPTR_TYPEDEF(IMediaSample, __uuidof(IMediaSample));
+_COM_SMARTPTR_TYPEDEF(ISampleGrabberCB, __uuidof(ISampleGrabberCB));
+_COM_SMARTPTR_TYPEDEF(ISampleGrabber, __uuidof(ISampleGrabber));
+_COM_SMARTPTR_TYPEDEF(IMediaDet, __uuidof(IMediaDet));
+_COM_SMARTPTR_TYPEDEF(IDXEffect, __uuidof(IDXEffect));
+_COM_SMARTPTR_TYPEDEF(IDxtCompositor, __uuidof(IDxtCompositor));
+_COM_SMARTPTR_TYPEDEF(IDxtAlphaSetter, __uuidof(IDxtAlphaSetter));
+_COM_SMARTPTR_TYPEDEF(IDxtJpeg, __uuidof(IDxtJpeg));
+_COM_SMARTPTR_TYPEDEF(IDxtKey, __uuidof(IDxtKey));
+_COM_SMARTPTR_TYPEDEF(IAMTimeline, __uuidof(IAMTimeline));
+_COM_SMARTPTR_TYPEDEF(IAMTimelineObj, __uuidof(IAMTimelineObj));
+_COM_SMARTPTR_TYPEDEF(IAMTimelineSrc, __uuidof(IAMTimelineSrc));
+_COM_SMARTPTR_TYPEDEF(IAMTimelineGroup, __uuidof(IAMTimelineGroup));
+_COM_SMARTPTR_TYPEDEF(IAMTimelineEffectable, __uuidof(IAMTimelineEffectable));
+_COM_SMARTPTR_TYPEDEF(IAMTimelineTrack, __uuidof(IAMTimelineTrack));
+_COM_SMARTPTR_TYPEDEF(IAMTimelineTransable, __uuidof(IAMTimelineTransable));
+_COM_SMARTPTR_TYPEDEF(IAMTimelineComp, __uuidof(IAMTimelineComp));
+_COM_SMARTPTR_TYPEDEF(IRenderEngine, __uuidof(IRenderEngine));
+_COM_SMARTPTR_TYPEDEF(IFilterGraph, __uuidof(IFilterGraph));
+_COM_SMARTPTR_TYPEDEF(IGraphBuilder, __uuidof(IGraphBuilder));
+_COM_SMARTPTR_TYPEDEF(IBaseFilter, __uuidof(IBaseFilter));
+_COM_SMARTPTR_TYPEDEF(IPin, __uuidof(IPin));
+_COM_SMARTPTR_TYPEDEF(IEnumPins, __uuidof(IEnumPins));
+_COM_SMARTPTR_TYPEDEF(IEnumFilters, __uuidof(IEnumFilters));
+_COM_SMARTPTR_TYPEDEF(IGrfCache, __uuidof(IGrfCache));
+_COM_SMARTPTR_TYPEDEF(IFindCompressorCB, __uuidof(IFindCompressorCB));
+_COM_SMARTPTR_TYPEDEF(ISmartRenderEngine, __uuidof(ISmartRenderEngine));
+
+//
+// Type library items
+//
+
+#pragma pack(push, 4)
+
+struct _AMMediaType
+{
+    GUID majortype;
+    GUID subtype;
+    long bFixedSizeSamples;
+    long bTemporalCompression;
+    unsigned long lSampleSize;
+    GUID formattype;
+    IUnknown * pUnk;
+    unsigned long cbFormat;
+    unsigned char * pbFormat;
+};
+
+#pragma pack(pop)
+
+struct __declspec(uuid("4ada63a0-72d5-11d2-952a-0060081840bc"))
+IResize : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT get_Size (
+        int * piHeight,
+        int * piWidth,
+        long * pFlag );
+    HRESULT get_InputSize (
+        int * piHeight,
+        int * piWidth );
+    HRESULT put_Size (
+        int Height,
+        int Width,
+        long Flag );
+    HRESULT get_MediaType (
+        struct _AMMediaType * pmt );
+    HRESULT put_MediaType (
+        struct _AMMediaType * pmt );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_get_Size (
+        /*[out]*/ int * piHeight,
+        /*[out]*/ int * piWidth,
+        /*[out]*/ long * pFlag ) = 0;
+      virtual HRESULT __stdcall raw_get_InputSize (
+        /*[out]*/ int * piHeight,
+        /*[out]*/ int * piWidth ) = 0;
+      virtual HRESULT __stdcall raw_put_Size (
+        /*[in]*/ int Height,
+        /*[in]*/ int Width,
+        /*[in]*/ long Flag ) = 0;
+      virtual HRESULT __stdcall raw_get_MediaType (
+        /*[out]*/ struct _AMMediaType * pmt ) = 0;
+      virtual HRESULT __stdcall raw_put_MediaType (
+        /*[in]*/ struct _AMMediaType * pmt ) = 0;
+};
+
+struct __declspec(uuid("78530b75-61f9-11d2-8cad-00a024580902"))
+AMTimeline;
+    // [ default ] interface IAMTimeline
+    // interface IPersistStream
+    // interface IAMSetErrorLog
+
+#pragma pack(push, 4)
+
+struct __MIDL___MIDL_itf_qedit_0000_0000_0002
+{
+    BSTR Name;
+    long dispID;
+    long nValues;
+};
+
+#pragma pack(pop)
+
+struct __declspec(uuid("ae9472bd-b0c3-11d2-8d24-00a0c9441e20"))
+IPropertySetter : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT LoadXML (
+        IUnknown * pxml );
+    HRESULT PrintXML (
+        unsigned char * pszXML,
+        int cbXML,
+        int * pcbPrinted,
+        int indent );
+    HRESULT CloneProps (
+        struct IPropertySetter * * ppSetter,
+        __int64 rtStart,
+        __int64 rtStop );
+    HRESULT AddProp (
+        DEXTER_PARAM Param,
+        DEXTER_VALUE * paValue );
+    HRESULT GetProps (
+        long * pcParams,
+        DEXTER_PARAM * * paParam,
+        DEXTER_VALUE * * paValue );
+    HRESULT FreeProps (
+        long cParams,
+        DEXTER_PARAM * paParam,
+        DEXTER_VALUE * paValue );
+    HRESULT ClearProps ( );
+    HRESULT SaveToBlob (
+        long * pcSize,
+        unsigned char * * ppb );
+    HRESULT LoadFromBlob (
+        long cSize,
+        unsigned char * pb );
+    HRESULT SetProps (
+        IUnknown * pTarget,
+        __int64 rtNow );
+    HRESULT PrintXMLW (
+        unsigned short * pszXML,
+        int cchXML,
+        int * pcchPrinted,
+        int indent );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_LoadXML (
+        /*[in]*/ IUnknown * pxml ) = 0;
+      virtual HRESULT __stdcall raw_PrintXML (
+        /*[out]*/ unsigned char * pszXML,
+        /*[in]*/ int cbXML,
+        /*[out]*/ int * pcbPrinted,
+        /*[in]*/ int indent ) = 0;
+      virtual HRESULT __stdcall raw_CloneProps (
+        /*[out]*/ struct IPropertySetter * * ppSetter,
+        /*[in]*/ __int64 rtStart,
+        /*[in]*/ __int64 rtStop ) = 0;
+      virtual HRESULT __stdcall raw_AddProp (
+        /*[in]*/ DEXTER_PARAM Param,
+        /*[in]*/ DEXTER_VALUE * paValue ) = 0;
+      virtual HRESULT __stdcall raw_GetProps (
+        /*[out]*/ long * pcParams,
+        /*[out]*/ DEXTER_PARAM * * paParam,
+        /*[out]*/ DEXTER_VALUE * * paValue ) = 0;
+      virtual HRESULT __stdcall raw_FreeProps (
+        /*[in]*/ long cParams,
+        /*[in]*/ DEXTER_PARAM * paParam,
+        /*[in]*/ DEXTER_VALUE * paValue ) = 0;
+      virtual HRESULT __stdcall raw_ClearProps ( ) = 0;
+      virtual HRESULT __stdcall raw_SaveToBlob (
+        /*[out]*/ long * pcSize,
+        /*[out]*/ unsigned char * * ppb ) = 0;
+      virtual HRESULT __stdcall raw_LoadFromBlob (
+        /*[in]*/ long cSize,
+        /*[in]*/ unsigned char * pb ) = 0;
+      virtual HRESULT __stdcall raw_SetProps (
+        /*[in]*/ IUnknown * pTarget,
+        /*[in]*/ __int64 rtNow ) = 0;
+      virtual HRESULT __stdcall raw_PrintXMLW (
+        /*[out]*/ unsigned short * pszXML,
+        /*[in]*/ int cchXML,
+        /*[out]*/ int * pcchPrinted,
+        /*[in]*/ int indent ) = 0;
+};
+
+#pragma pack(push, 8)
+
+struct __MIDL___MIDL_itf_qedit_0000_0000_0003
+{
+    VARIANT v;
+    __int64 rt;
+    unsigned long dwInterp;
+};
+
+#pragma pack(pop)
+
+enum __MIDL___MIDL_itf_qedit_0000_0000_0007
+{
+    TIMELINE_MAJOR_TYPE_COMPOSITE = 1,
+    TIMELINE_MAJOR_TYPE_TRACK = 2,
+    TIMELINE_MAJOR_TYPE_SOURCE = 4,
+    TIMELINE_MAJOR_TYPE_TRANSITION = 8,
+    TIMELINE_MAJOR_TYPE_EFFECT = 16,
+    TIMELINE_MAJOR_TYPE_GROUP = 128
+};
+
+struct __declspec(uuid("288581e0-66ce-11d2-918f-00c0df10d434"))
+IMediaLocator : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT FindMediaFile (
+        _bstr_t Input,
+        _bstr_t FilterString,
+        BSTR * pOutput,
+        long Flags );
+    HRESULT AddFoundLocation (
+        _bstr_t DirectoryName );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_FindMediaFile (
+        BSTR Input,
+        BSTR FilterString,
+        BSTR * pOutput,
+        long Flags ) = 0;
+      virtual HRESULT __stdcall raw_AddFoundLocation (
+        BSTR DirectoryName ) = 0;
+};
+
+struct __declspec(uuid("e43e73a2-0efa-11d3-9601-00a0c9441e20"))
+IAMErrorLog : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT LogError (
+        long Severity,
+        _bstr_t pErrorString,
+        long ErrorCode,
+        long hresult,
+        VARIANT * pExtraInfo );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_LogError (
+        long Severity,
+        BSTR pErrorString,
+        long ErrorCode,
+        long hresult,
+        /*[in]*/ VARIANT * pExtraInfo ) = 0;
+};
+
+struct __declspec(uuid("963566da-be21-4eaf-88e9-35704f8f52a1"))
+IAMSetErrorLog : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetErrorLog,put=PutErrorLog))
+    IAMErrorLogPtr ErrorLog;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    IAMErrorLogPtr GetErrorLog ( );
+    void PutErrorLog (
+        struct IAMErrorLog * pVal );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_ErrorLog (
+        /*[out,retval]*/ struct IAMErrorLog * * pVal ) = 0;
+      virtual HRESULT __stdcall put_ErrorLog (
+        /*[in]*/ struct IAMErrorLog * pVal ) = 0;
+};
+
+struct __declspec(uuid("78530b78-61f9-11d2-8cad-00a024580902"))
+AMTimelineObj;
+    // [ default ] interface IAMTimelineObj
+
+struct __declspec(uuid("78530b7a-61f9-11d2-8cad-00a024580902"))
+AMTimelineSrc;
+    // [ default ] interface IAMTimelineSrc
+    // interface IAMTimelineObj
+    // interface IAMTimelineEffectable
+    // interface IAMTimelineSplittable
+
+struct __declspec(uuid("a0f840a0-d590-11d2-8d55-00a0c9441e20"))
+IAMTimelineSplittable : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT SplitAt (
+        __int64 Time );
+    HRESULT SplitAt2 (
+        double Time );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_SplitAt (
+        __int64 Time ) = 0;
+      virtual HRESULT __stdcall raw_SplitAt2 (
+        double Time ) = 0;
+};
+
+struct __declspec(uuid("8f6c3c50-897b-11d2-8cfb-00a0c9441e20"))
+AMTimelineTrack;
+    // [ default ] interface IAMTimelineTrack
+    // interface IAMTimelineObj
+    // interface IAMTimelineEffectable
+    // interface IAMTimelineTransable
+    // interface IAMTimelineVirtualTrack
+    // interface IAMTimelineSplittable
+
+struct __declspec(uuid("a8ed5f80-c2c7-11d2-8d39-00a0c9441e20"))
+IAMTimelineVirtualTrack : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT TrackGetPriority (
+        long * pPriority );
+    HRESULT SetTrackDirty ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_TrackGetPriority (
+        long * pPriority ) = 0;
+      virtual HRESULT __stdcall raw_SetTrackDirty ( ) = 0;
+};
+
+struct __declspec(uuid("74d2ec80-6233-11d2-8cad-00a024580902"))
+AMTimelineComp;
+    // [ default ] interface IAMTimelineComp
+    // interface IAMTimelineObj
+    // interface IAMTimelineEffectable
+    // interface IAMTimelineTransable
+    // interface IAMTimelineVirtualTrack
+
+struct __declspec(uuid("f6d371e1-b8a6-11d2-8023-00c0df10d434"))
+AMTimelineGroup;
+    // [ default ] interface IAMTimelineGroup
+    // interface IAMTimelineComp
+    // interface IAMTimelineObj
+
+struct __declspec(uuid("74d2ec81-6233-11d2-8cad-00a024580902"))
+AMTimelineTrans;
+    // [ default ] interface IAMTimelineTrans
+    // interface IAMTimelineObj
+    // interface IAMTimelineSplittable
+
+struct __declspec(uuid("bce0c265-622d-11d2-8cad-00a024580902"))
+IAMTimelineTrans : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT GetCutPoint (
+        __int64 * pTLTime );
+    HRESULT GetCutPoint2 (
+        double * pTLTime );
+    HRESULT SetCutPoint (
+        __int64 TLTime );
+    HRESULT SetCutPoint2 (
+        double TLTime );
+    HRESULT GetSwapInputs (
+        long * pVal );
+    HRESULT SetSwapInputs (
+        long pVal );
+    HRESULT GetCutsOnly (
+        long * pVal );
+    HRESULT SetCutsOnly (
+        long pVal );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_GetCutPoint (
+        __int64 * pTLTime ) = 0;
+      virtual HRESULT __stdcall raw_GetCutPoint2 (
+        double * pTLTime ) = 0;
+      virtual HRESULT __stdcall raw_SetCutPoint (
+        __int64 TLTime ) = 0;
+      virtual HRESULT __stdcall raw_SetCutPoint2 (
+        double TLTime ) = 0;
+      virtual HRESULT __stdcall raw_GetSwapInputs (
+        long * pVal ) = 0;
+      virtual HRESULT __stdcall raw_SetSwapInputs (
+        long pVal ) = 0;
+      virtual HRESULT __stdcall raw_GetCutsOnly (
+        long * pVal ) = 0;
+      virtual HRESULT __stdcall raw_SetCutsOnly (
+        long pVal ) = 0;
+};
+
+struct __declspec(uuid("74d2ec82-6233-11d2-8cad-00a024580902"))
+AMTimelineEffect;
+    // [ default ] interface IAMTimelineEffect
+    // interface IAMTimelineObj
+    // interface IAMTimelineSplittable
+    // interface IPropertyBag
+
+struct __declspec(uuid("bce0c264-622d-11d2-8cad-00a024580902"))
+IAMTimelineEffect : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT EffectGetPriority (
+        long * pVal );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_EffectGetPriority (
+        long * pVal ) = 0;
+};
+
+struct __declspec(uuid("64d8a8e0-80a2-11d2-8cf3-00a0c9441e20"))
+RenderEngine;
+    // [ default ] interface IRenderEngine
+    // interface IRenderEngine2
+    // interface IAMSetErrorLog
+
+enum _FilterState
+{
+    State_Stopped = 0,
+    State_Paused = 1,
+    State_Running = 2
+};
+
+struct __declspec(uuid("56a86897-0ad4-11ce-b03a-0020af0ba770"))
+IReferenceClock : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT GetTime (
+        __int64 * pTime );
+    HRESULT AdviseTime (
+        __int64 baseTime,
+        __int64 streamTime,
+        ULONG_PTR hEvent,
+        ULONG_PTR * pdwAdviseCookie );
+    HRESULT AdvisePeriodic (
+        __int64 startTime,
+        __int64 periodTime,
+        ULONG_PTR hSemaphore,
+        ULONG_PTR * pdwAdviseCookie );
+    HRESULT Unadvise (
+        ULONG_PTR dwAdviseCookie );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_GetTime (
+        /*[out]*/ __int64 * pTime ) = 0;
+      virtual HRESULT __stdcall raw_AdviseTime (
+        /*[in]*/ __int64 baseTime,
+        /*[in]*/ __int64 streamTime,
+        /*[in]*/ ULONG_PTR hEvent,
+        /*[out]*/ ULONG_PTR * pdwAdviseCookie ) = 0;
+      virtual HRESULT __stdcall raw_AdvisePeriodic (
+        /*[in]*/ __int64 startTime,
+        /*[in]*/ __int64 periodTime,
+        /*[in]*/ ULONG_PTR hSemaphore,
+        /*[out]*/ ULONG_PTR * pdwAdviseCookie ) = 0;
+      virtual HRESULT __stdcall raw_Unadvise (
+        /*[in]*/ ULONG_PTR dwAdviseCookie ) = 0;
+};
+
+struct __declspec(uuid("56a86899-0ad4-11ce-b03a-0020af0ba770"))
+IMediaFilter : IPersist
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT Stop ( );
+    HRESULT Pause ( );
+    HRESULT Run (
+        __int64 tStart );
+    HRESULT GetState (
+        unsigned long dwMilliSecsTimeout,
+        enum _FilterState * State );
+    HRESULT SetSyncSource (
+        struct IReferenceClock * pClock );
+    HRESULT GetSyncSource (
+        struct IReferenceClock * * pClock );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_Stop ( ) = 0;
+      virtual HRESULT __stdcall raw_Pause ( ) = 0;
+      virtual HRESULT __stdcall raw_Run (
+        __int64 tStart ) = 0;
+      virtual HRESULT __stdcall raw_GetState (
+        /*[in]*/ unsigned long dwMilliSecsTimeout,
+        /*[out]*/ enum _FilterState * State ) = 0;
+      virtual HRESULT __stdcall raw_SetSyncSource (
+        /*[in]*/ struct IReferenceClock * pClock ) = 0;
+      virtual HRESULT __stdcall raw_GetSyncSource (
+        /*[out]*/ struct IReferenceClock * * pClock ) = 0;
+};
+
+enum _PinDirection
+{
+    PINDIR_INPUT = 0,
+    PINDIR_OUTPUT = 1
+};
+
+struct __declspec(uuid("89c31040-846b-11ce-97d3-00aa0055595a"))
+IEnumMediaTypes : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT Next (
+        unsigned long cMediaTypes,
+        struct _AMMediaType * * ppMediaTypes,
+        unsigned long * pcFetched );
+    HRESULT Skip (
+        unsigned long cMediaTypes );
+    HRESULT Reset ( );
+    HRESULT Clone (
+        struct IEnumMediaTypes * * ppEnum );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_Next (
+        /*[in]*/ unsigned long cMediaTypes,
+        /*[out]*/ struct _AMMediaType * * ppMediaTypes,
+        /*[out]*/ unsigned long * pcFetched ) = 0;
+      virtual HRESULT __stdcall raw_Skip (
+        /*[in]*/ unsigned long cMediaTypes ) = 0;
+      virtual HRESULT __stdcall raw_Reset ( ) = 0;
+      virtual HRESULT __stdcall raw_Clone (
+        /*[out]*/ struct IEnumMediaTypes * * ppEnum ) = 0;
+};
+
+struct __declspec(uuid("6bee3a82-66c9-11d2-918f-00c0df10d434"))
+IRenderEngine2 : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT SetResizerGUID (
+        GUID ResizerGuid );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_SetResizerGUID (
+        GUID ResizerGuid ) = 0;
+};
+
+struct __declspec(uuid("498b0949-bbe9-4072-98be-6ccaeb79dc6f"))
+SmartRenderEngine;
+    // [ default ] interface IRenderEngine
+    // interface ISmartRenderEngine
+    // interface IAMSetErrorLog
+
+struct __declspec(uuid("036a9790-c153-11d2-9ef7-006008039e37"))
+AudMixer;
+    // [ default ] interface IBaseFilter
+
+struct __declspec(uuid("18c628ee-962a-11d2-8d08-00a0c9441e20"))
+Xml2Dex;
+    // [ default ] interface IXml2Dex
+
+struct __declspec(uuid("18c628ed-962a-11d2-8d08-00a0c9441e20"))
+IXml2Dex : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT CreateGraphFromFile (
+        IUnknown * * ppGraph,
+        IUnknown * pTimeline,
+        _bstr_t Filename );
+    HRESULT WriteGrfFile (
+        IUnknown * pGraph,
+        _bstr_t Filename );
+    HRESULT WriteXMLFile (
+        IUnknown * pTimeline,
+        _bstr_t Filename );
+    HRESULT ReadXMLFile (
+        IUnknown * pTimeline,
+        _bstr_t XMLName );
+    HRESULT Delete (
+        IUnknown * pTimeline,
+        double dStart,
+        double dEnd );
+    HRESULT WriteXMLPart (
+        IUnknown * pTimeline,
+        double dStart,
+        double dEnd,
+        _bstr_t Filename );
+    HRESULT PasteXMLFile (
+        IUnknown * pTimeline,
+        double dStart,
+        _bstr_t Filename );
+    HRESULT CopyXML (
+        IUnknown * pTimeline,
+        double dStart,
+        double dEnd );
+    HRESULT PasteXML (
+        IUnknown * pTimeline,
+        double dStart );
+    HRESULT Reset ( );
+    HRESULT ReadXML (
+        IUnknown * pTimeline,
+        IUnknown * pxml );
+    HRESULT WriteXML (
+        IUnknown * pTimeline,
+        BSTR * pbstrXML );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_CreateGraphFromFile (
+        /*[out]*/ IUnknown * * ppGraph,
+        IUnknown * pTimeline,
+        BSTR Filename ) = 0;
+      virtual HRESULT __stdcall raw_WriteGrfFile (
+        IUnknown * pGraph,
+        BSTR Filename ) = 0;
+      virtual HRESULT __stdcall raw_WriteXMLFile (
+        IUnknown * pTimeline,
+        BSTR Filename ) = 0;
+      virtual HRESULT __stdcall raw_ReadXMLFile (
+        IUnknown * pTimeline,
+        BSTR XMLName ) = 0;
+      virtual HRESULT __stdcall raw_Delete (
+        IUnknown * pTimeline,
+        double dStart,
+        double dEnd ) = 0;
+      virtual HRESULT __stdcall raw_WriteXMLPart (
+        IUnknown * pTimeline,
+        double dStart,
+        double dEnd,
+        BSTR Filename ) = 0;
+      virtual HRESULT __stdcall raw_PasteXMLFile (
+        IUnknown * pTimeline,
+        double dStart,
+        BSTR Filename ) = 0;
+      virtual HRESULT __stdcall raw_CopyXML (
+        IUnknown * pTimeline,
+        double dStart,
+        double dEnd ) = 0;
+      virtual HRESULT __stdcall raw_PasteXML (
+        IUnknown * pTimeline,
+        double dStart ) = 0;
+      virtual HRESULT __stdcall raw_Reset ( ) = 0;
+      virtual HRESULT __stdcall raw_ReadXML (
+        IUnknown * pTimeline,
+        IUnknown * pxml ) = 0;
+      virtual HRESULT __stdcall raw_WriteXML (
+        IUnknown * pTimeline,
+        BSTR * pbstrXML ) = 0;
+};
+
+struct __declspec(uuid("cc1101f2-79dc-11d2-8ce6-00a0c9441e20"))
+MediaLocator;
+    // [ default ] interface IMediaLocator
+
+struct __declspec(uuid("adf95821-ded7-11d2-acbe-0080c75e246e"))
+PropertySetter;
+    // [ default ] interface IPropertySetter
+    // interface IAMSetErrorLog
+
+struct __declspec(uuid("65bd0711-24d2-4ff7-9324-ed2e5d3abafa"))
+MediaDet;
+    // [ default ] interface IMediaDet
+
+struct __declspec(uuid("56a8689a-0ad4-11ce-b03a-0020af0ba770"))
+IMediaSample : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT GetPointer (
+        unsigned char * * ppBuffer );
+    HRESULT GetTime (
+        __int64 * pTimeStart,
+        __int64 * pTimeEnd );
+    HRESULT SetTime (
+        __int64 * pTimeStart,
+        __int64 * pTimeEnd );
+    HRESULT IsSyncPoint ( );
+    HRESULT SetSyncPoint (
+        long bIsSyncPoint );
+    HRESULT IsPreroll ( );
+    HRESULT SetPreroll (
+        long bIsPreroll );
+    HRESULT SetActualDataLength (
+        long __MIDL__IMediaSample0000 );
+    HRESULT GetMediaType (
+        struct _AMMediaType * * ppMediaType );
+    HRESULT SetMediaType (
+        struct _AMMediaType * pMediaType );
+    HRESULT IsDiscontinuity ( );
+    HRESULT SetDiscontinuity (
+        long bDiscontinuity );
+    HRESULT GetMediaTime (
+        __int64 * pTimeStart,
+        __int64 * pTimeEnd );
+    HRESULT SetMediaTime (
+        __int64 * pTimeStart,
+        __int64 * pTimeEnd );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_GetPointer (
+        /*[out]*/ unsigned char * * ppBuffer ) = 0;
+      virtual long __stdcall GetSize ( ) = 0;
+      virtual HRESULT __stdcall raw_GetTime (
+        /*[out]*/ __int64 * pTimeStart,
+        /*[out]*/ __int64 * pTimeEnd ) = 0;
+      virtual HRESULT __stdcall raw_SetTime (
+        /*[in]*/ __int64 * pTimeStart,
+        /*[in]*/ __int64 * pTimeEnd ) = 0;
+      virtual HRESULT __stdcall raw_IsSyncPoint ( ) = 0;
+      virtual HRESULT __stdcall raw_SetSyncPoint (
+        long bIsSyncPoint ) = 0;
+      virtual HRESULT __stdcall raw_IsPreroll ( ) = 0;
+      virtual HRESULT __stdcall raw_SetPreroll (
+        long bIsPreroll ) = 0;
+      virtual long __stdcall GetActualDataLength ( ) = 0;
+      virtual HRESULT __stdcall raw_SetActualDataLength (
+        long __MIDL__IMediaSample0000 ) = 0;
+      virtual HRESULT __stdcall raw_GetMediaType (
+        /*[out]*/ struct _AMMediaType * * ppMediaType ) = 0;
+      virtual HRESULT __stdcall raw_SetMediaType (
+        /*[in]*/ struct _AMMediaType * pMediaType ) = 0;
+      virtual HRESULT __stdcall raw_IsDiscontinuity ( ) = 0;
+      virtual HRESULT __stdcall raw_SetDiscontinuity (
+        long bDiscontinuity ) = 0;
+      virtual HRESULT __stdcall raw_GetMediaTime (
+        /*[out]*/ __int64 * pTimeStart,
+        /*[out]*/ __int64 * pTimeEnd ) = 0;
+      virtual HRESULT __stdcall raw_SetMediaTime (
+        /*[in]*/ __int64 * pTimeStart,
+        /*[in]*/ __int64 * pTimeEnd ) = 0;
+};
+
+struct __declspec(uuid("0579154a-2b53-4994-b0d0-e773148eff85"))
+ISampleGrabberCB : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT SampleCB (
+        double SampleTime,
+        struct IMediaSample * pSample );
+    HRESULT BufferCB (
+        double SampleTime,
+        unsigned char * pBuffer,
+        long BufferLen );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_SampleCB (
+        double SampleTime,
+        struct IMediaSample * pSample ) = 0;
+      virtual HRESULT __stdcall raw_BufferCB (
+        double SampleTime,
+        unsigned char * pBuffer,
+        long BufferLen ) = 0;
+};
+
+struct __declspec(uuid("6b652fff-11fe-4fce-92ad-0266b5d7c78f"))
+ISampleGrabber : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT SetOneShot (
+        long OneShot );
+    HRESULT SetMediaType (
+        struct _AMMediaType * pType );
+    HRESULT GetConnectedMediaType (
+        struct _AMMediaType * pType );
+    HRESULT SetBufferSamples (
+        long BufferThem );
+    HRESULT GetCurrentBuffer (
+        long * pBufferSize,
+        long * pBuffer );
+    IMediaSamplePtr GetCurrentSample ( );
+    HRESULT SetCallback (
+        struct ISampleGrabberCB * pCallback,
+        long WhichMethodToCallback );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_SetOneShot (
+        long OneShot ) = 0;
+      virtual HRESULT __stdcall raw_SetMediaType (
+        struct _AMMediaType * pType ) = 0;
+      virtual HRESULT __stdcall raw_GetConnectedMediaType (
+        struct _AMMediaType * pType ) = 0;
+      virtual HRESULT __stdcall raw_SetBufferSamples (
+        long BufferThem ) = 0;
+      virtual HRESULT __stdcall raw_GetCurrentBuffer (
+        /*[in,out]*/ long * pBufferSize,
+        /*[out]*/ long * pBuffer ) = 0;
+      virtual HRESULT __stdcall raw_GetCurrentSample (
+        /*[out,retval]*/ struct IMediaSample * * ppSample ) = 0;
+      virtual HRESULT __stdcall raw_SetCallback (
+        struct ISampleGrabberCB * pCallback,
+        long WhichMethodToCallback ) = 0;
+};
+
+struct __declspec(uuid("65bd0710-24d2-4ff7-9324-ed2e5d3abafa"))
+IMediaDet : IUnknown
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetFilter,put=PutFilter))
+    IUnknownPtr Filter;
+    __declspec(property(get=GetOutputStreams))
+    long OutputStreams;
+    __declspec(property(get=GetCurrentStream,put=PutCurrentStream))
+    long CurrentStream;
+    __declspec(property(get=GetStreamType))
+    GUID StreamType;
+    __declspec(property(get=GetStreamTypeB))
+    _bstr_t StreamTypeB;
+    __declspec(property(get=GetStreamLength))
+    double StreamLength;
+    __declspec(property(get=GetFilename,put=PutFilename))
+    _bstr_t Filename;
+    __declspec(property(get=GetStreamMediaType))
+    struct _AMMediaType StreamMediaType;
+    __declspec(property(get=GetFrameRate))
+    double FrameRate;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    IUnknownPtr GetFilter ( );
+    void PutFilter (
+        IUnknown * pVal );
+    long GetOutputStreams ( );
+    long GetCurrentStream ( );
+    void PutCurrentStream (
+        long pVal );
+    GUID GetStreamType ( );
+    _bstr_t GetStreamTypeB ( );
+    double GetStreamLength ( );
+    _bstr_t GetFilename ( );
+    void PutFilename (
+        _bstr_t pVal );
+    HRESULT GetBitmapBits (
+        double streamTime,
+        long * pBufferSize,
+        unsigned char * pBuffer,
+        long Width,
+        long Height );
+    HRESULT WriteBitmapBits (
+        double streamTime,
+        long Width,
+        long Height,
+        _bstr_t Filename );
+    struct _AMMediaType GetStreamMediaType ( );
+    HRESULT GetSampleGrabber (
+        struct ISampleGrabber * * ppVal );
+    double GetFrameRate ( );
+    HRESULT EnterBitmapGrabMode (
+        double SeekTime );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_Filter (
+        /*[out,retval]*/ IUnknown * * pVal ) = 0;
+      virtual HRESULT __stdcall put_Filter (
+        /*[in]*/ IUnknown * pVal ) = 0;
+      virtual HRESULT __stdcall get_OutputStreams (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall get_CurrentStream (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_CurrentStream (
+        /*[in]*/ long pVal ) = 0;
+      virtual HRESULT __stdcall get_StreamType (
+        /*[out,retval]*/ GUID * pVal ) = 0;
+      virtual HRESULT __stdcall get_StreamTypeB (
+        /*[out,retval]*/ BSTR * pVal ) = 0;
+      virtual HRESULT __stdcall get_StreamLength (
+        /*[out,retval]*/ double * pVal ) = 0;
+      virtual HRESULT __stdcall get_Filename (
+        /*[out,retval]*/ BSTR * pVal ) = 0;
+      virtual HRESULT __stdcall put_Filename (
+        /*[in]*/ BSTR pVal ) = 0;
+      virtual HRESULT __stdcall raw_GetBitmapBits (
+        double streamTime,
+        long * pBufferSize,
+        unsigned char * pBuffer,
+        long Width,
+        long Height ) = 0;
+      virtual HRESULT __stdcall raw_WriteBitmapBits (
+        double streamTime,
+        long Width,
+        long Height,
+        BSTR Filename ) = 0;
+      virtual HRESULT __stdcall get_StreamMediaType (
+        /*[out,retval]*/ struct _AMMediaType * pVal ) = 0;
+      virtual HRESULT __stdcall raw_GetSampleGrabber (
+        /*[out]*/ struct ISampleGrabber * * ppVal ) = 0;
+      virtual HRESULT __stdcall get_FrameRate (
+        /*[out,retval]*/ double * pVal ) = 0;
+      virtual HRESULT __stdcall raw_EnterBitmapGrabMode (
+        double SeekTime ) = 0;
+};
+
+struct __declspec(uuid("c1f400a0-3f08-11d3-9f0b-006008039e37"))
+SampleGrabber;
+    // [ default ] interface ISampleGrabber
+
+struct __declspec(uuid("c1f400a4-3f08-11d3-9f0b-006008039e37"))
+NullRenderer;
+    // [ default ] interface IBaseFilter
+
+struct __declspec(uuid("bb44391d-6abd-422f-9e2e-385c9dff51fc"))
+DxtCompositor;
+    // [ default ] interface IDxtCompositor
+
+struct __declspec(uuid("e31fb81b-1335-11d1-8189-0000f87557db"))
+IDXEffect : IDispatch
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetCapabilities))
+    long Capabilities;
+    __declspec(property(get=GetProgress,put=PutProgress))
+    float Progress;
+    __declspec(property(get=GetStepResolution))
+    float StepResolution;
+    __declspec(property(get=GetDuration,put=PutDuration))
+    float Duration;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetCapabilities ( );
+    float GetProgress ( );
+    void PutProgress (
+        float pVal );
+    float GetStepResolution ( );
+    float GetDuration ( );
+    void PutDuration (
+        float pVal );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_Capabilities (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall get_Progress (
+        /*[out,retval]*/ float * pVal ) = 0;
+      virtual HRESULT __stdcall put_Progress (
+        /*[in]*/ float pVal ) = 0;
+      virtual HRESULT __stdcall get_StepResolution (
+        /*[out,retval]*/ float * pVal ) = 0;
+      virtual HRESULT __stdcall get_Duration (
+        /*[out,retval]*/ float * pVal ) = 0;
+      virtual HRESULT __stdcall put_Duration (
+        /*[in]*/ float pVal ) = 0;
+};
+
+struct __declspec(uuid("bb44391e-6abd-422f-9e2e-385c9dff51fc"))
+IDxtCompositor : IDXEffect
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetOffsetX,put=PutOffsetX))
+    long OffsetX;
+    __declspec(property(get=GetOffsetY,put=PutOffsetY))
+    long OffsetY;
+    __declspec(property(get=GetWidth,put=PutWidth))
+    long Width;
+    __declspec(property(get=GetHeight,put=PutHeight))
+    long Height;
+    __declspec(property(get=GetSrcOffsetX,put=PutSrcOffsetX))
+    long SrcOffsetX;
+    __declspec(property(get=GetSrcOffsetY,put=PutSrcOffsetY))
+    long SrcOffsetY;
+    __declspec(property(get=GetSrcWidth,put=PutSrcWidth))
+    long SrcWidth;
+    __declspec(property(get=GetSrcHeight,put=PutSrcHeight))
+    long SrcHeight;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetOffsetX ( );
+    void PutOffsetX (
+        long pVal );
+    long GetOffsetY ( );
+    void PutOffsetY (
+        long pVal );
+    long GetWidth ( );
+    void PutWidth (
+        long pVal );
+    long GetHeight ( );
+    void PutHeight (
+        long pVal );
+    long GetSrcOffsetX ( );
+    void PutSrcOffsetX (
+        long pVal );
+    long GetSrcOffsetY ( );
+    void PutSrcOffsetY (
+        long pVal );
+    long GetSrcWidth ( );
+    void PutSrcWidth (
+        long pVal );
+    long GetSrcHeight ( );
+    void PutSrcHeight (
+        long pVal );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_OffsetX (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_OffsetX (
+        /*[in]*/ long pVal ) = 0;
+      virtual HRESULT __stdcall get_OffsetY (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_OffsetY (
+        /*[in]*/ long pVal ) = 0;
+      virtual HRESULT __stdcall get_Width (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_Width (
+        /*[in]*/ long pVal ) = 0;
+      virtual HRESULT __stdcall get_Height (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_Height (
+        /*[in]*/ long pVal ) = 0;
+      virtual HRESULT __stdcall get_SrcOffsetX (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_SrcOffsetX (
+        /*[in]*/ long pVal ) = 0;
+      virtual HRESULT __stdcall get_SrcOffsetY (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_SrcOffsetY (
+        /*[in]*/ long pVal ) = 0;
+      virtual HRESULT __stdcall get_SrcWidth (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_SrcWidth (
+        /*[in]*/ long pVal ) = 0;
+      virtual HRESULT __stdcall get_SrcHeight (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_SrcHeight (
+        /*[in]*/ long pVal ) = 0;
+};
+
+struct __declspec(uuid("506d89ae-909a-44f7-9444-abd575896e35"))
+DxtAlphaSetter;
+    // [ default ] interface IDxtAlphaSetter
+
+struct __declspec(uuid("4ee9ead9-da4d-43d0-9383-06b90c08b12b"))
+IDxtAlphaSetter : IDXEffect
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetAlpha,put=PutAlpha))
+    long Alpha;
+    __declspec(property(get=GetAlphaRamp,put=PutAlphaRamp))
+    double AlphaRamp;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetAlpha ( );
+    void PutAlpha (
+        long pVal );
+    double GetAlphaRamp ( );
+    void PutAlphaRamp (
+        double pVal );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_Alpha (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_Alpha (
+        /*[in]*/ long pVal ) = 0;
+      virtual HRESULT __stdcall get_AlphaRamp (
+        /*[out,retval]*/ double * pVal ) = 0;
+      virtual HRESULT __stdcall put_AlphaRamp (
+        /*[in]*/ double pVal ) = 0;
+};
+
+struct __declspec(uuid("de75d012-7a65-11d2-8cea-00a0c9441e20"))
+DxtJpeg;
+    // [ default ] interface IDxtJpeg
+
+struct __declspec(uuid("de75d011-7a65-11d2-8cea-00a0c9441e20"))
+IDxtJpeg : IDXEffect
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetMaskNum,put=PutMaskNum))
+    long MaskNum;
+    __declspec(property(get=GetMaskName,put=PutMaskName))
+    _bstr_t MaskName;
+    __declspec(property(get=GetScaleX,put=PutScaleX))
+    double ScaleX;
+    __declspec(property(get=GetScaleY,put=PutScaleY))
+    double ScaleY;
+    __declspec(property(get=GetOffsetX,put=PutOffsetX))
+    long OffsetX;
+    __declspec(property(get=GetOffsetY,put=PutOffsetY))
+    long OffsetY;
+    __declspec(property(get=GetReplicateX,put=PutReplicateX))
+    long ReplicateX;
+    __declspec(property(get=GetReplicateY,put=PutReplicateY))
+    long ReplicateY;
+    __declspec(property(get=GetBorderColor,put=PutBorderColor))
+    long BorderColor;
+    __declspec(property(get=GetBorderWidth,put=PutBorderWidth))
+    long BorderWidth;
+    __declspec(property(get=GetBorderSoftness,put=PutBorderSoftness))
+    long BorderSoftness;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    long GetMaskNum ( );
+    void PutMaskNum (
+        long __MIDL__IDxtJpeg0000 );
+    _bstr_t GetMaskName ( );
+    void PutMaskName (
+        _bstr_t pVal );
+    double GetScaleX ( );
+    void PutScaleX (
+        double __MIDL__IDxtJpeg0002 );
+    double GetScaleY ( );
+    void PutScaleY (
+        double __MIDL__IDxtJpeg0004 );
+    long GetOffsetX ( );
+    void PutOffsetX (
+        long __MIDL__IDxtJpeg0006 );
+    long GetOffsetY ( );
+    void PutOffsetY (
+        long __MIDL__IDxtJpeg0008 );
+    long GetReplicateX ( );
+    void PutReplicateX (
+        long pVal );
+    long GetReplicateY ( );
+    void PutReplicateY (
+        long pVal );
+    long GetBorderColor ( );
+    void PutBorderColor (
+        long pVal );
+    long GetBorderWidth ( );
+    void PutBorderWidth (
+        long pVal );
+    long GetBorderSoftness ( );
+    void PutBorderSoftness (
+        long pVal );
+    HRESULT ApplyChanges ( );
+    HRESULT LoadDefSettings ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_MaskNum (
+        /*[out,retval]*/ long * __MIDL__IDxtJpeg0000 ) = 0;
+      virtual HRESULT __stdcall put_MaskNum (
+        /*[in]*/ long __MIDL__IDxtJpeg0000 ) = 0;
+      virtual HRESULT __stdcall get_MaskName (
+        /*[out,retval]*/ BSTR * pVal ) = 0;
+      virtual HRESULT __stdcall put_MaskName (
+        /*[in]*/ BSTR pVal ) = 0;
+      virtual HRESULT __stdcall get_ScaleX (
+        /*[out,retval]*/ double * __MIDL__IDxtJpeg0002 ) = 0;
+      virtual HRESULT __stdcall put_ScaleX (
+        /*[in]*/ double __MIDL__IDxtJpeg0002 ) = 0;
+      virtual HRESULT __stdcall get_ScaleY (
+        /*[out,retval]*/ double * __MIDL__IDxtJpeg0004 ) = 0;
+      virtual HRESULT __stdcall put_ScaleY (
+        /*[in]*/ double __MIDL__IDxtJpeg0004 ) = 0;
+      virtual HRESULT __stdcall get_OffsetX (
+        /*[out,retval]*/ long * __MIDL__IDxtJpeg0006 ) = 0;
+      virtual HRESULT __stdcall put_OffsetX (
+        /*[in]*/ long __MIDL__IDxtJpeg0006 ) = 0;
+      virtual HRESULT __stdcall get_OffsetY (
+        /*[out,retval]*/ long * __MIDL__IDxtJpeg0008 ) = 0;
+      virtual HRESULT __stdcall put_OffsetY (
+        /*[in]*/ long __MIDL__IDxtJpeg0008 ) = 0;
+      virtual HRESULT __stdcall get_ReplicateX (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_ReplicateX (
+        /*[in]*/ long pVal ) = 0;
+      virtual HRESULT __stdcall get_ReplicateY (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_ReplicateY (
+        /*[in]*/ long pVal ) = 0;
+      virtual HRESULT __stdcall get_BorderColor (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_BorderColor (
+        /*[in]*/ long pVal ) = 0;
+      virtual HRESULT __stdcall get_BorderWidth (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_BorderWidth (
+        /*[in]*/ long pVal ) = 0;
+      virtual HRESULT __stdcall get_BorderSoftness (
+        /*[out,retval]*/ long * pVal ) = 0;
+      virtual HRESULT __stdcall put_BorderSoftness (
+        /*[in]*/ long pVal ) = 0;
+      virtual HRESULT __stdcall raw_ApplyChanges ( ) = 0;
+      virtual HRESULT __stdcall raw_LoadDefSettings ( ) = 0;
+};
+
+struct __declspec(uuid("0cfdd070-581a-11d2-9ee6-006008039e37"))
+ColorSource;
+    // [ default ] interface IBaseFilter
+
+struct __declspec(uuid("c5b19592-145e-11d3-9f04-006008039e37"))
+DxtKey;
+    // [ default ] interface IDxtKey
+
+struct __declspec(uuid("3255de56-38fb-4901-b980-94b438010d7b"))
+IDxtKey : IDXEffect
+{
+    //
+    // Property data
+    //
+
+    __declspec(property(get=GetKeyType,put=PutKeyType))
+    int KeyType;
+    __declspec(property(get=GetHue,put=PutHue))
+    int Hue;
+    __declspec(property(get=GetLuminance,put=PutLuminance))
+    int Luminance;
+    __declspec(property(get=GetRGB,put=PutRGB))
+    unsigned long RGB;
+    __declspec(property(get=GetSimilarity,put=PutSimilarity))
+    int Similarity;
+    __declspec(property(get=GetInvert,put=PutInvert))
+    long Invert;
+
+    //
+    // Wrapper methods for error-handling
+    //
+
+    int GetKeyType ( );
+    void PutKeyType (
+        int __MIDL__IDxtKey0000 );
+    int GetHue ( );
+    void PutHue (
+        int __MIDL__IDxtKey0002 );
+    int GetLuminance ( );
+    void PutLuminance (
+        int __MIDL__IDxtKey0004 );
+    unsigned long GetRGB ( );
+    void PutRGB (
+        unsigned long __MIDL__IDxtKey0006 );
+    int GetSimilarity ( );
+    void PutSimilarity (
+        int __MIDL__IDxtKey0008 );
+    long GetInvert ( );
+    void PutInvert (
+        long __MIDL__IDxtKey0010 );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall get_KeyType (
+        /*[out,retval]*/ int * __MIDL__IDxtKey0000 ) = 0;
+      virtual HRESULT __stdcall put_KeyType (
+        /*[in]*/ int __MIDL__IDxtKey0000 ) = 0;
+      virtual HRESULT __stdcall get_Hue (
+        /*[out,retval]*/ int * __MIDL__IDxtKey0002 ) = 0;
+      virtual HRESULT __stdcall put_Hue (
+        /*[in]*/ int __MIDL__IDxtKey0002 ) = 0;
+      virtual HRESULT __stdcall get_Luminance (
+        /*[out,retval]*/ int * __MIDL__IDxtKey0004 ) = 0;
+      virtual HRESULT __stdcall put_Luminance (
+        /*[in]*/ int __MIDL__IDxtKey0004 ) = 0;
+      virtual HRESULT __stdcall get_RGB (
+        /*[out,retval]*/ unsigned long * __MIDL__IDxtKey0006 ) = 0;
+      virtual HRESULT __stdcall put_RGB (
+        /*[in]*/ unsigned long __MIDL__IDxtKey0006 ) = 0;
+      virtual HRESULT __stdcall get_Similarity (
+        /*[out,retval]*/ int * __MIDL__IDxtKey0008 ) = 0;
+      virtual HRESULT __stdcall put_Similarity (
+        /*[in]*/ int __MIDL__IDxtKey0008 ) = 0;
+      virtual HRESULT __stdcall get_Invert (
+        /*[out,retval]*/ long * __MIDL__IDxtKey0010 ) = 0;
+      virtual HRESULT __stdcall put_Invert (
+        /*[in]*/ long __MIDL__IDxtKey0010 ) = 0;
+};
+
+struct __declspec(uuid("78530b74-61f9-11d2-8cad-00a024580902"))
+IAMTimeline : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT CreateEmptyNode (
+        struct IAMTimelineObj * * ppObj,
+        TIMELINE_MAJOR_TYPE Type );
+    HRESULT AddGroup (
+        struct IAMTimelineObj * pGroup );
+    HRESULT RemGroupFromList (
+        struct IAMTimelineObj * pGroup );
+    HRESULT GetGroup (
+        struct IAMTimelineObj * * ppGroup,
+        long WhichGroup );
+    HRESULT GetGroupCount (
+        long * pCount );
+    HRESULT ClearAllGroups ( );
+    HRESULT GetInsertMode (
+        long * pMode );
+    HRESULT SetInsertMode (
+        long Mode );
+    HRESULT EnableTransitions (
+        long fEnabled );
+    HRESULT TransitionsEnabled (
+        long * pfEnabled );
+    HRESULT EnableEffects (
+        long fEnabled );
+    HRESULT EffectsEnabled (
+        long * pfEnabled );
+    HRESULT SetInterestRange (
+        __int64 Start,
+        __int64 Stop );
+    HRESULT GetDuration (
+        __int64 * pDuration );
+    HRESULT GetDuration2 (
+        double * pDuration );
+    HRESULT SetDefaultFPS (
+        double FPS );
+    HRESULT GetDefaultFPS (
+        double * pFPS );
+    HRESULT IsDirty (
+        long * pDirty );
+    HRESULT GetDirtyRange (
+        __int64 * pStart,
+        __int64 * pStop );
+    HRESULT GetCountOfType (
+        long Group,
+        long * pVal,
+        long * pValWithComps,
+        TIMELINE_MAJOR_TYPE majortype );
+    HRESULT ValidateSourceNames (
+        long ValidateFlags,
+        struct IMediaLocator * pOverride,
+        LONG_PTR NotifyEventHandle );
+    HRESULT SetDefaultTransition (
+        GUID * pGuid );
+    HRESULT GetDefaultTransition (
+        GUID * pGuid );
+    HRESULT SetDefaultEffect (
+        GUID * pGuid );
+    HRESULT GetDefaultEffect (
+        GUID * pGuid );
+    HRESULT SetDefaultTransitionB (
+        _bstr_t pGuid );
+    _bstr_t GetDefaultTransitionB ( );
+    HRESULT SetDefaultEffectB (
+        _bstr_t pGuid );
+    _bstr_t GetDefaultEffectB ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_CreateEmptyNode (
+        /*[out]*/ struct IAMTimelineObj * * ppObj,
+        TIMELINE_MAJOR_TYPE Type ) = 0;
+      virtual HRESULT __stdcall raw_AddGroup (
+        struct IAMTimelineObj * pGroup ) = 0;
+      virtual HRESULT __stdcall raw_RemGroupFromList (
+        struct IAMTimelineObj * pGroup ) = 0;
+      virtual HRESULT __stdcall raw_GetGroup (
+        /*[out]*/ struct IAMTimelineObj * * ppGroup,
+        long WhichGroup ) = 0;
+      virtual HRESULT __stdcall raw_GetGroupCount (
+        long * pCount ) = 0;
+      virtual HRESULT __stdcall raw_ClearAllGroups ( ) = 0;
+      virtual HRESULT __stdcall raw_GetInsertMode (
+        long * pMode ) = 0;
+      virtual HRESULT __stdcall raw_SetInsertMode (
+        long Mode ) = 0;
+      virtual HRESULT __stdcall raw_EnableTransitions (
+        long fEnabled ) = 0;
+      virtual HRESULT __stdcall raw_TransitionsEnabled (
+        long * pfEnabled ) = 0;
+      virtual HRESULT __stdcall raw_EnableEffects (
+        long fEnabled ) = 0;
+      virtual HRESULT __stdcall raw_EffectsEnabled (
+        long * pfEnabled ) = 0;
+      virtual HRESULT __stdcall raw_SetInterestRange (
+        __int64 Start,
+        __int64 Stop ) = 0;
+      virtual HRESULT __stdcall raw_GetDuration (
+        __int64 * pDuration ) = 0;
+      virtual HRESULT __stdcall raw_GetDuration2 (
+        double * pDuration ) = 0;
+      virtual HRESULT __stdcall raw_SetDefaultFPS (
+        double FPS ) = 0;
+      virtual HRESULT __stdcall raw_GetDefaultFPS (
+        double * pFPS ) = 0;
+      virtual HRESULT __stdcall raw_IsDirty (
+        long * pDirty ) = 0;
+      virtual HRESULT __stdcall raw_GetDirtyRange (
+        __int64 * pStart,
+        __int64 * pStop ) = 0;
+      virtual HRESULT __stdcall raw_GetCountOfType (
+        long Group,
+        long * pVal,
+        long * pValWithComps,
+        TIMELINE_MAJOR_TYPE majortype ) = 0;
+      virtual HRESULT __stdcall raw_ValidateSourceNames (
+        long ValidateFlags,
+        struct IMediaLocator * pOverride,
+        LONG_PTR NotifyEventHandle ) = 0;
+      virtual HRESULT __stdcall raw_SetDefaultTransition (
+        GUID * pGuid ) = 0;
+      virtual HRESULT __stdcall raw_GetDefaultTransition (
+        GUID * pGuid ) = 0;
+      virtual HRESULT __stdcall raw_SetDefaultEffect (
+        GUID * pGuid ) = 0;
+      virtual HRESULT __stdcall raw_GetDefaultEffect (
+        GUID * pGuid ) = 0;
+      virtual HRESULT __stdcall raw_SetDefaultTransitionB (
+        BSTR pGuid ) = 0;
+      virtual HRESULT __stdcall raw_GetDefaultTransitionB (
+        /*[out,retval]*/ BSTR * pGuid ) = 0;
+      virtual HRESULT __stdcall raw_SetDefaultEffectB (
+        BSTR pGuid ) = 0;
+      virtual HRESULT __stdcall raw_GetDefaultEffectB (
+        /*[out,retval]*/ BSTR * pGuid ) = 0;
+};
+
+struct __declspec(uuid("78530b77-61f9-11d2-8cad-00a024580902"))
+IAMTimelineObj : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT GetStartStop (
+        __int64 * pStart,
+        __int64 * pStop );
+    HRESULT GetStartStop2 (
+        double * pStart,
+        double * pStop );
+    HRESULT FixTimes (
+        __int64 * pStart,
+        __int64 * pStop );
+    HRESULT FixTimes2 (
+        double * pStart,
+        double * pStop );
+    HRESULT SetStartStop (
+        __int64 Start,
+        __int64 Stop );
+    HRESULT SetStartStop2 (
+        double Start,
+        double Stop );
+    IPropertySetterPtr GetPropertySetter ( );
+    HRESULT SetPropertySetter (
+        struct IPropertySetter * newVal );
+    IUnknownPtr GetSubObject ( );
+    HRESULT SetSubObject (
+        IUnknown * newVal );
+    HRESULT SetSubObjectGUID (
+        GUID newVal );
+    HRESULT SetSubObjectGUIDB (
+        _bstr_t newVal );
+    HRESULT GetSubObjectGUID (
+        GUID * pVal );
+    _bstr_t GetSubObjectGUIDB ( );
+    HRESULT GetSubObjectLoaded (
+        long * pVal );
+    HRESULT GetTimelineType (
+        TIMELINE_MAJOR_TYPE * pVal );
+    HRESULT SetTimelineType (
+        TIMELINE_MAJOR_TYPE newVal );
+    HRESULT GetUserID (
+        long * pVal );
+    HRESULT SetUserID (
+        long newVal );
+    HRESULT GetGenID (
+        long * pVal );
+    _bstr_t GetUserName ( );
+    HRESULT SetUserName (
+        _bstr_t newVal );
+    HRESULT GetUserData (
+        unsigned char * pData,
+        long * pSize );
+    HRESULT SetUserData (
+        unsigned char * pData,
+        long Size );
+    HRESULT GetMuted (
+        long * pVal );
+    HRESULT SetMuted (
+        long newVal );
+    HRESULT GetLocked (
+        long * pVal );
+    HRESULT SetLocked (
+        long newVal );
+    HRESULT GetDirtyRange (
+        __int64 * pStart,
+        __int64 * pStop );
+    HRESULT GetDirtyRange2 (
+        double * pStart,
+        double * pStop );
+    HRESULT SetDirtyRange (
+        __int64 Start,
+        __int64 Stop );
+    HRESULT SetDirtyRange2 (
+        double Start,
+        double Stop );
+    HRESULT ClearDirty ( );
+    HRESULT Remove ( );
+    HRESULT RemoveAll ( );
+    HRESULT GetTimelineNoRef (
+        struct IAMTimeline * * ppResult );
+    HRESULT GetGroupIBelongTo (
+        struct IAMTimelineGroup * * ppGroup );
+    HRESULT GetEmbedDepth (
+        long * pVal );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_GetStartStop (
+        __int64 * pStart,
+        __int64 * pStop ) = 0;
+      virtual HRESULT __stdcall raw_GetStartStop2 (
+        double * pStart,
+        double * pStop ) = 0;
+      virtual HRESULT __stdcall raw_FixTimes (
+        __int64 * pStart,
+        __int64 * pStop ) = 0;
+      virtual HRESULT __stdcall raw_FixTimes2 (
+        double * pStart,
+        double * pStop ) = 0;
+      virtual HRESULT __stdcall raw_SetStartStop (
+        __int64 Start,
+        __int64 Stop ) = 0;
+      virtual HRESULT __stdcall raw_SetStartStop2 (
+        double Start,
+        double Stop ) = 0;
+      virtual HRESULT __stdcall raw_GetPropertySetter (
+        /*[out,retval]*/ struct IPropertySetter * * pVal ) = 0;
+      virtual HRESULT __stdcall raw_SetPropertySetter (
+        struct IPropertySetter * newVal ) = 0;
+      virtual HRESULT __stdcall raw_GetSubObject (
+        /*[out,retval]*/ IUnknown * * pVal ) = 0;
+      virtual HRESULT __stdcall raw_SetSubObject (
+        IUnknown * newVal ) = 0;
+      virtual HRESULT __stdcall raw_SetSubObjectGUID (
+        GUID newVal ) = 0;
+      virtual HRESULT __stdcall raw_SetSubObjectGUIDB (
+        BSTR newVal ) = 0;
+      virtual HRESULT __stdcall raw_GetSubObjectGUID (
+        GUID * pVal ) = 0;
+      virtual HRESULT __stdcall raw_GetSubObjectGUIDB (
+        /*[out,retval]*/ BSTR * pVal ) = 0;
+      virtual HRESULT __stdcall raw_GetSubObjectLoaded (
+        long * pVal ) = 0;
+      virtual HRESULT __stdcall raw_GetTimelineType (
+        TIMELINE_MAJOR_TYPE * pVal ) = 0;
+      virtual HRESULT __stdcall raw_SetTimelineType (
+        TIMELINE_MAJOR_TYPE newVal ) = 0;
+      virtual HRESULT __stdcall raw_GetUserID (
+        long * pVal ) = 0;
+      virtual HRESULT __stdcall raw_SetUserID (
+        long newVal ) = 0;
+      virtual HRESULT __stdcall raw_GetGenID (
+        long * pVal ) = 0;
+      virtual HRESULT __stdcall raw_GetUserName (
+        /*[out,retval]*/ BSTR * pVal ) = 0;
+      virtual HRESULT __stdcall raw_SetUserName (
+        BSTR newVal ) = 0;
+      virtual HRESULT __stdcall raw_GetUserData (
+        unsigned char * pData,
+        long * pSize ) = 0;
+      virtual HRESULT __stdcall raw_SetUserData (
+        unsigned char * pData,
+        long Size ) = 0;
+      virtual HRESULT __stdcall raw_GetMuted (
+        long * pVal ) = 0;
+      virtual HRESULT __stdcall raw_SetMuted (
+        long newVal ) = 0;
+      virtual HRESULT __stdcall raw_GetLocked (
+        long * pVal ) = 0;
+      virtual HRESULT __stdcall raw_SetLocked (
+        long newVal ) = 0;
+      virtual HRESULT __stdcall raw_GetDirtyRange (
+        __int64 * pStart,
+        __int64 * pStop ) = 0;
+      virtual HRESULT __stdcall raw_GetDirtyRange2 (
+        double * pStart,
+        double * pStop ) = 0;
+      virtual HRESULT __stdcall raw_SetDirtyRange (
+        __int64 Start,
+        __int64 Stop ) = 0;
+      virtual HRESULT __stdcall raw_SetDirtyRange2 (
+        double Start,
+        double Stop ) = 0;
+      virtual HRESULT __stdcall raw_ClearDirty ( ) = 0;
+      virtual HRESULT __stdcall raw_Remove ( ) = 0;
+      virtual HRESULT __stdcall raw_RemoveAll ( ) = 0;
+      virtual HRESULT __stdcall raw_GetTimelineNoRef (
+        struct IAMTimeline * * ppResult ) = 0;
+      virtual HRESULT __stdcall raw_GetGroupIBelongTo (
+        /*[out]*/ struct IAMTimelineGroup * * ppGroup ) = 0;
+      virtual HRESULT __stdcall raw_GetEmbedDepth (
+        long * pVal ) = 0;
+};
+
+struct __declspec(uuid("78530b79-61f9-11d2-8cad-00a024580902"))
+IAMTimelineSrc : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT GetMediaTimes (
+        __int64 * pStart,
+        __int64 * pStop );
+    HRESULT GetMediaTimes2 (
+        double * pStart,
+        double * pStop );
+    HRESULT ModifyStopTime (
+        __int64 Stop );
+    HRESULT ModifyStopTime2 (
+        double Stop );
+    HRESULT FixMediaTimes (
+        __int64 * pStart,
+        __int64 * pStop );
+    HRESULT FixMediaTimes2 (
+        double * pStart,
+        double * pStop );
+    HRESULT SetMediaTimes (
+        __int64 Start,
+        __int64 Stop );
+    HRESULT SetMediaTimes2 (
+        double Start,
+        double Stop );
+    HRESULT SetMediaLength (
+        __int64 Length );
+    HRESULT SetMediaLength2 (
+        double Length );
+    HRESULT GetMediaLength (
+        __int64 * pLength );
+    HRESULT GetMediaLength2 (
+        double * pLength );
+    _bstr_t GetMediaName ( );
+    HRESULT SetMediaName (
+        _bstr_t newVal );
+    HRESULT SpliceWithNext (
+        struct IAMTimelineObj * pNext );
+    HRESULT GetStreamNumber (
+        long * pVal );
+    HRESULT SetStreamNumber (
+        long Val );
+    HRESULT IsNormalRate (
+        long * pVal );
+    HRESULT GetDefaultFPS (
+        double * pFPS );
+    HRESULT SetDefaultFPS (
+        double FPS );
+    HRESULT GetStretchMode (
+        int * pnStretchMode );
+    HRESULT SetStretchMode (
+        int nStretchMode );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_GetMediaTimes (
+        __int64 * pStart,
+        __int64 * pStop ) = 0;
+      virtual HRESULT __stdcall raw_GetMediaTimes2 (
+        double * pStart,
+        double * pStop ) = 0;
+      virtual HRESULT __stdcall raw_ModifyStopTime (
+        __int64 Stop ) = 0;
+      virtual HRESULT __stdcall raw_ModifyStopTime2 (
+        double Stop ) = 0;
+      virtual HRESULT __stdcall raw_FixMediaTimes (
+        __int64 * pStart,
+        __int64 * pStop ) = 0;
+      virtual HRESULT __stdcall raw_FixMediaTimes2 (
+        double * pStart,
+        double * pStop ) = 0;
+      virtual HRESULT __stdcall raw_SetMediaTimes (
+        __int64 Start,
+        __int64 Stop ) = 0;
+      virtual HRESULT __stdcall raw_SetMediaTimes2 (
+        double Start,
+        double Stop ) = 0;
+      virtual HRESULT __stdcall raw_SetMediaLength (
+        __int64 Length ) = 0;
+      virtual HRESULT __stdcall raw_SetMediaLength2 (
+        double Length ) = 0;
+      virtual HRESULT __stdcall raw_GetMediaLength (
+        __int64 * pLength ) = 0;
+      virtual HRESULT __stdcall raw_GetMediaLength2 (
+        double * pLength ) = 0;
+      virtual HRESULT __stdcall raw_GetMediaName (
+        /*[out,retval]*/ BSTR * pVal ) = 0;
+      virtual HRESULT __stdcall raw_SetMediaName (
+        BSTR newVal ) = 0;
+      virtual HRESULT __stdcall raw_SpliceWithNext (
+        struct IAMTimelineObj * pNext ) = 0;
+      virtual HRESULT __stdcall raw_GetStreamNumber (
+        long * pVal ) = 0;
+      virtual HRESULT __stdcall raw_SetStreamNumber (
+        long Val ) = 0;
+      virtual HRESULT __stdcall raw_IsNormalRate (
+        long * pVal ) = 0;
+      virtual HRESULT __stdcall raw_GetDefaultFPS (
+        double * pFPS ) = 0;
+      virtual HRESULT __stdcall raw_SetDefaultFPS (
+        double FPS ) = 0;
+      virtual HRESULT __stdcall raw_GetStretchMode (
+        int * pnStretchMode ) = 0;
+      virtual HRESULT __stdcall raw_SetStretchMode (
+        int nStretchMode ) = 0;
+};
+
+struct __declspec(uuid("9eed4f00-b8a6-11d2-8023-00c0df10d434"))
+IAMTimelineGroup : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT SetTimeline (
+        struct IAMTimeline * pTimeline );
+    HRESULT GetTimeline (
+        struct IAMTimeline * * ppTimeline );
+    HRESULT GetPriority (
+        long * pPriority );
+    HRESULT GetMediaType (
+        struct _AMMediaType * __MIDL__IAMTimelineGroup0000 );
+    HRESULT SetMediaType (
+        struct _AMMediaType * __MIDL__IAMTimelineGroup0001 );
+    HRESULT SetOutputFPS (
+        double FPS );
+    HRESULT GetOutputFPS (
+        double * pFPS );
+    HRESULT SetGroupName (
+        _bstr_t pGroupName );
+    _bstr_t GetGroupName ( );
+    HRESULT SetPreviewMode (
+        long fPreview );
+    HRESULT GetPreviewMode (
+        long * pfPreview );
+    HRESULT SetMediaTypeForVB (
+        long Val );
+    HRESULT GetOutputBuffering (
+        int * pnBuffer );
+    HRESULT SetOutputBuffering (
+        int nBuffer );
+    HRESULT SetSmartRecompressFormat (
+        long * pFormat );
+    HRESULT GetSmartRecompressFormat (
+        long * * ppFormat );
+    HRESULT IsSmartRecompressFormatSet (
+        long * pVal );
+    HRESULT IsRecompressFormatDirty (
+        long * pVal );
+    HRESULT ClearRecompressFormatDirty ( );
+    HRESULT SetRecompFormatFromSource (
+        struct IAMTimelineSrc * pSource );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_SetTimeline (
+        struct IAMTimeline * pTimeline ) = 0;
+      virtual HRESULT __stdcall raw_GetTimeline (
+        /*[out]*/ struct IAMTimeline * * ppTimeline ) = 0;
+      virtual HRESULT __stdcall raw_GetPriority (
+        long * pPriority ) = 0;
+      virtual HRESULT __stdcall raw_GetMediaType (
+        /*[out]*/ struct _AMMediaType * __MIDL__IAMTimelineGroup0000 ) = 0;
+      virtual HRESULT __stdcall raw_SetMediaType (
+        /*[in]*/ struct _AMMediaType * __MIDL__IAMTimelineGroup0001 ) = 0;
+      virtual HRESULT __stdcall raw_SetOutputFPS (
+        double FPS ) = 0;
+      virtual HRESULT __stdcall raw_GetOutputFPS (
+        double * pFPS ) = 0;
+      virtual HRESULT __stdcall raw_SetGroupName (
+        BSTR pGroupName ) = 0;
+      virtual HRESULT __stdcall raw_GetGroupName (
+        /*[out,retval]*/ BSTR * pGroupName ) = 0;
+      virtual HRESULT __stdcall raw_SetPreviewMode (
+        long fPreview ) = 0;
+      virtual HRESULT __stdcall raw_GetPreviewMode (
+        long * pfPreview ) = 0;
+      virtual HRESULT __stdcall raw_SetMediaTypeForVB (
+        /*[in]*/ long Val ) = 0;
+      virtual HRESULT __stdcall raw_GetOutputBuffering (
+        /*[out]*/ int * pnBuffer ) = 0;
+      virtual HRESULT __stdcall raw_SetOutputBuffering (
+        /*[in]*/ int nBuffer ) = 0;
+      virtual HRESULT __stdcall raw_SetSmartRecompressFormat (
+        long * pFormat ) = 0;
+      virtual HRESULT __stdcall raw_GetSmartRecompressFormat (
+        long * * ppFormat ) = 0;
+      virtual HRESULT __stdcall raw_IsSmartRecompressFormatSet (
+        long * pVal ) = 0;
+      virtual HRESULT __stdcall raw_IsRecompressFormatDirty (
+        long * pVal ) = 0;
+      virtual HRESULT __stdcall raw_ClearRecompressFormatDirty ( ) = 0;
+      virtual HRESULT __stdcall raw_SetRecompFormatFromSource (
+        struct IAMTimelineSrc * pSource ) = 0;
+};
+
+struct __declspec(uuid("eae58537-622e-11d2-8cad-00a024580902"))
+IAMTimelineEffectable : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT EffectInsBefore (
+        struct IAMTimelineObj * pFX,
+        long priority );
+    HRESULT EffectSwapPriorities (
+        long PriorityA,
+        long PriorityB );
+    HRESULT EffectGetCount (
+        long * pCount );
+    HRESULT GetEffect (
+        struct IAMTimelineObj * * ppFx,
+        long Which );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_EffectInsBefore (
+        struct IAMTimelineObj * pFX,
+        long priority ) = 0;
+      virtual HRESULT __stdcall raw_EffectSwapPriorities (
+        long PriorityA,
+        long PriorityB ) = 0;
+      virtual HRESULT __stdcall raw_EffectGetCount (
+        long * pCount ) = 0;
+      virtual HRESULT __stdcall raw_GetEffect (
+        /*[out]*/ struct IAMTimelineObj * * ppFx,
+        long Which ) = 0;
+};
+
+struct __declspec(uuid("eae58538-622e-11d2-8cad-00a024580902"))
+IAMTimelineTrack : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT SrcAdd (
+        struct IAMTimelineObj * pSource );
+    HRESULT GetNextSrc (
+        struct IAMTimelineObj * * ppSrc,
+        __int64 * pInOut );
+    HRESULT GetNextSrc2 (
+        struct IAMTimelineObj * * ppSrc,
+        double * pInOut );
+    HRESULT MoveEverythingBy (
+        __int64 Start,
+        __int64 MoveBy );
+    HRESULT MoveEverythingBy2 (
+        double Start,
+        double MoveBy );
+    HRESULT GetSourcesCount (
+        long * pVal );
+    HRESULT AreYouBlank (
+        long * pVal );
+    HRESULT GetSrcAtTime (
+        struct IAMTimelineObj * * ppSrc,
+        __int64 Time,
+        long SearchDirection );
+    HRESULT GetSrcAtTime2 (
+        struct IAMTimelineObj * * ppSrc,
+        double Time,
+        long SearchDirection );
+    HRESULT InsertSpace (
+        __int64 rtStart,
+        __int64 rtEnd );
+    HRESULT InsertSpace2 (
+        double rtStart,
+        double rtEnd );
+    HRESULT ZeroBetween (
+        __int64 rtStart,
+        __int64 rtEnd );
+    HRESULT ZeroBetween2 (
+        double rtStart,
+        double rtEnd );
+    HRESULT GetNextSrcEx (
+        struct IAMTimelineObj * pLast,
+        struct IAMTimelineObj * * ppNext );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_SrcAdd (
+        struct IAMTimelineObj * pSource ) = 0;
+      virtual HRESULT __stdcall raw_GetNextSrc (
+        /*[out]*/ struct IAMTimelineObj * * ppSrc,
+        __int64 * pInOut ) = 0;
+      virtual HRESULT __stdcall raw_GetNextSrc2 (
+        /*[out]*/ struct IAMTimelineObj * * ppSrc,
+        double * pInOut ) = 0;
+      virtual HRESULT __stdcall raw_MoveEverythingBy (
+        __int64 Start,
+        __int64 MoveBy ) = 0;
+      virtual HRESULT __stdcall raw_MoveEverythingBy2 (
+        double Start,
+        double MoveBy ) = 0;
+      virtual HRESULT __stdcall raw_GetSourcesCount (
+        long * pVal ) = 0;
+      virtual HRESULT __stdcall raw_AreYouBlank (
+        long * pVal ) = 0;
+      virtual HRESULT __stdcall raw_GetSrcAtTime (
+        /*[out]*/ struct IAMTimelineObj * * ppSrc,
+        __int64 Time,
+        long SearchDirection ) = 0;
+      virtual HRESULT __stdcall raw_GetSrcAtTime2 (
+        /*[out]*/ struct IAMTimelineObj * * ppSrc,
+        double Time,
+        long SearchDirection ) = 0;
+      virtual HRESULT __stdcall raw_InsertSpace (
+        __int64 rtStart,
+        __int64 rtEnd ) = 0;
+      virtual HRESULT __stdcall raw_InsertSpace2 (
+        double rtStart,
+        double rtEnd ) = 0;
+      virtual HRESULT __stdcall raw_ZeroBetween (
+        __int64 rtStart,
+        __int64 rtEnd ) = 0;
+      virtual HRESULT __stdcall raw_ZeroBetween2 (
+        double rtStart,
+        double rtEnd ) = 0;
+      virtual HRESULT __stdcall raw_GetNextSrcEx (
+        struct IAMTimelineObj * pLast,
+        /*[out]*/ struct IAMTimelineObj * * ppNext ) = 0;
+};
+
+struct __declspec(uuid("378fa386-622e-11d2-8cad-00a024580902"))
+IAMTimelineTransable : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT TransAdd (
+        struct IAMTimelineObj * pTrans );
+    HRESULT TransGetCount (
+        long * pCount );
+    HRESULT GetNextTrans (
+        struct IAMTimelineObj * * ppTrans,
+        __int64 * pInOut );
+    HRESULT GetNextTrans2 (
+        struct IAMTimelineObj * * ppTrans,
+        double * pInOut );
+    HRESULT GetTransAtTime (
+        struct IAMTimelineObj * * ppObj,
+        __int64 Time,
+        long SearchDirection );
+    HRESULT GetTransAtTime2 (
+        struct IAMTimelineObj * * ppObj,
+        double Time,
+        long SearchDirection );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_TransAdd (
+        struct IAMTimelineObj * pTrans ) = 0;
+      virtual HRESULT __stdcall raw_TransGetCount (
+        long * pCount ) = 0;
+      virtual HRESULT __stdcall raw_GetNextTrans (
+        /*[out]*/ struct IAMTimelineObj * * ppTrans,
+        __int64 * pInOut ) = 0;
+      virtual HRESULT __stdcall raw_GetNextTrans2 (
+        /*[out]*/ struct IAMTimelineObj * * ppTrans,
+        double * pInOut ) = 0;
+      virtual HRESULT __stdcall raw_GetTransAtTime (
+        /*[out]*/ struct IAMTimelineObj * * ppObj,
+        __int64 Time,
+        long SearchDirection ) = 0;
+      virtual HRESULT __stdcall raw_GetTransAtTime2 (
+        /*[out]*/ struct IAMTimelineObj * * ppObj,
+        double Time,
+        long SearchDirection ) = 0;
+};
+
+struct __declspec(uuid("eae58536-622e-11d2-8cad-00a024580902"))
+IAMTimelineComp : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT VTrackInsBefore (
+        struct IAMTimelineObj * pVirtualTrack,
+        long priority );
+    HRESULT VTrackSwapPriorities (
+        long VirtualTrackA,
+        long VirtualTrackB );
+    HRESULT VTrackGetCount (
+        long * pVal );
+    HRESULT GetVTrack (
+        struct IAMTimelineObj * * ppVirtualTrack,
+        long Which );
+    HRESULT GetCountOfType (
+        long * pVal,
+        long * pValWithComps,
+        TIMELINE_MAJOR_TYPE majortype );
+    HRESULT GetRecursiveLayerOfType (
+        struct IAMTimelineObj * * ppVirtualTrack,
+        long WhichLayer,
+        TIMELINE_MAJOR_TYPE Type );
+    HRESULT GetRecursiveLayerOfTypeI (
+        struct IAMTimelineObj * * ppVirtualTrack,
+        long * pWhichLayer,
+        TIMELINE_MAJOR_TYPE Type );
+    HRESULT GetNextVTrack (
+        struct IAMTimelineObj * pVirtualTrack,
+        struct IAMTimelineObj * * ppNextVirtualTrack );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_VTrackInsBefore (
+        struct IAMTimelineObj * pVirtualTrack,
+        long priority ) = 0;
+      virtual HRESULT __stdcall raw_VTrackSwapPriorities (
+        long VirtualTrackA,
+        long VirtualTrackB ) = 0;
+      virtual HRESULT __stdcall raw_VTrackGetCount (
+        long * pVal ) = 0;
+      virtual HRESULT __stdcall raw_GetVTrack (
+        /*[out]*/ struct IAMTimelineObj * * ppVirtualTrack,
+        long Which ) = 0;
+      virtual HRESULT __stdcall raw_GetCountOfType (
+        long * pVal,
+        long * pValWithComps,
+        TIMELINE_MAJOR_TYPE majortype ) = 0;
+      virtual HRESULT __stdcall raw_GetRecursiveLayerOfType (
+        /*[out]*/ struct IAMTimelineObj * * ppVirtualTrack,
+        long WhichLayer,
+        TIMELINE_MAJOR_TYPE Type ) = 0;
+      virtual HRESULT __stdcall raw_GetRecursiveLayerOfTypeI (
+        /*[out]*/ struct IAMTimelineObj * * ppVirtualTrack,
+        /*[in,out]*/ long * pWhichLayer,
+        TIMELINE_MAJOR_TYPE Type ) = 0;
+      virtual HRESULT __stdcall raw_GetNextVTrack (
+        struct IAMTimelineObj * pVirtualTrack,
+        /*[out]*/ struct IAMTimelineObj * * ppNextVirtualTrack ) = 0;
+};
+
+struct __declspec(uuid("6bee3a81-66c9-11d2-918f-00c0df10d434"))
+IRenderEngine : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT SetTimelineObject (
+        struct IAMTimeline * pTimeline );
+    HRESULT GetTimelineObject (
+        struct IAMTimeline * * ppTimeline );
+    HRESULT GetFilterGraph (
+        struct IGraphBuilder * * ppFG );
+    HRESULT SetFilterGraph (
+        struct IGraphBuilder * pFG );
+    HRESULT SetInterestRange (
+        __int64 Start,
+        __int64 Stop );
+    HRESULT SetInterestRange2 (
+        double Start,
+        double Stop );
+    HRESULT SetRenderRange (
+        __int64 Start,
+        __int64 Stop );
+    HRESULT SetRenderRange2 (
+        double Start,
+        double Stop );
+    HRESULT GetGroupOutputPin (
+        long Group,
+        struct IPin * * ppRenderPin );
+    HRESULT ScrapIt ( );
+    HRESULT RenderOutputPins ( );
+    _bstr_t GetVendorString ( );
+    HRESULT ConnectFrontEnd ( );
+    HRESULT SetSourceConnectCallback (
+        struct IGrfCache * pCallback );
+    HRESULT SetDynamicReconnectLevel (
+        long Level );
+    HRESULT DoSmartRecompression ( );
+    HRESULT UseInSmartRecompressionGraph ( );
+    HRESULT SetSourceNameValidation (
+        _bstr_t FilterString,
+        struct IMediaLocator * pOverride,
+        long Flags );
+    HRESULT Commit ( );
+    HRESULT Decommit ( );
+    HRESULT GetCaps (
+        long Index,
+        long * pReturn );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_SetTimelineObject (
+        struct IAMTimeline * pTimeline ) = 0;
+      virtual HRESULT __stdcall raw_GetTimelineObject (
+        /*[out]*/ struct IAMTimeline * * ppTimeline ) = 0;
+      virtual HRESULT __stdcall raw_GetFilterGraph (
+        /*[out]*/ struct IGraphBuilder * * ppFG ) = 0;
+      virtual HRESULT __stdcall raw_SetFilterGraph (
+        struct IGraphBuilder * pFG ) = 0;
+      virtual HRESULT __stdcall raw_SetInterestRange (
+        __int64 Start,
+        __int64 Stop ) = 0;
+      virtual HRESULT __stdcall raw_SetInterestRange2 (
+        double Start,
+        double Stop ) = 0;
+      virtual HRESULT __stdcall raw_SetRenderRange (
+        __int64 Start,
+        __int64 Stop ) = 0;
+      virtual HRESULT __stdcall raw_SetRenderRange2 (
+        double Start,
+        double Stop ) = 0;
+      virtual HRESULT __stdcall raw_GetGroupOutputPin (
+        long Group,
+        /*[out]*/ struct IPin * * ppRenderPin ) = 0;
+      virtual HRESULT __stdcall raw_ScrapIt ( ) = 0;
+      virtual HRESULT __stdcall raw_RenderOutputPins ( ) = 0;
+      virtual HRESULT __stdcall raw_GetVendorString (
+        /*[out,retval]*/ BSTR * pVendorID ) = 0;
+      virtual HRESULT __stdcall raw_ConnectFrontEnd ( ) = 0;
+      virtual HRESULT __stdcall raw_SetSourceConnectCallback (
+        struct IGrfCache * pCallback ) = 0;
+      virtual HRESULT __stdcall raw_SetDynamicReconnectLevel (
+        long Level ) = 0;
+      virtual HRESULT __stdcall raw_DoSmartRecompression ( ) = 0;
+      virtual HRESULT __stdcall raw_UseInSmartRecompressionGraph ( ) = 0;
+      virtual HRESULT __stdcall raw_SetSourceNameValidation (
+        BSTR FilterString,
+        struct IMediaLocator * pOverride,
+        long Flags ) = 0;
+      virtual HRESULT __stdcall raw_Commit ( ) = 0;
+      virtual HRESULT __stdcall raw_Decommit ( ) = 0;
+      virtual HRESULT __stdcall raw_GetCaps (
+        long Index,
+        long * pReturn ) = 0;
+};
+
+struct __declspec(uuid("56a8689f-0ad4-11ce-b03a-0020af0ba770"))
+IFilterGraph : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT AddFilter (
+        struct IBaseFilter * pFilter,
+        LPWSTR pName );
+    HRESULT RemoveFilter (
+        struct IBaseFilter * pFilter );
+    HRESULT EnumFilters (
+        struct IEnumFilters * * ppEnum );
+    HRESULT FindFilterByName (
+        LPWSTR pName,
+        struct IBaseFilter * * ppFilter );
+    HRESULT ConnectDirect (
+        struct IPin * ppinOut,
+        struct IPin * ppinIn,
+        struct _AMMediaType * pmt );
+    HRESULT Reconnect (
+        struct IPin * pPin );
+    HRESULT Disconnect (
+        struct IPin * pPin );
+    HRESULT SetDefaultSyncSource ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_AddFilter (
+        /*[in]*/ struct IBaseFilter * pFilter,
+        /*[in]*/ LPWSTR pName ) = 0;
+      virtual HRESULT __stdcall raw_RemoveFilter (
+        /*[in]*/ struct IBaseFilter * pFilter ) = 0;
+      virtual HRESULT __stdcall raw_EnumFilters (
+        /*[out]*/ struct IEnumFilters * * ppEnum ) = 0;
+      virtual HRESULT __stdcall raw_FindFilterByName (
+        /*[in]*/ LPWSTR pName,
+        /*[out]*/ struct IBaseFilter * * ppFilter ) = 0;
+      virtual HRESULT __stdcall raw_ConnectDirect (
+        /*[in]*/ struct IPin * ppinOut,
+        /*[in]*/ struct IPin * ppinIn,
+        /*[in]*/ struct _AMMediaType * pmt ) = 0;
+      virtual HRESULT __stdcall raw_Reconnect (
+        /*[in]*/ struct IPin * pPin ) = 0;
+      virtual HRESULT __stdcall raw_Disconnect (
+        /*[in]*/ struct IPin * pPin ) = 0;
+      virtual HRESULT __stdcall raw_SetDefaultSyncSource ( ) = 0;
+};
+
+#pragma pack(push, 4)
+
+struct _FilterInfo
+{
+    unsigned short achName[128];
+    struct IFilterGraph * pGraph;
+};
+
+#pragma pack(pop)
+
+struct __declspec(uuid("56a868a9-0ad4-11ce-b03a-0020af0ba770"))
+IGraphBuilder : IFilterGraph
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT Connect (
+        struct IPin * ppinOut,
+        struct IPin * ppinIn );
+    HRESULT Render (
+        struct IPin * ppinOut );
+    HRESULT RenderFile (
+        LPWSTR lpcwstrFile,
+        LPWSTR lpcwstrPlayList );
+    HRESULT AddSourceFilter (
+        LPWSTR lpcwstrFileName,
+        LPWSTR lpcwstrFilterName,
+        struct IBaseFilter * * ppFilter );
+    HRESULT SetLogFile (
+        ULONG_PTR hFile );
+    HRESULT Abort ( );
+    HRESULT ShouldOperationContinue ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_Connect (
+        /*[in]*/ struct IPin * ppinOut,
+        /*[in]*/ struct IPin * ppinIn ) = 0;
+      virtual HRESULT __stdcall raw_Render (
+        /*[in]*/ struct IPin * ppinOut ) = 0;
+      virtual HRESULT __stdcall raw_RenderFile (
+        /*[in]*/ LPWSTR lpcwstrFile,
+        /*[in]*/ LPWSTR lpcwstrPlayList ) = 0;
+      virtual HRESULT __stdcall raw_AddSourceFilter (
+        /*[in]*/ LPWSTR lpcwstrFileName,
+        /*[in]*/ LPWSTR lpcwstrFilterName,
+        /*[out]*/ struct IBaseFilter * * ppFilter ) = 0;
+      virtual HRESULT __stdcall raw_SetLogFile (
+        /*[in]*/ ULONG_PTR hFile ) = 0;
+      virtual HRESULT __stdcall raw_Abort ( ) = 0;
+      virtual HRESULT __stdcall raw_ShouldOperationContinue ( ) = 0;
+};
+
+struct __declspec(uuid("56a86895-0ad4-11ce-b03a-0020af0ba770"))
+IBaseFilter : IMediaFilter
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT EnumPins (
+        struct IEnumPins * * ppEnum );
+    HRESULT FindPin (
+        LPWSTR Id,
+        struct IPin * * ppPin );
+    HRESULT QueryFilterInfo (
+        struct _FilterInfo * pInfo );
+    HRESULT JoinFilterGraph (
+        struct IFilterGraph * pGraph,
+        LPWSTR pName );
+    HRESULT QueryVendorInfo (
+        LPWSTR * pVendorInfo );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_EnumPins (
+        /*[out]*/ struct IEnumPins * * ppEnum ) = 0;
+      virtual HRESULT __stdcall raw_FindPin (
+        /*[in]*/ LPWSTR Id,
+        /*[out]*/ struct IPin * * ppPin ) = 0;
+      virtual HRESULT __stdcall raw_QueryFilterInfo (
+        /*[out]*/ struct _FilterInfo * pInfo ) = 0;
+      virtual HRESULT __stdcall raw_JoinFilterGraph (
+        /*[in]*/ struct IFilterGraph * pGraph,
+        /*[in]*/ LPWSTR pName ) = 0;
+      virtual HRESULT __stdcall raw_QueryVendorInfo (
+        /*[out]*/ LPWSTR * pVendorInfo ) = 0;
+};
+
+#pragma pack(push, 4)
+
+struct _PinInfo
+{
+    struct IBaseFilter * pFilter;
+    enum _PinDirection dir;
+    unsigned short achName[128];
+};
+
+#pragma pack(pop)
+
+struct __declspec(uuid("56a86891-0ad4-11ce-b03a-0020af0ba770"))
+IPin : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT Connect (
+        struct IPin * pReceivePin,
+        struct _AMMediaType * pmt );
+    HRESULT ReceiveConnection (
+        struct IPin * pConnector,
+        struct _AMMediaType * pmt );
+    HRESULT Disconnect ( );
+    HRESULT ConnectedTo (
+        struct IPin * * pPin );
+    HRESULT ConnectionMediaType (
+        struct _AMMediaType * pmt );
+    HRESULT QueryPinInfo (
+        struct _PinInfo * pInfo );
+    HRESULT QueryDirection (
+        enum _PinDirection * pPinDir );
+    HRESULT QueryId (
+        LPWSTR * Id );
+    HRESULT QueryAccept (
+        struct _AMMediaType * pmt );
+    HRESULT EnumMediaTypes (
+        struct IEnumMediaTypes * * ppEnum );
+    HRESULT QueryInternalConnections (
+        struct IPin * * apPin,
+        unsigned long * nPin );
+    HRESULT EndOfStream ( );
+    HRESULT BeginFlush ( );
+    HRESULT EndFlush ( );
+    HRESULT NewSegment (
+        __int64 tStart,
+        __int64 tStop,
+        double dRate );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_Connect (
+        /*[in]*/ struct IPin * pReceivePin,
+        /*[in]*/ struct _AMMediaType * pmt ) = 0;
+      virtual HRESULT __stdcall raw_ReceiveConnection (
+        /*[in]*/ struct IPin * pConnector,
+        /*[in]*/ struct _AMMediaType * pmt ) = 0;
+      virtual HRESULT __stdcall raw_Disconnect ( ) = 0;
+      virtual HRESULT __stdcall raw_ConnectedTo (
+        /*[out]*/ struct IPin * * pPin ) = 0;
+      virtual HRESULT __stdcall raw_ConnectionMediaType (
+        /*[out]*/ struct _AMMediaType * pmt ) = 0;
+      virtual HRESULT __stdcall raw_QueryPinInfo (
+        /*[out]*/ struct _PinInfo * pInfo ) = 0;
+      virtual HRESULT __stdcall raw_QueryDirection (
+        /*[out]*/ enum _PinDirection * pPinDir ) = 0;
+      virtual HRESULT __stdcall raw_QueryId (
+        /*[out]*/ LPWSTR * Id ) = 0;
+      virtual HRESULT __stdcall raw_QueryAccept (
+        /*[in]*/ struct _AMMediaType * pmt ) = 0;
+      virtual HRESULT __stdcall raw_EnumMediaTypes (
+        /*[out]*/ struct IEnumMediaTypes * * ppEnum ) = 0;
+      virtual HRESULT __stdcall raw_QueryInternalConnections (
+        /*[out]*/ struct IPin * * apPin,
+        /*[in,out]*/ unsigned long * nPin ) = 0;
+      virtual HRESULT __stdcall raw_EndOfStream ( ) = 0;
+      virtual HRESULT __stdcall raw_BeginFlush ( ) = 0;
+      virtual HRESULT __stdcall raw_EndFlush ( ) = 0;
+      virtual HRESULT __stdcall raw_NewSegment (
+        /*[in]*/ __int64 tStart,
+        /*[in]*/ __int64 tStop,
+        /*[in]*/ double dRate ) = 0;
+};
+
+struct __declspec(uuid("56a86892-0ad4-11ce-b03a-0020af0ba770"))
+IEnumPins : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT Next (
+        unsigned long cPins,
+        struct IPin * * ppPins,
+        unsigned long * pcFetched );
+    HRESULT Skip (
+        unsigned long cPins );
+    HRESULT Reset ( );
+    HRESULT Clone (
+        struct IEnumPins * * ppEnum );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_Next (
+        /*[in]*/ unsigned long cPins,
+        /*[out]*/ struct IPin * * ppPins,
+        /*[out]*/ unsigned long * pcFetched ) = 0;
+      virtual HRESULT __stdcall raw_Skip (
+        /*[in]*/ unsigned long cPins ) = 0;
+      virtual HRESULT __stdcall raw_Reset ( ) = 0;
+      virtual HRESULT __stdcall raw_Clone (
+        /*[out]*/ struct IEnumPins * * ppEnum ) = 0;
+};
+
+struct __declspec(uuid("56a86893-0ad4-11ce-b03a-0020af0ba770"))
+IEnumFilters : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT Next (
+        unsigned long cFilters,
+        struct IBaseFilter * * ppFilter,
+        unsigned long * pcFetched );
+    HRESULT Skip (
+        unsigned long cFilters );
+    HRESULT Reset ( );
+    HRESULT Clone (
+        struct IEnumFilters * * ppEnum );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_Next (
+        /*[in]*/ unsigned long cFilters,
+        /*[out]*/ struct IBaseFilter * * ppFilter,
+        /*[out]*/ unsigned long * pcFetched ) = 0;
+      virtual HRESULT __stdcall raw_Skip (
+        /*[in]*/ unsigned long cFilters ) = 0;
+      virtual HRESULT __stdcall raw_Reset ( ) = 0;
+      virtual HRESULT __stdcall raw_Clone (
+        /*[out]*/ struct IEnumFilters * * ppEnum ) = 0;
+};
+
+struct __declspec(uuid("ae9472be-b0c3-11d2-8d24-00a0c9441e20"))
+IGrfCache : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT AddFilter (
+        struct IGrfCache * ChainedCache,
+        __int64 Id,
+        struct IBaseFilter * pFilter,
+        LPWSTR pName );
+    HRESULT ConnectPins (
+        struct IGrfCache * ChainedCache,
+        __int64 PinID1,
+        struct IPin * pPin1,
+        __int64 PinID2,
+        struct IPin * pPin2 );
+    HRESULT SetGraph (
+        struct IGraphBuilder * pGraph );
+    HRESULT DoConnectionsNow ( );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_AddFilter (
+        struct IGrfCache * ChainedCache,
+        __int64 Id,
+        struct IBaseFilter * pFilter,
+        LPWSTR pName ) = 0;
+      virtual HRESULT __stdcall raw_ConnectPins (
+        struct IGrfCache * ChainedCache,
+        __int64 PinID1,
+        struct IPin * pPin1,
+        __int64 PinID2,
+        struct IPin * pPin2 ) = 0;
+      virtual HRESULT __stdcall raw_SetGraph (
+        struct IGraphBuilder * pGraph ) = 0;
+      virtual HRESULT __stdcall raw_DoConnectionsNow ( ) = 0;
+};
+
+struct __declspec(uuid("f03fa8de-879a-4d59-9b2c-26bb1cf83461"))
+IFindCompressorCB : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT GetCompressor (
+        struct _AMMediaType * pType,
+        struct _AMMediaType * pCompType,
+        struct IBaseFilter * * ppFilter );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_GetCompressor (
+        struct _AMMediaType * pType,
+        struct _AMMediaType * pCompType,
+        /*[out]*/ struct IBaseFilter * * ppFilter ) = 0;
+};
+
+struct __declspec(uuid("f03fa8ce-879a-4d59-9b2c-26bb1cf83461"))
+ISmartRenderEngine : IUnknown
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    HRESULT SetGroupCompressor (
+        long Group,
+        struct IBaseFilter * pCompressor );
+    HRESULT GetGroupCompressor (
+        long Group,
+        struct IBaseFilter * * pCompressor );
+    HRESULT SetFindCompressorCB (
+        struct IFindCompressorCB * pCallback );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_SetGroupCompressor (
+        long Group,
+        struct IBaseFilter * pCompressor ) = 0;
+      virtual HRESULT __stdcall raw_GetGroupCompressor (
+        long Group,
+        struct IBaseFilter * * pCompressor ) = 0;
+      virtual HRESULT __stdcall raw_SetFindCompressorCB (
+        struct IFindCompressorCB * pCallback ) = 0;
+};
+
+//
+// Wrapper method implementations
+//
+
+#include "c:\users\gameover\code\videoinput\videoinputsrcanddemos\vc2008-videoinputdemowithsrc\debug\qedit.tli"
+
+} // namespace DexterLib
+
+#pragma pack(pop)
