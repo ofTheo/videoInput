@@ -50,9 +50,11 @@ public:
     CAggDirectDraw(TCHAR *pName,LPUNKNOWN pUnk) :
         CUnknown(pName,pUnk),
         m_pDirectDraw(NULL) { };
-
+#ifdef __MINGW32_MAJOR_VERSION
+    virtual ~CAggDirectDraw() { };
+#else
     virtual CAggDirectDraw::~CAggDirectDraw() { };
-
+#endif
     // Set the object we should be aggregating
     void SetDirectDraw(LPDIRECTDRAW pDirectDraw) {
         m_pDirectDraw = pDirectDraw;

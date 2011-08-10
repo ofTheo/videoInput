@@ -5,7 +5,7 @@
 #include "simpleApp.h"
 #include "imageTexture.h"
 #include "videoInput.h"
-
+#include "uuids.h"
 
 class triangleApp : public simpleApp{
 	

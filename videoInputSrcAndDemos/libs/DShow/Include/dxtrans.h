@@ -8,8 +8,8 @@
 /* Compiler settings for dxtrans.idl:
     Oicf, W1, Zp8, env=Win32 (32b run)
     protocol : dce , ms_ext, c_ext
-    error checks: allocation ref bounds_check enum stub_data 
-    VC __declspec() decoration level: 
+    error checks: allocation ref bounds_check enum stub_data
+    VC __declspec() decoration level:
          __declspec(uuid()), __declspec(selectany), __declspec(novtable)
          DECLSPEC_UUID(), MIDL_INTERFACE()
 */
@@ -40,7 +40,7 @@
 #pragma once
 #endif
 
-/* Forward Declarations */ 
+/* Forward Declarations */
 
 #ifndef __IDXBaseObject_FWD_DEFINED__
 #define __IDXBaseObject_FWD_DEFINED__
@@ -265,19 +265,21 @@ typedef struct DXTFilter DXTFilter;
 
 #ifdef __cplusplus
 extern "C"{
-#endif 
+#endif
 
 void * __RPC_USER MIDL_user_allocate(size_t);
-void __RPC_USER MIDL_user_free( void * ); 
+void __RPC_USER MIDL_user_free( void * );
 
 /* interface __MIDL_itf_dxtrans_0000 */
-/* [local] */ 
+/* [local] */
 
 #include <servprov.h>
 #include <ddraw.h>
 #include <d3d.h>
 #include <d3drm.h>
+#ifndef __MINGW32_MAJOR_VERSION
 #include <urlmon.h>
+#endif
 #if 0
 // Bogus definition used to make MIDL compiler happy
 typedef void DDSURFACEDESC;
@@ -369,57 +371,57 @@ extern RPC_IF_HANDLE __MIDL_itf_dxtrans_0000_v0_0_s_ifspec;
 #define __IDXBaseObject_INTERFACE_DEFINED__
 
 /* interface IDXBaseObject */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXBaseObject;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("17B59B2B-9CC8-11d1-9053-00C04FD9189D")
     IDXBaseObject : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE GetGenerationId( 
+        virtual HRESULT STDMETHODCALLTYPE GetGenerationId(
             /* [out] */ ULONG *pID) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE IncrementGenerationId( 
+
+        virtual HRESULT STDMETHODCALLTYPE IncrementGenerationId(
             /* [in] */ BOOL bRefresh) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetObjectSize( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetObjectSize(
             /* [out] */ ULONG *pcbSize) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXBaseObjectVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXBaseObject * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXBaseObject * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXBaseObject * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetGenerationId )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetGenerationId )(
             IDXBaseObject * This,
             /* [out] */ ULONG *pID);
-        
-        HRESULT ( STDMETHODCALLTYPE *IncrementGenerationId )( 
+
+        HRESULT ( STDMETHODCALLTYPE *IncrementGenerationId )(
             IDXBaseObject * This,
             /* [in] */ BOOL bRefresh);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetObjectSize )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetObjectSize )(
             IDXBaseObject * This,
             /* [out] */ ULONG *pcbSize);
-        
+
         END_INTERFACE
     } IDXBaseObjectVtbl;
 
@@ -428,7 +430,7 @@ EXTERN_C const IID IID_IDXBaseObject;
         CONST_VTBL struct IDXBaseObjectVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -459,7 +461,7 @@ EXTERN_C const IID IID_IDXBaseObject;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXBaseObject_GetGenerationId_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXBaseObject_GetGenerationId_Proxy(
     IDXBaseObject * This,
     /* [out] */ ULONG *pID);
 
@@ -471,7 +473,7 @@ void __RPC_STUB IDXBaseObject_GetGenerationId_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXBaseObject_IncrementGenerationId_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXBaseObject_IncrementGenerationId_Proxy(
     IDXBaseObject * This,
     /* [in] */ BOOL bRefresh);
 
@@ -483,7 +485,7 @@ void __RPC_STUB IDXBaseObject_IncrementGenerationId_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXBaseObject_GetObjectSize_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXBaseObject_GetObjectSize_Proxy(
     IDXBaseObject * This,
     /* [out] */ ULONG *pcbSize);
 
@@ -500,9 +502,9 @@ void __RPC_STUB IDXBaseObject_GetObjectSize_Stub(
 
 
 /* interface __MIDL_itf_dxtrans_0260 */
-/* [local] */ 
+/* [local] */
 
-typedef 
+typedef
 enum DXBNDID
     {	DXB_X	= 0,
 	DXB_Y	= 1,
@@ -510,7 +512,7 @@ enum DXBNDID
 	DXB_T	= 3
     } 	DXBNDID;
 
-typedef 
+typedef
 enum DXBNDTYPE
     {	DXBT_DISCRETE	= 0,
 	DXBT_DISCRETE64	= DXBT_DISCRETE + 1,
@@ -591,23 +593,23 @@ extern RPC_IF_HANDLE __MIDL_itf_dxtrans_0260_v0_0_s_ifspec;
 #define __IDXTransformFactory_INTERFACE_DEFINED__
 
 /* interface IDXTransformFactory */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXTransformFactory;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("6A950B2B-A971-11d1-81C8-0000F87557DB")
     IDXTransformFactory : public IServiceProvider
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE SetService( 
+        virtual HRESULT STDMETHODCALLTYPE SetService(
             /* [in] */ REFGUID guidService,
             /* [in] */ IUnknown *pUnkService,
             /* [in] */ BOOL bWeakReference) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE CreateTransform( 
+
+        virtual HRESULT STDMETHODCALLTYPE CreateTransform(
             /* [size_is][in] */ IUnknown **punkInputs,
             /* [in] */ ULONG ulNumInputs,
             /* [size_is][in] */ IUnknown **punkOutputs,
@@ -617,8 +619,8 @@ EXTERN_C const IID IID_IDXTransformFactory;
             /* [in] */ REFCLSID TransCLSID,
             /* [in] */ REFIID TransIID,
             /* [iid_is][out] */ void **ppTransform) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE InitializeTransform( 
+
+        virtual HRESULT STDMETHODCALLTYPE InitializeTransform(
             /* [in] */ IDXTransform *pTransform,
             /* [size_is][in] */ IUnknown **punkInputs,
             /* [in] */ ULONG ulNumInputs,
@@ -626,39 +628,39 @@ EXTERN_C const IID IID_IDXTransformFactory;
             /* [in] */ ULONG ulNumOutputs,
             /* [in] */ IPropertyBag *pInitProps,
             /* [in] */ IErrorLog *pErrLog) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXTransformFactoryVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXTransformFactory * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXTransformFactory * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXTransformFactory * This);
-        
-        /* [local] */ HRESULT ( STDMETHODCALLTYPE *QueryService )( 
+
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *QueryService )(
             IDXTransformFactory * This,
             /* [in] */ REFGUID guidService,
             /* [in] */ REFIID riid,
             /* [out] */ void **ppvObject);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetService )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetService )(
             IDXTransformFactory * This,
             /* [in] */ REFGUID guidService,
             /* [in] */ IUnknown *pUnkService,
             /* [in] */ BOOL bWeakReference);
-        
-        HRESULT ( STDMETHODCALLTYPE *CreateTransform )( 
+
+        HRESULT ( STDMETHODCALLTYPE *CreateTransform )(
             IDXTransformFactory * This,
             /* [size_is][in] */ IUnknown **punkInputs,
             /* [in] */ ULONG ulNumInputs,
@@ -669,8 +671,8 @@ EXTERN_C const IID IID_IDXTransformFactory;
             /* [in] */ REFCLSID TransCLSID,
             /* [in] */ REFIID TransIID,
             /* [iid_is][out] */ void **ppTransform);
-        
-        HRESULT ( STDMETHODCALLTYPE *InitializeTransform )( 
+
+        HRESULT ( STDMETHODCALLTYPE *InitializeTransform )(
             IDXTransformFactory * This,
             /* [in] */ IDXTransform *pTransform,
             /* [size_is][in] */ IUnknown **punkInputs,
@@ -679,7 +681,7 @@ EXTERN_C const IID IID_IDXTransformFactory;
             /* [in] */ ULONG ulNumOutputs,
             /* [in] */ IPropertyBag *pInitProps,
             /* [in] */ IErrorLog *pErrLog);
-        
+
         END_INTERFACE
     } IDXTransformFactoryVtbl;
 
@@ -688,7 +690,7 @@ EXTERN_C const IID IID_IDXTransformFactory;
         CONST_VTBL struct IDXTransformFactoryVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -723,7 +725,7 @@ EXTERN_C const IID IID_IDXTransformFactory;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXTransformFactory_SetService_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTransformFactory_SetService_Proxy(
     IDXTransformFactory * This,
     /* [in] */ REFGUID guidService,
     /* [in] */ IUnknown *pUnkService,
@@ -737,7 +739,7 @@ void __RPC_STUB IDXTransformFactory_SetService_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTransformFactory_CreateTransform_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTransformFactory_CreateTransform_Proxy(
     IDXTransformFactory * This,
     /* [size_is][in] */ IUnknown **punkInputs,
     /* [in] */ ULONG ulNumInputs,
@@ -757,7 +759,7 @@ void __RPC_STUB IDXTransformFactory_CreateTransform_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTransformFactory_InitializeTransform_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTransformFactory_InitializeTransform_Proxy(
     IDXTransformFactory * This,
     /* [in] */ IDXTransform *pTransform,
     /* [size_is][in] */ IUnknown **punkInputs,
@@ -780,9 +782,9 @@ void __RPC_STUB IDXTransformFactory_InitializeTransform_Stub(
 
 
 /* interface __MIDL_itf_dxtrans_0261 */
-/* [local] */ 
+/* [local] */
 
-typedef 
+typedef
 enum DXTMISCFLAGS
     {	DXTMF_BLEND_WITH_OUTPUT	= 1L << 0,
 	DXTMF_DITHER_OUTPUT	= 1L << 1,
@@ -797,7 +799,7 @@ enum DXTMISCFLAGS
 	DXTMF_OPAQUE_RESULT	= 1L << 28
     } 	DXTMISCFLAGS;
 
-typedef 
+typedef
 enum DXINOUTINFOFLAGS
     {	DXINOUTF_OPTIONAL	= 1L << 0
     } 	DXINOUTINFOFLAGS;
@@ -811,129 +813,129 @@ extern RPC_IF_HANDLE __MIDL_itf_dxtrans_0261_v0_0_s_ifspec;
 #define __IDXTransform_INTERFACE_DEFINED__
 
 /* interface IDXTransform */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXTransform;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("30A5FB78-E11F-11d1-9064-00C04FD9189D")
     IDXTransform : public IDXBaseObject
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE Setup( 
+        virtual HRESULT STDMETHODCALLTYPE Setup(
             /* [size_is][in] */ IUnknown *const *punkInputs,
             /* [in] */ ULONG ulNumInputs,
             /* [size_is][in] */ IUnknown *const *punkOutputs,
             /* [in] */ ULONG ulNumOutputs,
             /* [in] */ DWORD dwFlags) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE Execute( 
+
+        virtual HRESULT STDMETHODCALLTYPE Execute(
             /* [in] */ const GUID *pRequestID,
             /* [in] */ const DXBNDS *pClipBnds,
             /* [in] */ const DXVEC *pPlacement) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE MapBoundsIn2Out( 
+
+        virtual HRESULT STDMETHODCALLTYPE MapBoundsIn2Out(
             /* [in] */ const DXBNDS *pInBounds,
             /* [in] */ ULONG ulNumInBnds,
             /* [in] */ ULONG ulOutIndex,
             /* [out] */ DXBNDS *pOutBounds) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE MapBoundsOut2In( 
+
+        virtual HRESULT STDMETHODCALLTYPE MapBoundsOut2In(
             /* [in] */ ULONG ulOutIndex,
             /* [in] */ const DXBNDS *pOutBounds,
             /* [in] */ ULONG ulInIndex,
             /* [out] */ DXBNDS *pInBounds) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE SetMiscFlags( 
+
+        virtual HRESULT STDMETHODCALLTYPE SetMiscFlags(
             /* [in] */ DWORD dwMiscFlags) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetMiscFlags( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetMiscFlags(
             /* [out] */ DWORD *pdwMiscFlags) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetInOutInfo( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetInOutInfo(
             /* [in] */ BOOL bIsOutput,
             /* [in] */ ULONG ulIndex,
             /* [out] */ DWORD *pdwFlags,
             /* [size_is][out] */ GUID *pIDs,
             /* [out][in] */ ULONG *pcIDs,
             /* [out] */ IUnknown **ppUnkCurrentObject) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE SetQuality( 
+
+        virtual HRESULT STDMETHODCALLTYPE SetQuality(
             /* [in] */ float fQuality) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetQuality( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetQuality(
             /* [out] */ float *fQuality) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXTransformVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXTransform * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXTransform * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXTransform * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetGenerationId )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetGenerationId )(
             IDXTransform * This,
             /* [out] */ ULONG *pID);
-        
-        HRESULT ( STDMETHODCALLTYPE *IncrementGenerationId )( 
+
+        HRESULT ( STDMETHODCALLTYPE *IncrementGenerationId )(
             IDXTransform * This,
             /* [in] */ BOOL bRefresh);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetObjectSize )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetObjectSize )(
             IDXTransform * This,
             /* [out] */ ULONG *pcbSize);
-        
-        HRESULT ( STDMETHODCALLTYPE *Setup )( 
+
+        HRESULT ( STDMETHODCALLTYPE *Setup )(
             IDXTransform * This,
             /* [size_is][in] */ IUnknown *const *punkInputs,
             /* [in] */ ULONG ulNumInputs,
             /* [size_is][in] */ IUnknown *const *punkOutputs,
             /* [in] */ ULONG ulNumOutputs,
             /* [in] */ DWORD dwFlags);
-        
-        HRESULT ( STDMETHODCALLTYPE *Execute )( 
+
+        HRESULT ( STDMETHODCALLTYPE *Execute )(
             IDXTransform * This,
             /* [in] */ const GUID *pRequestID,
             /* [in] */ const DXBNDS *pClipBnds,
             /* [in] */ const DXVEC *pPlacement);
-        
-        HRESULT ( STDMETHODCALLTYPE *MapBoundsIn2Out )( 
+
+        HRESULT ( STDMETHODCALLTYPE *MapBoundsIn2Out )(
             IDXTransform * This,
             /* [in] */ const DXBNDS *pInBounds,
             /* [in] */ ULONG ulNumInBnds,
             /* [in] */ ULONG ulOutIndex,
             /* [out] */ DXBNDS *pOutBounds);
-        
-        HRESULT ( STDMETHODCALLTYPE *MapBoundsOut2In )( 
+
+        HRESULT ( STDMETHODCALLTYPE *MapBoundsOut2In )(
             IDXTransform * This,
             /* [in] */ ULONG ulOutIndex,
             /* [in] */ const DXBNDS *pOutBounds,
             /* [in] */ ULONG ulInIndex,
             /* [out] */ DXBNDS *pInBounds);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetMiscFlags )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetMiscFlags )(
             IDXTransform * This,
             /* [in] */ DWORD dwMiscFlags);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetMiscFlags )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetMiscFlags )(
             IDXTransform * This,
             /* [out] */ DWORD *pdwMiscFlags);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetInOutInfo )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetInOutInfo )(
             IDXTransform * This,
             /* [in] */ BOOL bIsOutput,
             /* [in] */ ULONG ulIndex,
@@ -941,15 +943,15 @@ EXTERN_C const IID IID_IDXTransform;
             /* [size_is][out] */ GUID *pIDs,
             /* [out][in] */ ULONG *pcIDs,
             /* [out] */ IUnknown **ppUnkCurrentObject);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetQuality )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetQuality )(
             IDXTransform * This,
             /* [in] */ float fQuality);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetQuality )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetQuality )(
             IDXTransform * This,
             /* [out] */ float *fQuality);
-        
+
         END_INTERFACE
     } IDXTransformVtbl;
 
@@ -958,7 +960,7 @@ EXTERN_C const IID IID_IDXTransform;
         CONST_VTBL struct IDXTransformVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -1017,7 +1019,7 @@ EXTERN_C const IID IID_IDXTransform;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXTransform_Setup_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTransform_Setup_Proxy(
     IDXTransform * This,
     /* [size_is][in] */ IUnknown *const *punkInputs,
     /* [in] */ ULONG ulNumInputs,
@@ -1033,7 +1035,7 @@ void __RPC_STUB IDXTransform_Setup_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTransform_Execute_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTransform_Execute_Proxy(
     IDXTransform * This,
     /* [in] */ const GUID *pRequestID,
     /* [in] */ const DXBNDS *pClipBnds,
@@ -1047,7 +1049,7 @@ void __RPC_STUB IDXTransform_Execute_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTransform_MapBoundsIn2Out_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTransform_MapBoundsIn2Out_Proxy(
     IDXTransform * This,
     /* [in] */ const DXBNDS *pInBounds,
     /* [in] */ ULONG ulNumInBnds,
@@ -1062,7 +1064,7 @@ void __RPC_STUB IDXTransform_MapBoundsIn2Out_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTransform_MapBoundsOut2In_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTransform_MapBoundsOut2In_Proxy(
     IDXTransform * This,
     /* [in] */ ULONG ulOutIndex,
     /* [in] */ const DXBNDS *pOutBounds,
@@ -1077,7 +1079,7 @@ void __RPC_STUB IDXTransform_MapBoundsOut2In_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTransform_SetMiscFlags_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTransform_SetMiscFlags_Proxy(
     IDXTransform * This,
     /* [in] */ DWORD dwMiscFlags);
 
@@ -1089,7 +1091,7 @@ void __RPC_STUB IDXTransform_SetMiscFlags_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTransform_GetMiscFlags_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTransform_GetMiscFlags_Proxy(
     IDXTransform * This,
     /* [out] */ DWORD *pdwMiscFlags);
 
@@ -1101,7 +1103,7 @@ void __RPC_STUB IDXTransform_GetMiscFlags_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTransform_GetInOutInfo_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTransform_GetInOutInfo_Proxy(
     IDXTransform * This,
     /* [in] */ BOOL bIsOutput,
     /* [in] */ ULONG ulIndex,
@@ -1118,7 +1120,7 @@ void __RPC_STUB IDXTransform_GetInOutInfo_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTransform_SetQuality_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTransform_SetQuality_Proxy(
     IDXTransform * This,
     /* [in] */ float fQuality);
 
@@ -1130,7 +1132,7 @@ void __RPC_STUB IDXTransform_SetQuality_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTransform_GetQuality_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTransform_GetQuality_Proxy(
     IDXTransform * This,
     /* [out] */ float *fQuality);
 
@@ -1150,47 +1152,47 @@ void __RPC_STUB IDXTransform_GetQuality_Stub(
 #define __IDXSurfacePick_INTERFACE_DEFINED__
 
 /* interface IDXSurfacePick */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXSurfacePick;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("30A5FB79-E11F-11d1-9064-00C04FD9189D")
     IDXSurfacePick : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE PointPick( 
+        virtual HRESULT STDMETHODCALLTYPE PointPick(
             /* [in] */ const DXVEC *pPoint,
             /* [out] */ ULONG *pulInputSurfaceIndex,
             /* [out] */ DXVEC *pInputPoint) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXSurfacePickVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXSurfacePick * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXSurfacePick * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXSurfacePick * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *PointPick )( 
+
+        HRESULT ( STDMETHODCALLTYPE *PointPick )(
             IDXSurfacePick * This,
             /* [in] */ const DXVEC *pPoint,
             /* [out] */ ULONG *pulInputSurfaceIndex,
             /* [out] */ DXVEC *pInputPoint);
-        
+
         END_INTERFACE
     } IDXSurfacePickVtbl;
 
@@ -1199,7 +1201,7 @@ EXTERN_C const IID IID_IDXSurfacePick;
         CONST_VTBL struct IDXSurfacePickVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -1224,7 +1226,7 @@ EXTERN_C const IID IID_IDXSurfacePick;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfacePick_PointPick_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfacePick_PointPick_Proxy(
     IDXSurfacePick * This,
     /* [in] */ const DXVEC *pPoint,
     /* [out] */ ULONG *pulInputSurfaceIndex,
@@ -1246,43 +1248,43 @@ void __RPC_STUB IDXSurfacePick_PointPick_Stub(
 #define __IDXTBindHost_INTERFACE_DEFINED__
 
 /* interface IDXTBindHost */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXTBindHost;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("D26BCE55-E9DC-11d1-9066-00C04FD9189D")
     IDXTBindHost : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE SetBindHost( 
+        virtual HRESULT STDMETHODCALLTYPE SetBindHost(
             /* [in] */ IBindHost *pBindHost) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXTBindHostVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXTBindHost * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXTBindHost * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXTBindHost * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetBindHost )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetBindHost )(
             IDXTBindHost * This,
             /* [in] */ IBindHost *pBindHost);
-        
+
         END_INTERFACE
     } IDXTBindHostVtbl;
 
@@ -1291,7 +1293,7 @@ EXTERN_C const IID IID_IDXTBindHost;
         CONST_VTBL struct IDXTBindHostVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -1316,7 +1318,7 @@ EXTERN_C const IID IID_IDXTBindHost;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXTBindHost_SetBindHost_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTBindHost_SetBindHost_Proxy(
     IDXTBindHost * This,
     /* [in] */ IBindHost *pBindHost);
 
@@ -1333,15 +1335,15 @@ void __RPC_STUB IDXTBindHost_SetBindHost_Stub(
 
 
 /* interface __MIDL_itf_dxtrans_0264 */
-/* [local] */ 
+/* [local] */
 
-typedef void __stdcall __stdcall DXTASKPROC( 
+typedef void __stdcall __stdcall DXTASKPROC(
     void *pTaskData,
     BOOL *pbContinueProcessing);
 
 typedef DXTASKPROC *PFNDXTASKPROC;
 
-typedef void __stdcall __stdcall DXAPCPROC( 
+typedef void __stdcall __stdcall DXAPCPROC(
     DWORD dwData);
 
 typedef DXAPCPROC *PFNDXAPCPROC;
@@ -1375,106 +1377,106 @@ extern RPC_IF_HANDLE __MIDL_itf_dxtrans_0264_v0_0_s_ifspec;
 #define __IDXTaskManager_INTERFACE_DEFINED__
 
 /* interface IDXTaskManager */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXTaskManager;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("254DBBC1-F922-11d0-883A-3C8B00C10000")
     IDXTaskManager : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE QueryNumProcessors( 
+        virtual HRESULT STDMETHODCALLTYPE QueryNumProcessors(
             /* [out] */ ULONG *pulNumProc) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE SetThreadPoolSize( 
+
+        virtual HRESULT STDMETHODCALLTYPE SetThreadPoolSize(
             /* [in] */ ULONG ulNumThreads) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetThreadPoolSize( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetThreadPoolSize(
             /* [out] */ ULONG *pulNumThreads) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE SetConcurrencyLimit( 
+
+        virtual HRESULT STDMETHODCALLTYPE SetConcurrencyLimit(
             /* [in] */ ULONG ulNumThreads) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetConcurrencyLimit( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetConcurrencyLimit(
             /* [out] */ ULONG *pulNumThreads) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE ScheduleTasks( 
+
+        virtual HRESULT STDMETHODCALLTYPE ScheduleTasks(
             /* [in] */ DXTMTASKINFO TaskInfo[  ],
             /* [in] */ HANDLE Events[  ],
             /* [out] */ DWORD TaskIDs[  ],
             /* [in] */ ULONG ulNumTasks,
             /* [in] */ ULONG ulWaitPeriod) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE TerminateTasks( 
+
+        virtual HRESULT STDMETHODCALLTYPE TerminateTasks(
             /* [in] */ DWORD TaskIDs[  ],
             /* [in] */ ULONG ulCount,
             /* [in] */ ULONG ulTimeOut) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE TerminateRequest( 
+
+        virtual HRESULT STDMETHODCALLTYPE TerminateRequest(
             /* [in] */ REFIID RequestID,
             /* [in] */ ULONG ulTimeOut) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXTaskManagerVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXTaskManager * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXTaskManager * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXTaskManager * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryNumProcessors )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryNumProcessors )(
             IDXTaskManager * This,
             /* [out] */ ULONG *pulNumProc);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetThreadPoolSize )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetThreadPoolSize )(
             IDXTaskManager * This,
             /* [in] */ ULONG ulNumThreads);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetThreadPoolSize )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetThreadPoolSize )(
             IDXTaskManager * This,
             /* [out] */ ULONG *pulNumThreads);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetConcurrencyLimit )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetConcurrencyLimit )(
             IDXTaskManager * This,
             /* [in] */ ULONG ulNumThreads);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetConcurrencyLimit )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetConcurrencyLimit )(
             IDXTaskManager * This,
             /* [out] */ ULONG *pulNumThreads);
-        
-        HRESULT ( STDMETHODCALLTYPE *ScheduleTasks )( 
+
+        HRESULT ( STDMETHODCALLTYPE *ScheduleTasks )(
             IDXTaskManager * This,
             /* [in] */ DXTMTASKINFO TaskInfo[  ],
             /* [in] */ HANDLE Events[  ],
             /* [out] */ DWORD TaskIDs[  ],
             /* [in] */ ULONG ulNumTasks,
             /* [in] */ ULONG ulWaitPeriod);
-        
-        HRESULT ( STDMETHODCALLTYPE *TerminateTasks )( 
+
+        HRESULT ( STDMETHODCALLTYPE *TerminateTasks )(
             IDXTaskManager * This,
             /* [in] */ DWORD TaskIDs[  ],
             /* [in] */ ULONG ulCount,
             /* [in] */ ULONG ulTimeOut);
-        
-        HRESULT ( STDMETHODCALLTYPE *TerminateRequest )( 
+
+        HRESULT ( STDMETHODCALLTYPE *TerminateRequest )(
             IDXTaskManager * This,
             /* [in] */ REFIID RequestID,
             /* [in] */ ULONG ulTimeOut);
-        
+
         END_INTERFACE
     } IDXTaskManagerVtbl;
 
@@ -1483,7 +1485,7 @@ EXTERN_C const IID IID_IDXTaskManager;
         CONST_VTBL struct IDXTaskManagerVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -1529,7 +1531,7 @@ EXTERN_C const IID IID_IDXTaskManager;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXTaskManager_QueryNumProcessors_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTaskManager_QueryNumProcessors_Proxy(
     IDXTaskManager * This,
     /* [out] */ ULONG *pulNumProc);
 
@@ -1541,7 +1543,7 @@ void __RPC_STUB IDXTaskManager_QueryNumProcessors_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTaskManager_SetThreadPoolSize_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTaskManager_SetThreadPoolSize_Proxy(
     IDXTaskManager * This,
     /* [in] */ ULONG ulNumThreads);
 
@@ -1553,7 +1555,7 @@ void __RPC_STUB IDXTaskManager_SetThreadPoolSize_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTaskManager_GetThreadPoolSize_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTaskManager_GetThreadPoolSize_Proxy(
     IDXTaskManager * This,
     /* [out] */ ULONG *pulNumThreads);
 
@@ -1565,7 +1567,7 @@ void __RPC_STUB IDXTaskManager_GetThreadPoolSize_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTaskManager_SetConcurrencyLimit_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTaskManager_SetConcurrencyLimit_Proxy(
     IDXTaskManager * This,
     /* [in] */ ULONG ulNumThreads);
 
@@ -1577,7 +1579,7 @@ void __RPC_STUB IDXTaskManager_SetConcurrencyLimit_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTaskManager_GetConcurrencyLimit_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTaskManager_GetConcurrencyLimit_Proxy(
     IDXTaskManager * This,
     /* [out] */ ULONG *pulNumThreads);
 
@@ -1589,7 +1591,7 @@ void __RPC_STUB IDXTaskManager_GetConcurrencyLimit_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTaskManager_ScheduleTasks_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTaskManager_ScheduleTasks_Proxy(
     IDXTaskManager * This,
     /* [in] */ DXTMTASKINFO TaskInfo[  ],
     /* [in] */ HANDLE Events[  ],
@@ -1605,7 +1607,7 @@ void __RPC_STUB IDXTaskManager_ScheduleTasks_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTaskManager_TerminateTasks_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTaskManager_TerminateTasks_Proxy(
     IDXTaskManager * This,
     /* [in] */ DWORD TaskIDs[  ],
     /* [in] */ ULONG ulCount,
@@ -1619,7 +1621,7 @@ void __RPC_STUB IDXTaskManager_TerminateTasks_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTaskManager_TerminateRequest_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTaskManager_TerminateRequest_Proxy(
     IDXTaskManager * This,
     /* [in] */ REFIID RequestID,
     /* [in] */ ULONG ulTimeOut);
@@ -1637,7 +1639,7 @@ void __RPC_STUB IDXTaskManager_TerminateRequest_Stub(
 
 
 /* interface __MIDL_itf_dxtrans_0265 */
-/* [local] */ 
+/* [local] */
 
 #ifdef __cplusplus
 /////////////////////////////////////////////////////
@@ -1725,7 +1727,7 @@ typedef struct DXPMSAMPLE
     } 	DXPMSAMPLE;
 
 #endif // !__cplusplus
-typedef 
+typedef
 enum DXRUNTYPE
     {	DXRUNTYPE_CLEAR	= 0,
 	DXRUNTYPE_OPAQUE	= 1,
@@ -1748,13 +1750,13 @@ typedef struct DXRUNINFO
     ULONG   Type  : 2;   // Type
     ULONG   Count : 30;  // Number of samples in run
 } DXRUNINFO;
-typedef 
+typedef
 enum DXSFCREATE
     {	DXSF_FORMAT_IS_CLSID	= 1L << 0,
 	DXSF_NO_LAZY_DDRAW_LOCK	= 1L << 1
     } 	DXSFCREATE;
 
-typedef 
+typedef
 enum DXBLTOPTIONS
     {	DXBOF_DO_OVER	= 1L << 0,
 	DXBOF_DITHER	= 1L << 1
@@ -1769,18 +1771,18 @@ extern RPC_IF_HANDLE __MIDL_itf_dxtrans_0265_v0_0_s_ifspec;
 #define __IDXSurfaceFactory_INTERFACE_DEFINED__
 
 /* interface IDXSurfaceFactory */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXSurfaceFactory;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("144946F5-C4D4-11d1-81D1-0000F87557DB")
     IDXSurfaceFactory : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE CreateSurface( 
+        virtual HRESULT STDMETHODCALLTYPE CreateSurface(
             /* [in] */ IUnknown *pDirectDraw,
             /* [in] */ const DDSURFACEDESC *pDDSurfaceDesc,
             /* [in] */ const GUID *pFormatID,
@@ -1789,72 +1791,72 @@ EXTERN_C const IID IID_IDXSurfaceFactory;
             /* [in] */ IUnknown *punkOuter,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppDXSurface) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE CreateFromDDSurface( 
+
+        virtual HRESULT STDMETHODCALLTYPE CreateFromDDSurface(
             /* [in] */ IUnknown *pDDrawSurface,
             /* [in] */ const GUID *pFormatID,
             /* [in] */ DWORD dwFlags,
             /* [in] */ IUnknown *punkOuter,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppDXSurface) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE LoadImage( 
+
+        virtual HRESULT STDMETHODCALLTYPE LoadImage(
             /* [in] */ const LPWSTR pszFileName,
             /* [in] */ IUnknown *pDirectDraw,
             /* [in] */ const DDSURFACEDESC *pDDSurfaceDesc,
             /* [in] */ const GUID *pFormatID,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppDXSurface) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE LoadImageFromStream( 
+
+        virtual HRESULT STDMETHODCALLTYPE LoadImageFromStream(
             /* [in] */ IStream *pStream,
             /* [in] */ IUnknown *pDirectDraw,
             /* [in] */ const DDSURFACEDESC *pDDSurfaceDesc,
             /* [in] */ const GUID *pFormatID,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppDXSurface) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE CopySurfaceToNewFormat( 
+
+        virtual HRESULT STDMETHODCALLTYPE CopySurfaceToNewFormat(
             /* [in] */ IDXSurface *pSrc,
             /* [in] */ IUnknown *pDirectDraw,
             /* [in] */ const DDSURFACEDESC *pDDSurfaceDesc,
             /* [in] */ const GUID *pDestFormatID,
             /* [out] */ IDXSurface **ppNewSurface) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE CreateD3DRMTexture( 
+
+        virtual HRESULT STDMETHODCALLTYPE CreateD3DRMTexture(
             /* [in] */ IDXSurface *pSrc,
             /* [in] */ IUnknown *pDirectDraw,
             /* [in] */ IUnknown *pD3DRM3,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppTexture3) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE BitBlt( 
+
+        virtual HRESULT STDMETHODCALLTYPE BitBlt(
             /* [in] */ IDXSurface *pDest,
             /* [in] */ const DXVEC *pPlacement,
             /* [in] */ IDXSurface *pSrc,
             /* [in] */ const DXBNDS *pClipBounds,
             /* [in] */ DWORD dwFlags) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXSurfaceFactoryVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXSurfaceFactory * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXSurfaceFactory * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXSurfaceFactory * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *CreateSurface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *CreateSurface )(
             IDXSurfaceFactory * This,
             /* [in] */ IUnknown *pDirectDraw,
             /* [in] */ const DDSURFACEDESC *pDDSurfaceDesc,
@@ -1864,8 +1866,8 @@ EXTERN_C const IID IID_IDXSurfaceFactory;
             /* [in] */ IUnknown *punkOuter,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppDXSurface);
-        
-        HRESULT ( STDMETHODCALLTYPE *CreateFromDDSurface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *CreateFromDDSurface )(
             IDXSurfaceFactory * This,
             /* [in] */ IUnknown *pDDrawSurface,
             /* [in] */ const GUID *pFormatID,
@@ -1873,8 +1875,8 @@ EXTERN_C const IID IID_IDXSurfaceFactory;
             /* [in] */ IUnknown *punkOuter,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppDXSurface);
-        
-        HRESULT ( STDMETHODCALLTYPE *LoadImage )( 
+
+        HRESULT ( STDMETHODCALLTYPE *LoadImage )(
             IDXSurfaceFactory * This,
             /* [in] */ const LPWSTR pszFileName,
             /* [in] */ IUnknown *pDirectDraw,
@@ -1882,8 +1884,8 @@ EXTERN_C const IID IID_IDXSurfaceFactory;
             /* [in] */ const GUID *pFormatID,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppDXSurface);
-        
-        HRESULT ( STDMETHODCALLTYPE *LoadImageFromStream )( 
+
+        HRESULT ( STDMETHODCALLTYPE *LoadImageFromStream )(
             IDXSurfaceFactory * This,
             /* [in] */ IStream *pStream,
             /* [in] */ IUnknown *pDirectDraw,
@@ -1891,31 +1893,31 @@ EXTERN_C const IID IID_IDXSurfaceFactory;
             /* [in] */ const GUID *pFormatID,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppDXSurface);
-        
-        HRESULT ( STDMETHODCALLTYPE *CopySurfaceToNewFormat )( 
+
+        HRESULT ( STDMETHODCALLTYPE *CopySurfaceToNewFormat )(
             IDXSurfaceFactory * This,
             /* [in] */ IDXSurface *pSrc,
             /* [in] */ IUnknown *pDirectDraw,
             /* [in] */ const DDSURFACEDESC *pDDSurfaceDesc,
             /* [in] */ const GUID *pDestFormatID,
             /* [out] */ IDXSurface **ppNewSurface);
-        
-        HRESULT ( STDMETHODCALLTYPE *CreateD3DRMTexture )( 
+
+        HRESULT ( STDMETHODCALLTYPE *CreateD3DRMTexture )(
             IDXSurfaceFactory * This,
             /* [in] */ IDXSurface *pSrc,
             /* [in] */ IUnknown *pDirectDraw,
             /* [in] */ IUnknown *pD3DRM3,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppTexture3);
-        
-        HRESULT ( STDMETHODCALLTYPE *BitBlt )( 
+
+        HRESULT ( STDMETHODCALLTYPE *BitBlt )(
             IDXSurfaceFactory * This,
             /* [in] */ IDXSurface *pDest,
             /* [in] */ const DXVEC *pPlacement,
             /* [in] */ IDXSurface *pSrc,
             /* [in] */ const DXBNDS *pClipBounds,
             /* [in] */ DWORD dwFlags);
-        
+
         END_INTERFACE
     } IDXSurfaceFactoryVtbl;
 
@@ -1924,7 +1926,7 @@ EXTERN_C const IID IID_IDXSurfaceFactory;
         CONST_VTBL struct IDXSurfaceFactoryVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -1967,7 +1969,7 @@ EXTERN_C const IID IID_IDXSurfaceFactory;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceFactory_CreateSurface_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceFactory_CreateSurface_Proxy(
     IDXSurfaceFactory * This,
     /* [in] */ IUnknown *pDirectDraw,
     /* [in] */ const DDSURFACEDESC *pDDSurfaceDesc,
@@ -1986,7 +1988,7 @@ void __RPC_STUB IDXSurfaceFactory_CreateSurface_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceFactory_CreateFromDDSurface_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceFactory_CreateFromDDSurface_Proxy(
     IDXSurfaceFactory * This,
     /* [in] */ IUnknown *pDDrawSurface,
     /* [in] */ const GUID *pFormatID,
@@ -2003,7 +2005,7 @@ void __RPC_STUB IDXSurfaceFactory_CreateFromDDSurface_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceFactory_LoadImage_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceFactory_LoadImage_Proxy(
     IDXSurfaceFactory * This,
     /* [in] */ const LPWSTR pszFileName,
     /* [in] */ IUnknown *pDirectDraw,
@@ -2020,7 +2022,7 @@ void __RPC_STUB IDXSurfaceFactory_LoadImage_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceFactory_LoadImageFromStream_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceFactory_LoadImageFromStream_Proxy(
     IDXSurfaceFactory * This,
     /* [in] */ IStream *pStream,
     /* [in] */ IUnknown *pDirectDraw,
@@ -2037,7 +2039,7 @@ void __RPC_STUB IDXSurfaceFactory_LoadImageFromStream_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceFactory_CopySurfaceToNewFormat_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceFactory_CopySurfaceToNewFormat_Proxy(
     IDXSurfaceFactory * This,
     /* [in] */ IDXSurface *pSrc,
     /* [in] */ IUnknown *pDirectDraw,
@@ -2053,7 +2055,7 @@ void __RPC_STUB IDXSurfaceFactory_CopySurfaceToNewFormat_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceFactory_CreateD3DRMTexture_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceFactory_CreateD3DRMTexture_Proxy(
     IDXSurfaceFactory * This,
     /* [in] */ IDXSurface *pSrc,
     /* [in] */ IUnknown *pDirectDraw,
@@ -2069,7 +2071,7 @@ void __RPC_STUB IDXSurfaceFactory_CreateD3DRMTexture_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceFactory_BitBlt_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceFactory_BitBlt_Proxy(
     IDXSurfaceFactory * This,
     /* [in] */ IDXSurface *pDest,
     /* [in] */ const DXVEC *pPlacement,
@@ -2090,9 +2092,9 @@ void __RPC_STUB IDXSurfaceFactory_BitBlt_Stub(
 
 
 /* interface __MIDL_itf_dxtrans_0266 */
-/* [local] */ 
+/* [local] */
 
-typedef 
+typedef
 enum DXSURFMODCOMPOP
     {	DXSURFMOD_COMP_OVER	= 0,
 	DXSURFMOD_COMP_ALPHA_MASK	= 1,
@@ -2108,135 +2110,135 @@ extern RPC_IF_HANDLE __MIDL_itf_dxtrans_0266_v0_0_s_ifspec;
 #define __IDXSurfaceModifier_INTERFACE_DEFINED__
 
 /* interface IDXSurfaceModifier */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXSurfaceModifier;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("9EA3B637-C37D-11d1-905E-00C04FD9189D")
     IDXSurfaceModifier : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE SetFillColor( 
+        virtual HRESULT STDMETHODCALLTYPE SetFillColor(
             /* [in] */ DXSAMPLE Color) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetFillColor( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetFillColor(
             /* [out] */ DXSAMPLE *pColor) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE SetBounds( 
+
+        virtual HRESULT STDMETHODCALLTYPE SetBounds(
             /* [in] */ const DXBNDS *pBounds) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE SetBackground( 
+
+        virtual HRESULT STDMETHODCALLTYPE SetBackground(
             /* [in] */ IDXSurface *pSurface) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetBackground( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetBackground(
             /* [out] */ IDXSurface **ppSurface) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE SetCompositeOperation( 
+
+        virtual HRESULT STDMETHODCALLTYPE SetCompositeOperation(
             /* [in] */ DXSURFMODCOMPOP CompOp) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetCompositeOperation( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetCompositeOperation(
             /* [out] */ DXSURFMODCOMPOP *pCompOp) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE SetForeground( 
+
+        virtual HRESULT STDMETHODCALLTYPE SetForeground(
             /* [in] */ IDXSurface *pSurface,
             /* [in] */ BOOL bTile,
             /* [in] */ const POINT *pOrigin) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetForeground( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetForeground(
             /* [out] */ IDXSurface **ppSurface,
             /* [out] */ BOOL *pbTile,
             /* [out] */ POINT *pOrigin) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE SetOpacity( 
+
+        virtual HRESULT STDMETHODCALLTYPE SetOpacity(
             /* [in] */ float Opacity) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetOpacity( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetOpacity(
             /* [out] */ float *pOpacity) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE SetLookup( 
+
+        virtual HRESULT STDMETHODCALLTYPE SetLookup(
             /* [in] */ IDXLookupTable *pLookupTable) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetLookup( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetLookup(
             /* [out] */ IDXLookupTable **ppLookupTable) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXSurfaceModifierVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXSurfaceModifier * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXSurfaceModifier * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXSurfaceModifier * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetFillColor )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetFillColor )(
             IDXSurfaceModifier * This,
             /* [in] */ DXSAMPLE Color);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetFillColor )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetFillColor )(
             IDXSurfaceModifier * This,
             /* [out] */ DXSAMPLE *pColor);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetBounds )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetBounds )(
             IDXSurfaceModifier * This,
             /* [in] */ const DXBNDS *pBounds);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetBackground )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetBackground )(
             IDXSurfaceModifier * This,
             /* [in] */ IDXSurface *pSurface);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetBackground )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetBackground )(
             IDXSurfaceModifier * This,
             /* [out] */ IDXSurface **ppSurface);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetCompositeOperation )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetCompositeOperation )(
             IDXSurfaceModifier * This,
             /* [in] */ DXSURFMODCOMPOP CompOp);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetCompositeOperation )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetCompositeOperation )(
             IDXSurfaceModifier * This,
             /* [out] */ DXSURFMODCOMPOP *pCompOp);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetForeground )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetForeground )(
             IDXSurfaceModifier * This,
             /* [in] */ IDXSurface *pSurface,
             /* [in] */ BOOL bTile,
             /* [in] */ const POINT *pOrigin);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetForeground )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetForeground )(
             IDXSurfaceModifier * This,
             /* [out] */ IDXSurface **ppSurface,
             /* [out] */ BOOL *pbTile,
             /* [out] */ POINT *pOrigin);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetOpacity )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetOpacity )(
             IDXSurfaceModifier * This,
             /* [in] */ float Opacity);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetOpacity )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetOpacity )(
             IDXSurfaceModifier * This,
             /* [out] */ float *pOpacity);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetLookup )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetLookup )(
             IDXSurfaceModifier * This,
             /* [in] */ IDXLookupTable *pLookupTable);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetLookup )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetLookup )(
             IDXSurfaceModifier * This,
             /* [out] */ IDXLookupTable **ppLookupTable);
-        
+
         END_INTERFACE
     } IDXSurfaceModifierVtbl;
 
@@ -2245,7 +2247,7 @@ EXTERN_C const IID IID_IDXSurfaceModifier;
         CONST_VTBL struct IDXSurfaceModifierVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -2306,7 +2308,7 @@ EXTERN_C const IID IID_IDXSurfaceModifier;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_SetFillColor_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_SetFillColor_Proxy(
     IDXSurfaceModifier * This,
     /* [in] */ DXSAMPLE Color);
 
@@ -2318,7 +2320,7 @@ void __RPC_STUB IDXSurfaceModifier_SetFillColor_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_GetFillColor_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_GetFillColor_Proxy(
     IDXSurfaceModifier * This,
     /* [out] */ DXSAMPLE *pColor);
 
@@ -2330,7 +2332,7 @@ void __RPC_STUB IDXSurfaceModifier_GetFillColor_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_SetBounds_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_SetBounds_Proxy(
     IDXSurfaceModifier * This,
     /* [in] */ const DXBNDS *pBounds);
 
@@ -2342,7 +2344,7 @@ void __RPC_STUB IDXSurfaceModifier_SetBounds_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_SetBackground_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_SetBackground_Proxy(
     IDXSurfaceModifier * This,
     /* [in] */ IDXSurface *pSurface);
 
@@ -2354,7 +2356,7 @@ void __RPC_STUB IDXSurfaceModifier_SetBackground_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_GetBackground_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_GetBackground_Proxy(
     IDXSurfaceModifier * This,
     /* [out] */ IDXSurface **ppSurface);
 
@@ -2366,7 +2368,7 @@ void __RPC_STUB IDXSurfaceModifier_GetBackground_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_SetCompositeOperation_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_SetCompositeOperation_Proxy(
     IDXSurfaceModifier * This,
     /* [in] */ DXSURFMODCOMPOP CompOp);
 
@@ -2378,7 +2380,7 @@ void __RPC_STUB IDXSurfaceModifier_SetCompositeOperation_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_GetCompositeOperation_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_GetCompositeOperation_Proxy(
     IDXSurfaceModifier * This,
     /* [out] */ DXSURFMODCOMPOP *pCompOp);
 
@@ -2390,7 +2392,7 @@ void __RPC_STUB IDXSurfaceModifier_GetCompositeOperation_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_SetForeground_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_SetForeground_Proxy(
     IDXSurfaceModifier * This,
     /* [in] */ IDXSurface *pSurface,
     /* [in] */ BOOL bTile,
@@ -2404,7 +2406,7 @@ void __RPC_STUB IDXSurfaceModifier_SetForeground_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_GetForeground_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_GetForeground_Proxy(
     IDXSurfaceModifier * This,
     /* [out] */ IDXSurface **ppSurface,
     /* [out] */ BOOL *pbTile,
@@ -2418,7 +2420,7 @@ void __RPC_STUB IDXSurfaceModifier_GetForeground_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_SetOpacity_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_SetOpacity_Proxy(
     IDXSurfaceModifier * This,
     /* [in] */ float Opacity);
 
@@ -2430,7 +2432,7 @@ void __RPC_STUB IDXSurfaceModifier_SetOpacity_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_GetOpacity_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_GetOpacity_Proxy(
     IDXSurfaceModifier * This,
     /* [out] */ float *pOpacity);
 
@@ -2442,7 +2444,7 @@ void __RPC_STUB IDXSurfaceModifier_GetOpacity_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_SetLookup_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_SetLookup_Proxy(
     IDXSurfaceModifier * This,
     /* [in] */ IDXLookupTable *pLookupTable);
 
@@ -2454,7 +2456,7 @@ void __RPC_STUB IDXSurfaceModifier_SetLookup_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_GetLookup_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceModifier_GetLookup_Proxy(
     IDXSurfaceModifier * This,
     /* [out] */ IDXLookupTable **ppLookupTable);
 
@@ -2471,9 +2473,9 @@ void __RPC_STUB IDXSurfaceModifier_GetLookup_Stub(
 
 
 /* interface __MIDL_itf_dxtrans_0267 */
-/* [local] */ 
+/* [local] */
 
-typedef 
+typedef
 enum DXSAMPLEFORMATENUM
     {	DXPF_FLAGSMASK	= 0xffff0000,
 	DXPF_NONPREMULT	= 0x10000,
@@ -2502,7 +2504,7 @@ enum DXSAMPLEFORMATENUM
 	DXPF_RGB8_CK	= DXPF_RGB8 | DXPF_TRANSPARENCY
     } 	DXSAMPLEFORMATENUM;
 
-typedef 
+typedef
 enum DXLOCKSURF
     {	DXLOCKF_READ	= 0,
 	DXLOCKF_READWRITE	= 1 << 0,
@@ -2512,7 +2514,7 @@ enum DXLOCKSURF
 	DXLOCKF_VALIDFLAGS	= DXLOCKF_READWRITE | DXLOCKF_EXISTINGINFOONLY | DXLOCKF_WANTRUNINFO | DXLOCKF_NONPREMULT
     } 	DXLOCKSURF;
 
-typedef 
+typedef
 enum DXSURFSTATUS
     {	DXSURF_TRANSIENT	= 1 << 0,
 	DXSURF_READONLY	= 1 << 1,
@@ -2528,109 +2530,109 @@ extern RPC_IF_HANDLE __MIDL_itf_dxtrans_0267_v0_0_s_ifspec;
 #define __IDXSurface_INTERFACE_DEFINED__
 
 /* interface IDXSurface */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXSurface;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("B39FD73F-E139-11d1-9065-00C04FD9189D")
     IDXSurface : public IDXBaseObject
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE GetPixelFormat( 
+        virtual HRESULT STDMETHODCALLTYPE GetPixelFormat(
             /* [out] */ GUID *pFormatID,
             /* [out] */ DXSAMPLEFORMATENUM *pSampleFormatEnum) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetBounds( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetBounds(
             /* [out] */ DXBNDS *pBounds) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetStatusFlags( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetStatusFlags(
             /* [out] */ DWORD *pdwStatusFlags) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE SetStatusFlags( 
+
+        virtual HRESULT STDMETHODCALLTYPE SetStatusFlags(
             /* [in] */ DWORD dwStatusFlags) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE LockSurface( 
+
+        virtual HRESULT STDMETHODCALLTYPE LockSurface(
             /* [in] */ const DXBNDS *pBounds,
             /* [in] */ ULONG ulTimeOut,
             /* [in] */ DWORD dwFlags,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppPointer,
             /* [out] */ ULONG *pulGenerationId) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetDirectDrawSurface( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetDirectDrawSurface(
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppSurface) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetColorKey( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetColorKey(
             DXSAMPLE *pColorKey) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE SetColorKey( 
+
+        virtual HRESULT STDMETHODCALLTYPE SetColorKey(
             DXSAMPLE ColorKey) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE LockSurfaceDC( 
+
+        virtual HRESULT STDMETHODCALLTYPE LockSurfaceDC(
             /* [in] */ const DXBNDS *pBounds,
             /* [in] */ ULONG ulTimeOut,
             /* [in] */ DWORD dwFlags,
             /* [out] */ IDXDCLock **ppDCLock) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE SetAppData( 
+
+        virtual HRESULT STDMETHODCALLTYPE SetAppData(
             DWORD_PTR dwAppData) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetAppData( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetAppData(
             DWORD_PTR *pdwAppData) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXSurfaceVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXSurface * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXSurface * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXSurface * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetGenerationId )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetGenerationId )(
             IDXSurface * This,
             /* [out] */ ULONG *pID);
-        
-        HRESULT ( STDMETHODCALLTYPE *IncrementGenerationId )( 
+
+        HRESULT ( STDMETHODCALLTYPE *IncrementGenerationId )(
             IDXSurface * This,
             /* [in] */ BOOL bRefresh);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetObjectSize )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetObjectSize )(
             IDXSurface * This,
             /* [out] */ ULONG *pcbSize);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetPixelFormat )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetPixelFormat )(
             IDXSurface * This,
             /* [out] */ GUID *pFormatID,
             /* [out] */ DXSAMPLEFORMATENUM *pSampleFormatEnum);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetBounds )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetBounds )(
             IDXSurface * This,
             /* [out] */ DXBNDS *pBounds);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetStatusFlags )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetStatusFlags )(
             IDXSurface * This,
             /* [out] */ DWORD *pdwStatusFlags);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetStatusFlags )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetStatusFlags )(
             IDXSurface * This,
             /* [in] */ DWORD dwStatusFlags);
-        
-        HRESULT ( STDMETHODCALLTYPE *LockSurface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *LockSurface )(
             IDXSurface * This,
             /* [in] */ const DXBNDS *pBounds,
             /* [in] */ ULONG ulTimeOut,
@@ -2638,35 +2640,35 @@ EXTERN_C const IID IID_IDXSurface;
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppPointer,
             /* [out] */ ULONG *pulGenerationId);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetDirectDrawSurface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetDirectDrawSurface )(
             IDXSurface * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppSurface);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetColorKey )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetColorKey )(
             IDXSurface * This,
             DXSAMPLE *pColorKey);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetColorKey )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetColorKey )(
             IDXSurface * This,
             DXSAMPLE ColorKey);
-        
-        HRESULT ( STDMETHODCALLTYPE *LockSurfaceDC )( 
+
+        HRESULT ( STDMETHODCALLTYPE *LockSurfaceDC )(
             IDXSurface * This,
             /* [in] */ const DXBNDS *pBounds,
             /* [in] */ ULONG ulTimeOut,
             /* [in] */ DWORD dwFlags,
             /* [out] */ IDXDCLock **ppDCLock);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetAppData )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetAppData )(
             IDXSurface * This,
             DWORD_PTR dwAppData);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetAppData )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetAppData )(
             IDXSurface * This,
             DWORD_PTR *pdwAppData);
-        
+
         END_INTERFACE
     } IDXSurfaceVtbl;
 
@@ -2675,7 +2677,7 @@ EXTERN_C const IID IID_IDXSurface;
         CONST_VTBL struct IDXSurfaceVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -2740,7 +2742,7 @@ EXTERN_C const IID IID_IDXSurface;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXSurface_GetPixelFormat_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurface_GetPixelFormat_Proxy(
     IDXSurface * This,
     /* [out] */ GUID *pFormatID,
     /* [out] */ DXSAMPLEFORMATENUM *pSampleFormatEnum);
@@ -2753,7 +2755,7 @@ void __RPC_STUB IDXSurface_GetPixelFormat_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurface_GetBounds_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurface_GetBounds_Proxy(
     IDXSurface * This,
     /* [out] */ DXBNDS *pBounds);
 
@@ -2765,7 +2767,7 @@ void __RPC_STUB IDXSurface_GetBounds_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurface_GetStatusFlags_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurface_GetStatusFlags_Proxy(
     IDXSurface * This,
     /* [out] */ DWORD *pdwStatusFlags);
 
@@ -2777,7 +2779,7 @@ void __RPC_STUB IDXSurface_GetStatusFlags_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurface_SetStatusFlags_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurface_SetStatusFlags_Proxy(
     IDXSurface * This,
     /* [in] */ DWORD dwStatusFlags);
 
@@ -2789,7 +2791,7 @@ void __RPC_STUB IDXSurface_SetStatusFlags_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurface_LockSurface_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurface_LockSurface_Proxy(
     IDXSurface * This,
     /* [in] */ const DXBNDS *pBounds,
     /* [in] */ ULONG ulTimeOut,
@@ -2806,7 +2808,7 @@ void __RPC_STUB IDXSurface_LockSurface_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurface_GetDirectDrawSurface_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurface_GetDirectDrawSurface_Proxy(
     IDXSurface * This,
     /* [in] */ REFIID riid,
     /* [iid_is][out] */ void **ppSurface);
@@ -2819,7 +2821,7 @@ void __RPC_STUB IDXSurface_GetDirectDrawSurface_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurface_GetColorKey_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurface_GetColorKey_Proxy(
     IDXSurface * This,
     DXSAMPLE *pColorKey);
 
@@ -2831,7 +2833,7 @@ void __RPC_STUB IDXSurface_GetColorKey_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurface_SetColorKey_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurface_SetColorKey_Proxy(
     IDXSurface * This,
     DXSAMPLE ColorKey);
 
@@ -2843,7 +2845,7 @@ void __RPC_STUB IDXSurface_SetColorKey_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurface_LockSurfaceDC_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurface_LockSurfaceDC_Proxy(
     IDXSurface * This,
     /* [in] */ const DXBNDS *pBounds,
     /* [in] */ ULONG ulTimeOut,
@@ -2858,7 +2860,7 @@ void __RPC_STUB IDXSurface_LockSurfaceDC_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurface_SetAppData_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurface_SetAppData_Proxy(
     IDXSurface * This,
     DWORD_PTR dwAppData);
 
@@ -2870,7 +2872,7 @@ void __RPC_STUB IDXSurface_SetAppData_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXSurface_GetAppData_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurface_GetAppData_Proxy(
     IDXSurface * This,
     DWORD_PTR *pdwAppData);
 
@@ -2890,51 +2892,51 @@ void __RPC_STUB IDXSurface_GetAppData_Stub(
 #define __IDXSurfaceInit_INTERFACE_DEFINED__
 
 /* interface IDXSurfaceInit */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXSurfaceInit;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("9EA3B639-C37D-11d1-905E-00C04FD9189D")
     IDXSurfaceInit : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE InitSurface( 
+        virtual HRESULT STDMETHODCALLTYPE InitSurface(
             /* [in] */ IUnknown *pDirectDraw,
             /* [in] */ const DDSURFACEDESC *pDDSurfaceDesc,
             /* [in] */ const GUID *pFormatID,
             /* [in] */ const DXBNDS *pBounds,
             /* [in] */ DWORD dwFlags) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXSurfaceInitVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXSurfaceInit * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXSurfaceInit * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXSurfaceInit * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *InitSurface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *InitSurface )(
             IDXSurfaceInit * This,
             /* [in] */ IUnknown *pDirectDraw,
             /* [in] */ const DDSURFACEDESC *pDDSurfaceDesc,
             /* [in] */ const GUID *pFormatID,
             /* [in] */ const DXBNDS *pBounds,
             /* [in] */ DWORD dwFlags);
-        
+
         END_INTERFACE
     } IDXSurfaceInitVtbl;
 
@@ -2943,7 +2945,7 @@ EXTERN_C const IID IID_IDXSurfaceInit;
         CONST_VTBL struct IDXSurfaceInitVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -2968,7 +2970,7 @@ EXTERN_C const IID IID_IDXSurfaceInit;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXSurfaceInit_InitSurface_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXSurfaceInit_InitSurface_Proxy(
     IDXSurfaceInit * This,
     /* [in] */ IUnknown *pDirectDraw,
     /* [in] */ const DDSURFACEDESC *pDDSurfaceDesc,
@@ -2992,62 +2994,62 @@ void __RPC_STUB IDXSurfaceInit_InitSurface_Stub(
 #define __IDXARGBSurfaceInit_INTERFACE_DEFINED__
 
 /* interface IDXARGBSurfaceInit */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXARGBSurfaceInit;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("9EA3B63A-C37D-11d1-905E-00C04FD9189D")
     IDXARGBSurfaceInit : public IDXSurfaceInit
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE InitFromDDSurface( 
+        virtual HRESULT STDMETHODCALLTYPE InitFromDDSurface(
             /* [in] */ IUnknown *pDDrawSurface,
             /* [in] */ const GUID *pFormatID,
             /* [in] */ DWORD dwFlags) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE InitFromRawSurface( 
+
+        virtual HRESULT STDMETHODCALLTYPE InitFromRawSurface(
             /* [in] */ IDXRawSurface *pRawSurface) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXARGBSurfaceInitVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXARGBSurfaceInit * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXARGBSurfaceInit * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXARGBSurfaceInit * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *InitSurface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *InitSurface )(
             IDXARGBSurfaceInit * This,
             /* [in] */ IUnknown *pDirectDraw,
             /* [in] */ const DDSURFACEDESC *pDDSurfaceDesc,
             /* [in] */ const GUID *pFormatID,
             /* [in] */ const DXBNDS *pBounds,
             /* [in] */ DWORD dwFlags);
-        
-        HRESULT ( STDMETHODCALLTYPE *InitFromDDSurface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *InitFromDDSurface )(
             IDXARGBSurfaceInit * This,
             /* [in] */ IUnknown *pDDrawSurface,
             /* [in] */ const GUID *pFormatID,
             /* [in] */ DWORD dwFlags);
-        
-        HRESULT ( STDMETHODCALLTYPE *InitFromRawSurface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *InitFromRawSurface )(
             IDXARGBSurfaceInit * This,
             /* [in] */ IDXRawSurface *pRawSurface);
-        
+
         END_INTERFACE
     } IDXARGBSurfaceInitVtbl;
 
@@ -3056,7 +3058,7 @@ EXTERN_C const IID IID_IDXARGBSurfaceInit;
         CONST_VTBL struct IDXARGBSurfaceInitVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -3088,7 +3090,7 @@ EXTERN_C const IID IID_IDXARGBSurfaceInit;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXARGBSurfaceInit_InitFromDDSurface_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXARGBSurfaceInit_InitFromDDSurface_Proxy(
     IDXARGBSurfaceInit * This,
     /* [in] */ IUnknown *pDDrawSurface,
     /* [in] */ const GUID *pFormatID,
@@ -3102,7 +3104,7 @@ void __RPC_STUB IDXARGBSurfaceInit_InitFromDDSurface_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXARGBSurfaceInit_InitFromRawSurface_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXARGBSurfaceInit_InitFromRawSurface_Proxy(
     IDXARGBSurfaceInit * This,
     /* [in] */ IDXRawSurface *pRawSurface);
 
@@ -3119,7 +3121,7 @@ void __RPC_STUB IDXARGBSurfaceInit_InitFromRawSurface_Stub(
 
 
 /* interface __MIDL_itf_dxtrans_0270 */
-/* [local] */ 
+/* [local] */
 
 typedef struct tagDXNATIVETYPEINFO
     {
@@ -3152,113 +3154,113 @@ extern RPC_IF_HANDLE __MIDL_itf_dxtrans_0270_v0_0_s_ifspec;
 #define __IDXARGBReadPtr_INTERFACE_DEFINED__
 
 /* interface IDXARGBReadPtr */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXARGBReadPtr;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("EAAAC2D6-C290-11d1-905D-00C04FD9189D")
     IDXARGBReadPtr : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE GetSurface( 
+        virtual HRESULT STDMETHODCALLTYPE GetSurface(
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppSurface) = 0;
-        
-        virtual DXSAMPLEFORMATENUM STDMETHODCALLTYPE GetNativeType( 
+
+        virtual DXSAMPLEFORMATENUM STDMETHODCALLTYPE GetNativeType(
             /* [out] */ DXNATIVETYPEINFO *pInfo) = 0;
-        
-        virtual void STDMETHODCALLTYPE Move( 
+
+        virtual void STDMETHODCALLTYPE Move(
             /* [in] */ long cSamples) = 0;
-        
-        virtual void STDMETHODCALLTYPE MoveToRow( 
+
+        virtual void STDMETHODCALLTYPE MoveToRow(
             /* [in] */ ULONG y) = 0;
-        
-        virtual void STDMETHODCALLTYPE MoveToXY( 
+
+        virtual void STDMETHODCALLTYPE MoveToXY(
             /* [in] */ ULONG x,
             /* [in] */ ULONG y) = 0;
-        
-        virtual ULONG STDMETHODCALLTYPE MoveAndGetRunInfo( 
+
+        virtual ULONG STDMETHODCALLTYPE MoveAndGetRunInfo(
             /* [in] */ ULONG Row,
             /* [out] */ const DXRUNINFO **ppInfo) = 0;
-        
-        virtual DXSAMPLE *STDMETHODCALLTYPE Unpack( 
+
+        virtual DXSAMPLE *STDMETHODCALLTYPE Unpack(
             /* [in] */ DXSAMPLE *pSamples,
             /* [in] */ ULONG cSamples,
             /* [in] */ BOOL bMove) = 0;
-        
-        virtual DXPMSAMPLE *STDMETHODCALLTYPE UnpackPremult( 
+
+        virtual DXPMSAMPLE *STDMETHODCALLTYPE UnpackPremult(
             /* [in] */ DXPMSAMPLE *pSamples,
             /* [in] */ ULONG cSamples,
             /* [in] */ BOOL bMove) = 0;
-        
-        virtual void STDMETHODCALLTYPE UnpackRect( 
+
+        virtual void STDMETHODCALLTYPE UnpackRect(
             /* [in] */ const DXPACKEDRECTDESC *pRectDesc) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXARGBReadPtrVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXARGBReadPtr * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXARGBReadPtr * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXARGBReadPtr * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetSurface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetSurface )(
             IDXARGBReadPtr * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppSurface);
-        
-        DXSAMPLEFORMATENUM ( STDMETHODCALLTYPE *GetNativeType )( 
+
+        DXSAMPLEFORMATENUM ( STDMETHODCALLTYPE *GetNativeType )(
             IDXARGBReadPtr * This,
             /* [out] */ DXNATIVETYPEINFO *pInfo);
-        
-        void ( STDMETHODCALLTYPE *Move )( 
+
+        void ( STDMETHODCALLTYPE *Move )(
             IDXARGBReadPtr * This,
             /* [in] */ long cSamples);
-        
-        void ( STDMETHODCALLTYPE *MoveToRow )( 
+
+        void ( STDMETHODCALLTYPE *MoveToRow )(
             IDXARGBReadPtr * This,
             /* [in] */ ULONG y);
-        
-        void ( STDMETHODCALLTYPE *MoveToXY )( 
+
+        void ( STDMETHODCALLTYPE *MoveToXY )(
             IDXARGBReadPtr * This,
             /* [in] */ ULONG x,
             /* [in] */ ULONG y);
-        
-        ULONG ( STDMETHODCALLTYPE *MoveAndGetRunInfo )( 
+
+        ULONG ( STDMETHODCALLTYPE *MoveAndGetRunInfo )(
             IDXARGBReadPtr * This,
             /* [in] */ ULONG Row,
             /* [out] */ const DXRUNINFO **ppInfo);
-        
-        DXSAMPLE *( STDMETHODCALLTYPE *Unpack )( 
+
+        DXSAMPLE *( STDMETHODCALLTYPE *Unpack )(
             IDXARGBReadPtr * This,
             /* [in] */ DXSAMPLE *pSamples,
             /* [in] */ ULONG cSamples,
             /* [in] */ BOOL bMove);
-        
-        DXPMSAMPLE *( STDMETHODCALLTYPE *UnpackPremult )( 
+
+        DXPMSAMPLE *( STDMETHODCALLTYPE *UnpackPremult )(
             IDXARGBReadPtr * This,
             /* [in] */ DXPMSAMPLE *pSamples,
             /* [in] */ ULONG cSamples,
             /* [in] */ BOOL bMove);
-        
-        void ( STDMETHODCALLTYPE *UnpackRect )( 
+
+        void ( STDMETHODCALLTYPE *UnpackRect )(
             IDXARGBReadPtr * This,
             /* [in] */ const DXPACKEDRECTDESC *pRectDesc);
-        
+
         END_INTERFACE
     } IDXARGBReadPtrVtbl;
 
@@ -3267,7 +3269,7 @@ EXTERN_C const IID IID_IDXARGBReadPtr;
         CONST_VTBL struct IDXARGBReadPtrVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -3316,7 +3318,7 @@ EXTERN_C const IID IID_IDXARGBReadPtr;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXARGBReadPtr_GetSurface_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXARGBReadPtr_GetSurface_Proxy(
     IDXARGBReadPtr * This,
     /* [in] */ REFIID riid,
     /* [iid_is][out] */ void **ppSurface);
@@ -3329,7 +3331,7 @@ void __RPC_STUB IDXARGBReadPtr_GetSurface_Stub(
     DWORD *_pdwStubPhase);
 
 
-DXSAMPLEFORMATENUM STDMETHODCALLTYPE IDXARGBReadPtr_GetNativeType_Proxy( 
+DXSAMPLEFORMATENUM STDMETHODCALLTYPE IDXARGBReadPtr_GetNativeType_Proxy(
     IDXARGBReadPtr * This,
     /* [out] */ DXNATIVETYPEINFO *pInfo);
 
@@ -3341,7 +3343,7 @@ void __RPC_STUB IDXARGBReadPtr_GetNativeType_Stub(
     DWORD *_pdwStubPhase);
 
 
-void STDMETHODCALLTYPE IDXARGBReadPtr_Move_Proxy( 
+void STDMETHODCALLTYPE IDXARGBReadPtr_Move_Proxy(
     IDXARGBReadPtr * This,
     /* [in] */ long cSamples);
 
@@ -3353,7 +3355,7 @@ void __RPC_STUB IDXARGBReadPtr_Move_Stub(
     DWORD *_pdwStubPhase);
 
 
-void STDMETHODCALLTYPE IDXARGBReadPtr_MoveToRow_Proxy( 
+void STDMETHODCALLTYPE IDXARGBReadPtr_MoveToRow_Proxy(
     IDXARGBReadPtr * This,
     /* [in] */ ULONG y);
 
@@ -3365,7 +3367,7 @@ void __RPC_STUB IDXARGBReadPtr_MoveToRow_Stub(
     DWORD *_pdwStubPhase);
 
 
-void STDMETHODCALLTYPE IDXARGBReadPtr_MoveToXY_Proxy( 
+void STDMETHODCALLTYPE IDXARGBReadPtr_MoveToXY_Proxy(
     IDXARGBReadPtr * This,
     /* [in] */ ULONG x,
     /* [in] */ ULONG y);
@@ -3378,7 +3380,7 @@ void __RPC_STUB IDXARGBReadPtr_MoveToXY_Stub(
     DWORD *_pdwStubPhase);
 
 
-ULONG STDMETHODCALLTYPE IDXARGBReadPtr_MoveAndGetRunInfo_Proxy( 
+ULONG STDMETHODCALLTYPE IDXARGBReadPtr_MoveAndGetRunInfo_Proxy(
     IDXARGBReadPtr * This,
     /* [in] */ ULONG Row,
     /* [out] */ const DXRUNINFO **ppInfo);
@@ -3391,7 +3393,7 @@ void __RPC_STUB IDXARGBReadPtr_MoveAndGetRunInfo_Stub(
     DWORD *_pdwStubPhase);
 
 
-DXSAMPLE *STDMETHODCALLTYPE IDXARGBReadPtr_Unpack_Proxy( 
+DXSAMPLE *STDMETHODCALLTYPE IDXARGBReadPtr_Unpack_Proxy(
     IDXARGBReadPtr * This,
     /* [in] */ DXSAMPLE *pSamples,
     /* [in] */ ULONG cSamples,
@@ -3405,7 +3407,7 @@ void __RPC_STUB IDXARGBReadPtr_Unpack_Stub(
     DWORD *_pdwStubPhase);
 
 
-DXPMSAMPLE *STDMETHODCALLTYPE IDXARGBReadPtr_UnpackPremult_Proxy( 
+DXPMSAMPLE *STDMETHODCALLTYPE IDXARGBReadPtr_UnpackPremult_Proxy(
     IDXARGBReadPtr * This,
     /* [in] */ DXPMSAMPLE *pSamples,
     /* [in] */ ULONG cSamples,
@@ -3419,7 +3421,7 @@ void __RPC_STUB IDXARGBReadPtr_UnpackPremult_Stub(
     DWORD *_pdwStubPhase);
 
 
-void STDMETHODCALLTYPE IDXARGBReadPtr_UnpackRect_Proxy( 
+void STDMETHODCALLTYPE IDXARGBReadPtr_UnpackRect_Proxy(
     IDXARGBReadPtr * This,
     /* [in] */ const DXPACKEDRECTDESC *pRectDesc);
 
@@ -3439,174 +3441,174 @@ void __RPC_STUB IDXARGBReadPtr_UnpackRect_Stub(
 #define __IDXARGBReadWritePtr_INTERFACE_DEFINED__
 
 /* interface IDXARGBReadWritePtr */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXARGBReadWritePtr;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("EAAAC2D7-C290-11d1-905D-00C04FD9189D")
     IDXARGBReadWritePtr : public IDXARGBReadPtr
     {
     public:
-        virtual void STDMETHODCALLTYPE PackAndMove( 
+        virtual void STDMETHODCALLTYPE PackAndMove(
             /* [in] */ const DXSAMPLE *pSamples,
             /* [in] */ ULONG cSamples) = 0;
-        
-        virtual void STDMETHODCALLTYPE PackPremultAndMove( 
+
+        virtual void STDMETHODCALLTYPE PackPremultAndMove(
             /* [in] */ const DXPMSAMPLE *pSamples,
             /* [in] */ ULONG cSamples) = 0;
-        
-        virtual void STDMETHODCALLTYPE PackRect( 
+
+        virtual void STDMETHODCALLTYPE PackRect(
             /* [in] */ const DXPACKEDRECTDESC *pRectDesc) = 0;
-        
-        virtual void STDMETHODCALLTYPE CopyAndMoveBoth( 
+
+        virtual void STDMETHODCALLTYPE CopyAndMoveBoth(
             /* [in] */ DXBASESAMPLE *pScratchBuffer,
             /* [in] */ IDXARGBReadPtr *pSrc,
             /* [in] */ ULONG cSamples,
             /* [in] */ BOOL bIsOpaque) = 0;
-        
-        virtual void STDMETHODCALLTYPE CopyRect( 
+
+        virtual void STDMETHODCALLTYPE CopyRect(
             /* [in] */ DXBASESAMPLE *pScratchBuffer,
             /* [in] */ const RECT *pDestRect,
             /* [in] */ IDXARGBReadPtr *pSrc,
             /* [in] */ const POINT *pSrcOrigin,
             /* [in] */ BOOL bIsOpaque) = 0;
-        
-        virtual void STDMETHODCALLTYPE FillAndMove( 
+
+        virtual void STDMETHODCALLTYPE FillAndMove(
             /* [in] */ DXBASESAMPLE *pScratchBuffer,
             /* [in] */ DXPMSAMPLE SampVal,
             /* [in] */ ULONG cSamples,
             /* [in] */ BOOL bDoOver) = 0;
-        
-        virtual void STDMETHODCALLTYPE FillRect( 
+
+        virtual void STDMETHODCALLTYPE FillRect(
             /* [in] */ const RECT *pRect,
             /* [in] */ DXPMSAMPLE SampVal,
             /* [in] */ BOOL bDoOver) = 0;
-        
-        virtual void STDMETHODCALLTYPE OverSample( 
+
+        virtual void STDMETHODCALLTYPE OverSample(
             /* [in] */ const DXOVERSAMPLEDESC *pOverDesc) = 0;
-        
-        virtual void STDMETHODCALLTYPE OverArrayAndMove( 
+
+        virtual void STDMETHODCALLTYPE OverArrayAndMove(
             /* [in] */ DXBASESAMPLE *pScratchBuffer,
             /* [in] */ const DXPMSAMPLE *pSrc,
             /* [in] */ ULONG cSamples) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXARGBReadWritePtrVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXARGBReadWritePtr * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXARGBReadWritePtr * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXARGBReadWritePtr * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetSurface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetSurface )(
             IDXARGBReadWritePtr * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppSurface);
-        
-        DXSAMPLEFORMATENUM ( STDMETHODCALLTYPE *GetNativeType )( 
+
+        DXSAMPLEFORMATENUM ( STDMETHODCALLTYPE *GetNativeType )(
             IDXARGBReadWritePtr * This,
             /* [out] */ DXNATIVETYPEINFO *pInfo);
-        
-        void ( STDMETHODCALLTYPE *Move )( 
+
+        void ( STDMETHODCALLTYPE *Move )(
             IDXARGBReadWritePtr * This,
             /* [in] */ long cSamples);
-        
-        void ( STDMETHODCALLTYPE *MoveToRow )( 
+
+        void ( STDMETHODCALLTYPE *MoveToRow )(
             IDXARGBReadWritePtr * This,
             /* [in] */ ULONG y);
-        
-        void ( STDMETHODCALLTYPE *MoveToXY )( 
+
+        void ( STDMETHODCALLTYPE *MoveToXY )(
             IDXARGBReadWritePtr * This,
             /* [in] */ ULONG x,
             /* [in] */ ULONG y);
-        
-        ULONG ( STDMETHODCALLTYPE *MoveAndGetRunInfo )( 
+
+        ULONG ( STDMETHODCALLTYPE *MoveAndGetRunInfo )(
             IDXARGBReadWritePtr * This,
             /* [in] */ ULONG Row,
             /* [out] */ const DXRUNINFO **ppInfo);
-        
-        DXSAMPLE *( STDMETHODCALLTYPE *Unpack )( 
+
+        DXSAMPLE *( STDMETHODCALLTYPE *Unpack )(
             IDXARGBReadWritePtr * This,
             /* [in] */ DXSAMPLE *pSamples,
             /* [in] */ ULONG cSamples,
             /* [in] */ BOOL bMove);
-        
-        DXPMSAMPLE *( STDMETHODCALLTYPE *UnpackPremult )( 
+
+        DXPMSAMPLE *( STDMETHODCALLTYPE *UnpackPremult )(
             IDXARGBReadWritePtr * This,
             /* [in] */ DXPMSAMPLE *pSamples,
             /* [in] */ ULONG cSamples,
             /* [in] */ BOOL bMove);
-        
-        void ( STDMETHODCALLTYPE *UnpackRect )( 
+
+        void ( STDMETHODCALLTYPE *UnpackRect )(
             IDXARGBReadWritePtr * This,
             /* [in] */ const DXPACKEDRECTDESC *pRectDesc);
-        
-        void ( STDMETHODCALLTYPE *PackAndMove )( 
+
+        void ( STDMETHODCALLTYPE *PackAndMove )(
             IDXARGBReadWritePtr * This,
             /* [in] */ const DXSAMPLE *pSamples,
             /* [in] */ ULONG cSamples);
-        
-        void ( STDMETHODCALLTYPE *PackPremultAndMove )( 
+
+        void ( STDMETHODCALLTYPE *PackPremultAndMove )(
             IDXARGBReadWritePtr * This,
             /* [in] */ const DXPMSAMPLE *pSamples,
             /* [in] */ ULONG cSamples);
-        
-        void ( STDMETHODCALLTYPE *PackRect )( 
+
+        void ( STDMETHODCALLTYPE *PackRect )(
             IDXARGBReadWritePtr * This,
             /* [in] */ const DXPACKEDRECTDESC *pRectDesc);
-        
-        void ( STDMETHODCALLTYPE *CopyAndMoveBoth )( 
+
+        void ( STDMETHODCALLTYPE *CopyAndMoveBoth )(
             IDXARGBReadWritePtr * This,
             /* [in] */ DXBASESAMPLE *pScratchBuffer,
             /* [in] */ IDXARGBReadPtr *pSrc,
             /* [in] */ ULONG cSamples,
             /* [in] */ BOOL bIsOpaque);
-        
-        void ( STDMETHODCALLTYPE *CopyRect )( 
+
+        void ( STDMETHODCALLTYPE *CopyRect )(
             IDXARGBReadWritePtr * This,
             /* [in] */ DXBASESAMPLE *pScratchBuffer,
             /* [in] */ const RECT *pDestRect,
             /* [in] */ IDXARGBReadPtr *pSrc,
             /* [in] */ const POINT *pSrcOrigin,
             /* [in] */ BOOL bIsOpaque);
-        
-        void ( STDMETHODCALLTYPE *FillAndMove )( 
+
+        void ( STDMETHODCALLTYPE *FillAndMove )(
             IDXARGBReadWritePtr * This,
             /* [in] */ DXBASESAMPLE *pScratchBuffer,
             /* [in] */ DXPMSAMPLE SampVal,
             /* [in] */ ULONG cSamples,
             /* [in] */ BOOL bDoOver);
-        
-        void ( STDMETHODCALLTYPE *FillRect )( 
+
+        void ( STDMETHODCALLTYPE *FillRect )(
             IDXARGBReadWritePtr * This,
             /* [in] */ const RECT *pRect,
             /* [in] */ DXPMSAMPLE SampVal,
             /* [in] */ BOOL bDoOver);
-        
-        void ( STDMETHODCALLTYPE *OverSample )( 
+
+        void ( STDMETHODCALLTYPE *OverSample )(
             IDXARGBReadWritePtr * This,
             /* [in] */ const DXOVERSAMPLEDESC *pOverDesc);
-        
-        void ( STDMETHODCALLTYPE *OverArrayAndMove )( 
+
+        void ( STDMETHODCALLTYPE *OverArrayAndMove )(
             IDXARGBReadWritePtr * This,
             /* [in] */ DXBASESAMPLE *pScratchBuffer,
             /* [in] */ const DXPMSAMPLE *pSrc,
             /* [in] */ ULONG cSamples);
-        
+
         END_INTERFACE
     } IDXARGBReadWritePtrVtbl;
 
@@ -3615,7 +3617,7 @@ EXTERN_C const IID IID_IDXARGBReadWritePtr;
         CONST_VTBL struct IDXARGBReadWritePtrVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -3692,7 +3694,7 @@ EXTERN_C const IID IID_IDXARGBReadWritePtr;
 
 
 
-void STDMETHODCALLTYPE IDXARGBReadWritePtr_PackAndMove_Proxy( 
+void STDMETHODCALLTYPE IDXARGBReadWritePtr_PackAndMove_Proxy(
     IDXARGBReadWritePtr * This,
     /* [in] */ const DXSAMPLE *pSamples,
     /* [in] */ ULONG cSamples);
@@ -3705,7 +3707,7 @@ void __RPC_STUB IDXARGBReadWritePtr_PackAndMove_Stub(
     DWORD *_pdwStubPhase);
 
 
-void STDMETHODCALLTYPE IDXARGBReadWritePtr_PackPremultAndMove_Proxy( 
+void STDMETHODCALLTYPE IDXARGBReadWritePtr_PackPremultAndMove_Proxy(
     IDXARGBReadWritePtr * This,
     /* [in] */ const DXPMSAMPLE *pSamples,
     /* [in] */ ULONG cSamples);
@@ -3718,7 +3720,7 @@ void __RPC_STUB IDXARGBReadWritePtr_PackPremultAndMove_Stub(
     DWORD *_pdwStubPhase);
 
 
-void STDMETHODCALLTYPE IDXARGBReadWritePtr_PackRect_Proxy( 
+void STDMETHODCALLTYPE IDXARGBReadWritePtr_PackRect_Proxy(
     IDXARGBReadWritePtr * This,
     /* [in] */ const DXPACKEDRECTDESC *pRectDesc);
 
@@ -3730,7 +3732,7 @@ void __RPC_STUB IDXARGBReadWritePtr_PackRect_Stub(
     DWORD *_pdwStubPhase);
 
 
-void STDMETHODCALLTYPE IDXARGBReadWritePtr_CopyAndMoveBoth_Proxy( 
+void STDMETHODCALLTYPE IDXARGBReadWritePtr_CopyAndMoveBoth_Proxy(
     IDXARGBReadWritePtr * This,
     /* [in] */ DXBASESAMPLE *pScratchBuffer,
     /* [in] */ IDXARGBReadPtr *pSrc,
@@ -3745,7 +3747,7 @@ void __RPC_STUB IDXARGBReadWritePtr_CopyAndMoveBoth_Stub(
     DWORD *_pdwStubPhase);
 
 
-void STDMETHODCALLTYPE IDXARGBReadWritePtr_CopyRect_Proxy( 
+void STDMETHODCALLTYPE IDXARGBReadWritePtr_CopyRect_Proxy(
     IDXARGBReadWritePtr * This,
     /* [in] */ DXBASESAMPLE *pScratchBuffer,
     /* [in] */ const RECT *pDestRect,
@@ -3761,7 +3763,7 @@ void __RPC_STUB IDXARGBReadWritePtr_CopyRect_Stub(
     DWORD *_pdwStubPhase);
 
 
-void STDMETHODCALLTYPE IDXARGBReadWritePtr_FillAndMove_Proxy( 
+void STDMETHODCALLTYPE IDXARGBReadWritePtr_FillAndMove_Proxy(
     IDXARGBReadWritePtr * This,
     /* [in] */ DXBASESAMPLE *pScratchBuffer,
     /* [in] */ DXPMSAMPLE SampVal,
@@ -3776,7 +3778,7 @@ void __RPC_STUB IDXARGBReadWritePtr_FillAndMove_Stub(
     DWORD *_pdwStubPhase);
 
 
-void STDMETHODCALLTYPE IDXARGBReadWritePtr_FillRect_Proxy( 
+void STDMETHODCALLTYPE IDXARGBReadWritePtr_FillRect_Proxy(
     IDXARGBReadWritePtr * This,
     /* [in] */ const RECT *pRect,
     /* [in] */ DXPMSAMPLE SampVal,
@@ -3790,7 +3792,7 @@ void __RPC_STUB IDXARGBReadWritePtr_FillRect_Stub(
     DWORD *_pdwStubPhase);
 
 
-void STDMETHODCALLTYPE IDXARGBReadWritePtr_OverSample_Proxy( 
+void STDMETHODCALLTYPE IDXARGBReadWritePtr_OverSample_Proxy(
     IDXARGBReadWritePtr * This,
     /* [in] */ const DXOVERSAMPLEDESC *pOverDesc);
 
@@ -3802,7 +3804,7 @@ void __RPC_STUB IDXARGBReadWritePtr_OverSample_Stub(
     DWORD *_pdwStubPhase);
 
 
-void STDMETHODCALLTYPE IDXARGBReadWritePtr_OverArrayAndMove_Proxy( 
+void STDMETHODCALLTYPE IDXARGBReadWritePtr_OverArrayAndMove_Proxy(
     IDXARGBReadWritePtr * This,
     /* [in] */ DXBASESAMPLE *pScratchBuffer,
     /* [in] */ const DXPMSAMPLE *pSrc,
@@ -3824,41 +3826,41 @@ void __RPC_STUB IDXARGBReadWritePtr_OverArrayAndMove_Stub(
 #define __IDXDCLock_INTERFACE_DEFINED__
 
 /* interface IDXDCLock */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXDCLock;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("0F619456-CF39-11d1-905E-00C04FD9189D")
     IDXDCLock : public IUnknown
     {
     public:
         virtual HDC STDMETHODCALLTYPE GetDC( void) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXDCLockVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXDCLock * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXDCLock * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXDCLock * This);
-        
-        HDC ( STDMETHODCALLTYPE *GetDC )( 
+
+        HDC ( STDMETHODCALLTYPE *GetDC )(
             IDXDCLock * This);
-        
+
         END_INTERFACE
     } IDXDCLockVtbl;
 
@@ -3867,7 +3869,7 @@ EXTERN_C const IID IID_IDXDCLock;
         CONST_VTBL struct IDXDCLockVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -3892,7 +3894,7 @@ EXTERN_C const IID IID_IDXDCLock;
 
 
 
-HDC STDMETHODCALLTYPE IDXDCLock_GetDC_Proxy( 
+HDC STDMETHODCALLTYPE IDXDCLock_GetDC_Proxy(
     IDXDCLock * This);
 
 
@@ -3911,45 +3913,45 @@ void __RPC_STUB IDXDCLock_GetDC_Stub(
 #define __IDXTScaleOutput_INTERFACE_DEFINED__
 
 /* interface IDXTScaleOutput */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXTScaleOutput;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("B2024B50-EE77-11d1-9066-00C04FD9189D")
     IDXTScaleOutput : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE SetOutputSize( 
+        virtual HRESULT STDMETHODCALLTYPE SetOutputSize(
             /* [in] */ const SIZE OutSize,
             /* [in] */ BOOL bMaintainAspect) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXTScaleOutputVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXTScaleOutput * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXTScaleOutput * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXTScaleOutput * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetOutputSize )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetOutputSize )(
             IDXTScaleOutput * This,
             /* [in] */ const SIZE OutSize,
             /* [in] */ BOOL bMaintainAspect);
-        
+
         END_INTERFACE
     } IDXTScaleOutputVtbl;
 
@@ -3958,7 +3960,7 @@ EXTERN_C const IID IID_IDXTScaleOutput;
         CONST_VTBL struct IDXTScaleOutputVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -3983,7 +3985,7 @@ EXTERN_C const IID IID_IDXTScaleOutput;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXTScaleOutput_SetOutputSize_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTScaleOutput_SetOutputSize_Proxy(
     IDXTScaleOutput * This,
     /* [in] */ const SIZE OutSize,
     /* [in] */ BOOL bMaintainAspect);
@@ -4004,59 +4006,59 @@ void __RPC_STUB IDXTScaleOutput_SetOutputSize_Stub(
 #define __IDXGradient_INTERFACE_DEFINED__
 
 /* interface IDXGradient */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXGradient;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("B2024B51-EE77-11d1-9066-00C04FD9189D")
     IDXGradient : public IDXTScaleOutput
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE SetGradient( 
+        virtual HRESULT STDMETHODCALLTYPE SetGradient(
             DXSAMPLE StartColor,
             DXSAMPLE EndColor,
             BOOL bHorizontal) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetOutputSize( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetOutputSize(
             /* [out] */ SIZE *pOutSize) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXGradientVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXGradient * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXGradient * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXGradient * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetOutputSize )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetOutputSize )(
             IDXGradient * This,
             /* [in] */ const SIZE OutSize,
             /* [in] */ BOOL bMaintainAspect);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetGradient )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetGradient )(
             IDXGradient * This,
             DXSAMPLE StartColor,
             DXSAMPLE EndColor,
             BOOL bHorizontal);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetOutputSize )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetOutputSize )(
             IDXGradient * This,
             /* [out] */ SIZE *pOutSize);
-        
+
         END_INTERFACE
     } IDXGradientVtbl;
 
@@ -4065,7 +4067,7 @@ EXTERN_C const IID IID_IDXGradient;
         CONST_VTBL struct IDXGradientVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -4097,7 +4099,7 @@ EXTERN_C const IID IID_IDXGradient;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXGradient_SetGradient_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXGradient_SetGradient_Proxy(
     IDXGradient * This,
     DXSAMPLE StartColor,
     DXSAMPLE EndColor,
@@ -4111,7 +4113,7 @@ void __RPC_STUB IDXGradient_SetGradient_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXGradient_GetOutputSize_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXGradient_GetOutputSize_Proxy(
     IDXGradient * This,
     /* [out] */ SIZE *pOutSize);
 
@@ -4131,61 +4133,61 @@ void __RPC_STUB IDXGradient_GetOutputSize_Stub(
 #define __IDXTScale_INTERFACE_DEFINED__
 
 /* interface IDXTScale */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXTScale;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("B39FD742-E139-11d1-9065-00C04FD9189D")
     IDXTScale : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE SetScales( 
+        virtual HRESULT STDMETHODCALLTYPE SetScales(
             /* [in] */ float Scales[ 2 ]) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetScales( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetScales(
             /* [out] */ float Scales[ 2 ]) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE ScaleFitToSize( 
+
+        virtual HRESULT STDMETHODCALLTYPE ScaleFitToSize(
             /* [out][in] */ DXBNDS *pClipBounds,
             /* [in] */ SIZE FitToSize,
             /* [in] */ BOOL bMaintainAspect) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXTScaleVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXTScale * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXTScale * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXTScale * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetScales )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetScales )(
             IDXTScale * This,
             /* [in] */ float Scales[ 2 ]);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetScales )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetScales )(
             IDXTScale * This,
             /* [out] */ float Scales[ 2 ]);
-        
-        HRESULT ( STDMETHODCALLTYPE *ScaleFitToSize )( 
+
+        HRESULT ( STDMETHODCALLTYPE *ScaleFitToSize )(
             IDXTScale * This,
             /* [out][in] */ DXBNDS *pClipBounds,
             /* [in] */ SIZE FitToSize,
             /* [in] */ BOOL bMaintainAspect);
-        
+
         END_INTERFACE
     } IDXTScaleVtbl;
 
@@ -4194,7 +4196,7 @@ EXTERN_C const IID IID_IDXTScale;
         CONST_VTBL struct IDXTScaleVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -4225,7 +4227,7 @@ EXTERN_C const IID IID_IDXTScale;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXTScale_SetScales_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTScale_SetScales_Proxy(
     IDXTScale * This,
     /* [in] */ float Scales[ 2 ]);
 
@@ -4237,7 +4239,7 @@ void __RPC_STUB IDXTScale_SetScales_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTScale_GetScales_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTScale_GetScales_Proxy(
     IDXTScale * This,
     /* [out] */ float Scales[ 2 ]);
 
@@ -4249,7 +4251,7 @@ void __RPC_STUB IDXTScale_GetScales_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXTScale_ScaleFitToSize_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXTScale_ScaleFitToSize_Proxy(
     IDXTScale * This,
     /* [out][in] */ DXBNDS *pClipBounds,
     /* [in] */ SIZE FitToSize,
@@ -4268,9 +4270,9 @@ void __RPC_STUB IDXTScale_ScaleFitToSize_Stub(
 
 
 /* interface __MIDL_itf_dxtrans_0276 */
-/* [local] */ 
+/* [local] */
 
-typedef 
+typedef
 enum DISPIDDXEFFECT
     {	DISPID_DXECAPABILITIES	= 10000,
 	DISPID_DXEPROGRESS	= DISPID_DXECAPABILITIES + 1,
@@ -4279,7 +4281,7 @@ enum DISPIDDXEFFECT
 	DISPID_DXE_NEXT_ID	= DISPID_DXEDURATION + 1
     } 	DISPIDDXBOUNDEDEFFECT;
 
-typedef 
+typedef
 enum DXEFFECTTYPE
     {	DXTET_PERIODIC	= 1 << 0,
 	DXTET_MORPH	= 1 << 1
@@ -4294,73 +4296,73 @@ extern RPC_IF_HANDLE __MIDL_itf_dxtrans_0276_v0_0_s_ifspec;
 #define __IDXEffect_INTERFACE_DEFINED__
 
 /* interface IDXEffect */
-/* [dual][unique][helpstring][uuid][object] */ 
+/* [dual][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXEffect;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("E31FB81B-1335-11d1-8189-0000F87557DB")
     IDXEffect : public IDispatch
     {
     public:
-        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Capabilities( 
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Capabilities(
             /* [retval][out] */ long *pVal) = 0;
-        
-        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Progress( 
+
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Progress(
             /* [retval][out] */ float *pVal) = 0;
-        
-        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_Progress( 
+
+        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_Progress(
             /* [in] */ float newVal) = 0;
-        
-        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_StepResolution( 
+
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_StepResolution(
             /* [retval][out] */ float *pVal) = 0;
-        
-        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Duration( 
+
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Duration(
             /* [retval][out] */ float *pVal) = 0;
-        
-        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_Duration( 
+
+        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_Duration(
             /* [in] */ float newVal) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXEffectVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXEffect * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXEffect * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXEffect * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )(
             IDXEffect * This,
             /* [out] */ UINT *pctinfo);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )(
             IDXEffect * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )(
             IDXEffect * This,
             /* [in] */ REFIID riid,
             /* [size_is][in] */ LPOLESTR *rgszNames,
             /* [in] */ UINT cNames,
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
-        
-        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )(
             IDXEffect * This,
             /* [in] */ DISPID dispIdMember,
             /* [in] */ REFIID riid,
@@ -4370,31 +4372,31 @@ EXTERN_C const IID IID_IDXEffect;
             /* [out] */ VARIANT *pVarResult,
             /* [out] */ EXCEPINFO *pExcepInfo,
             /* [out] */ UINT *puArgErr);
-        
-        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Capabilities )( 
+
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Capabilities )(
             IDXEffect * This,
             /* [retval][out] */ long *pVal);
-        
-        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Progress )( 
+
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Progress )(
             IDXEffect * This,
             /* [retval][out] */ float *pVal);
-        
-        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Progress )( 
+
+        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Progress )(
             IDXEffect * This,
             /* [in] */ float newVal);
-        
-        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_StepResolution )( 
+
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_StepResolution )(
             IDXEffect * This,
             /* [retval][out] */ float *pVal);
-        
-        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Duration )( 
+
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Duration )(
             IDXEffect * This,
             /* [retval][out] */ float *pVal);
-        
-        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Duration )( 
+
+        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Duration )(
             IDXEffect * This,
             /* [in] */ float newVal);
-        
+
         END_INTERFACE
     } IDXEffectVtbl;
 
@@ -4403,7 +4405,7 @@ EXTERN_C const IID IID_IDXEffect;
         CONST_VTBL struct IDXEffectVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -4456,7 +4458,7 @@ EXTERN_C const IID IID_IDXEffect;
 
 
 
-/* [id][propget] */ HRESULT STDMETHODCALLTYPE IDXEffect_get_Capabilities_Proxy( 
+/* [id][propget] */ HRESULT STDMETHODCALLTYPE IDXEffect_get_Capabilities_Proxy(
     IDXEffect * This,
     /* [retval][out] */ long *pVal);
 
@@ -4468,7 +4470,7 @@ void __RPC_STUB IDXEffect_get_Capabilities_Stub(
     DWORD *_pdwStubPhase);
 
 
-/* [id][propget] */ HRESULT STDMETHODCALLTYPE IDXEffect_get_Progress_Proxy( 
+/* [id][propget] */ HRESULT STDMETHODCALLTYPE IDXEffect_get_Progress_Proxy(
     IDXEffect * This,
     /* [retval][out] */ float *pVal);
 
@@ -4480,7 +4482,7 @@ void __RPC_STUB IDXEffect_get_Progress_Stub(
     DWORD *_pdwStubPhase);
 
 
-/* [id][propput] */ HRESULT STDMETHODCALLTYPE IDXEffect_put_Progress_Proxy( 
+/* [id][propput] */ HRESULT STDMETHODCALLTYPE IDXEffect_put_Progress_Proxy(
     IDXEffect * This,
     /* [in] */ float newVal);
 
@@ -4492,7 +4494,7 @@ void __RPC_STUB IDXEffect_put_Progress_Stub(
     DWORD *_pdwStubPhase);
 
 
-/* [id][propget] */ HRESULT STDMETHODCALLTYPE IDXEffect_get_StepResolution_Proxy( 
+/* [id][propget] */ HRESULT STDMETHODCALLTYPE IDXEffect_get_StepResolution_Proxy(
     IDXEffect * This,
     /* [retval][out] */ float *pVal);
 
@@ -4504,7 +4506,7 @@ void __RPC_STUB IDXEffect_get_StepResolution_Stub(
     DWORD *_pdwStubPhase);
 
 
-/* [id][propget] */ HRESULT STDMETHODCALLTYPE IDXEffect_get_Duration_Proxy( 
+/* [id][propget] */ HRESULT STDMETHODCALLTYPE IDXEffect_get_Duration_Proxy(
     IDXEffect * This,
     /* [retval][out] */ float *pVal);
 
@@ -4516,7 +4518,7 @@ void __RPC_STUB IDXEffect_get_Duration_Stub(
     DWORD *_pdwStubPhase);
 
 
-/* [id][propput] */ HRESULT STDMETHODCALLTYPE IDXEffect_put_Duration_Proxy( 
+/* [id][propput] */ HRESULT STDMETHODCALLTYPE IDXEffect_put_Duration_Proxy(
     IDXEffect * This,
     /* [in] */ float newVal);
 
@@ -4536,86 +4538,86 @@ void __RPC_STUB IDXEffect_put_Duration_Stub(
 #define __IDXLookupTable_INTERFACE_DEFINED__
 
 /* interface IDXLookupTable */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXLookupTable;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("01BAFC7F-9E63-11d1-9053-00C04FD9189D")
     IDXLookupTable : public IDXBaseObject
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE GetTables( 
+        virtual HRESULT STDMETHODCALLTYPE GetTables(
             /* [out] */ BYTE RedLUT[ 256 ],
             /* [out] */ BYTE GreenLUT[ 256 ],
             /* [out] */ BYTE BlueLUT[ 256 ],
             /* [out] */ BYTE AlphaLUT[ 256 ]) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE IsChannelIdentity( 
+
+        virtual HRESULT STDMETHODCALLTYPE IsChannelIdentity(
             /* [out] */ DXBASESAMPLE *pSampleBools) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetIndexValues( 
+
+        virtual HRESULT STDMETHODCALLTYPE GetIndexValues(
             /* [in] */ ULONG Index,
             /* [out] */ DXBASESAMPLE *pSample) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE ApplyTables( 
+
+        virtual HRESULT STDMETHODCALLTYPE ApplyTables(
             /* [out][in] */ DXSAMPLE *pSamples,
             /* [in] */ ULONG cSamples) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXLookupTableVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXLookupTable * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXLookupTable * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXLookupTable * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetGenerationId )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetGenerationId )(
             IDXLookupTable * This,
             /* [out] */ ULONG *pID);
-        
-        HRESULT ( STDMETHODCALLTYPE *IncrementGenerationId )( 
+
+        HRESULT ( STDMETHODCALLTYPE *IncrementGenerationId )(
             IDXLookupTable * This,
             /* [in] */ BOOL bRefresh);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetObjectSize )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetObjectSize )(
             IDXLookupTable * This,
             /* [out] */ ULONG *pcbSize);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetTables )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetTables )(
             IDXLookupTable * This,
             /* [out] */ BYTE RedLUT[ 256 ],
             /* [out] */ BYTE GreenLUT[ 256 ],
             /* [out] */ BYTE BlueLUT[ 256 ],
             /* [out] */ BYTE AlphaLUT[ 256 ]);
-        
-        HRESULT ( STDMETHODCALLTYPE *IsChannelIdentity )( 
+
+        HRESULT ( STDMETHODCALLTYPE *IsChannelIdentity )(
             IDXLookupTable * This,
             /* [out] */ DXBASESAMPLE *pSampleBools);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetIndexValues )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetIndexValues )(
             IDXLookupTable * This,
             /* [in] */ ULONG Index,
             /* [out] */ DXBASESAMPLE *pSample);
-        
-        HRESULT ( STDMETHODCALLTYPE *ApplyTables )( 
+
+        HRESULT ( STDMETHODCALLTYPE *ApplyTables )(
             IDXLookupTable * This,
             /* [out][in] */ DXSAMPLE *pSamples,
             /* [in] */ ULONG cSamples);
-        
+
         END_INTERFACE
     } IDXLookupTableVtbl;
 
@@ -4624,7 +4626,7 @@ EXTERN_C const IID IID_IDXLookupTable;
         CONST_VTBL struct IDXLookupTableVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -4668,7 +4670,7 @@ EXTERN_C const IID IID_IDXLookupTable;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXLookupTable_GetTables_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXLookupTable_GetTables_Proxy(
     IDXLookupTable * This,
     /* [out] */ BYTE RedLUT[ 256 ],
     /* [out] */ BYTE GreenLUT[ 256 ],
@@ -4683,7 +4685,7 @@ void __RPC_STUB IDXLookupTable_GetTables_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXLookupTable_IsChannelIdentity_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXLookupTable_IsChannelIdentity_Proxy(
     IDXLookupTable * This,
     /* [out] */ DXBASESAMPLE *pSampleBools);
 
@@ -4695,7 +4697,7 @@ void __RPC_STUB IDXLookupTable_IsChannelIdentity_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXLookupTable_GetIndexValues_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXLookupTable_GetIndexValues_Proxy(
     IDXLookupTable * This,
     /* [in] */ ULONG Index,
     /* [out] */ DXBASESAMPLE *pSample);
@@ -4708,7 +4710,7 @@ void __RPC_STUB IDXLookupTable_GetIndexValues_Stub(
     DWORD *_pdwStubPhase);
 
 
-HRESULT STDMETHODCALLTYPE IDXLookupTable_ApplyTables_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXLookupTable_ApplyTables_Proxy(
     IDXLookupTable * This,
     /* [out][in] */ DXSAMPLE *pSamples,
     /* [in] */ ULONG cSamples);
@@ -4726,7 +4728,7 @@ void __RPC_STUB IDXLookupTable_ApplyTables_Stub(
 
 
 /* interface __MIDL_itf_dxtrans_0278 */
-/* [local] */ 
+/* [local] */
 
 typedef struct DXRAWSURFACEINFO
     {
@@ -4749,43 +4751,43 @@ extern RPC_IF_HANDLE __MIDL_itf_dxtrans_0278_v0_0_s_ifspec;
 #define __IDXRawSurface_INTERFACE_DEFINED__
 
 /* interface IDXRawSurface */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IDXRawSurface;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("09756C8A-D96A-11d1-9062-00C04FD9189D")
     IDXRawSurface : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE GetSurfaceInfo( 
+        virtual HRESULT STDMETHODCALLTYPE GetSurfaceInfo(
             DXRAWSURFACEINFO *pSurfaceInfo) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IDXRawSurfaceVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IDXRawSurface * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IDXRawSurface * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IDXRawSurface * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetSurfaceInfo )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetSurfaceInfo )(
             IDXRawSurface * This,
             DXRAWSURFACEINFO *pSurfaceInfo);
-        
+
         END_INTERFACE
     } IDXRawSurfaceVtbl;
 
@@ -4794,7 +4796,7 @@ EXTERN_C const IID IID_IDXRawSurface;
         CONST_VTBL struct IDXRawSurfaceVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -4819,7 +4821,7 @@ EXTERN_C const IID IID_IDXRawSurface;
 
 
 
-HRESULT STDMETHODCALLTYPE IDXRawSurface_GetSurfaceInfo_Proxy( 
+HRESULT STDMETHODCALLTYPE IDXRawSurface_GetSurfaceInfo_Proxy(
     IDXRawSurface * This,
     DXRAWSURFACEINFO *pSurfaceInfo);
 
@@ -4839,43 +4841,43 @@ void __RPC_STUB IDXRawSurface_GetSurfaceInfo_Stub(
 #define __IHTMLDXTransform_INTERFACE_DEFINED__
 
 /* interface IHTMLDXTransform */
-/* [local][unique][helpstring][uuid][object] */ 
+/* [local][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_IHTMLDXTransform;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("30E2AB7D-4FDD-4159-B7EA-DC722BF4ADE5")
     IHTMLDXTransform : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE SetHostUrl( 
+        virtual HRESULT STDMETHODCALLTYPE SetHostUrl(
             BSTR bstrHostUrl) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct IHTMLDXTransformVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             IHTMLDXTransform * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             IHTMLDXTransform * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             IHTMLDXTransform * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetHostUrl )( 
+
+        HRESULT ( STDMETHODCALLTYPE *SetHostUrl )(
             IHTMLDXTransform * This,
             BSTR bstrHostUrl);
-        
+
         END_INTERFACE
     } IHTMLDXTransformVtbl;
 
@@ -4884,7 +4886,7 @@ EXTERN_C const IID IID_IHTMLDXTransform;
         CONST_VTBL struct IHTMLDXTransformVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -4909,7 +4911,7 @@ EXTERN_C const IID IID_IHTMLDXTransform;
 
 
 
-HRESULT STDMETHODCALLTYPE IHTMLDXTransform_SetHostUrl_Proxy( 
+HRESULT STDMETHODCALLTYPE IHTMLDXTransform_SetHostUrl_Proxy(
     IHTMLDXTransform * This,
     BSTR bstrHostUrl);
 
@@ -4926,9 +4928,9 @@ void __RPC_STUB IHTMLDXTransform_SetHostUrl_Stub(
 
 
 /* interface __MIDL_itf_dxtrans_0280 */
-/* [local] */ 
+/* [local] */
 
-typedef 
+typedef
 enum DXTFILTER_STATUS
     {	DXTFILTER_STATUS_Stopped	= 0,
 	DXTFILTER_STATUS_Applied	= DXTFILTER_STATUS_Stopped + 1,
@@ -4936,7 +4938,7 @@ enum DXTFILTER_STATUS
 	DXTFILTER_STATUS_MAX	= DXTFILTER_STATUS_Playing + 1
     } 	DXTFILTER_STATUS;
 
-typedef 
+typedef
 enum DXTFILTER_DISPID
     {	DISPID_DXTFilter_Percent	= 1,
 	DISPID_DXTFilter_Duration	= DISPID_DXTFilter_Percent + 1,
@@ -4957,83 +4959,83 @@ extern RPC_IF_HANDLE __MIDL_itf_dxtrans_0280_v0_0_s_ifspec;
 #define __ICSSFilterDispatch_INTERFACE_DEFINED__
 
 /* interface ICSSFilterDispatch */
-/* [dual][unique][helpstring][uuid][object] */ 
+/* [dual][unique][helpstring][uuid][object] */
 
 
 EXTERN_C const IID IID_ICSSFilterDispatch;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
-    
+
     MIDL_INTERFACE("9519152B-9484-4A6C-B6A7-4F25E92D6C6B")
     ICSSFilterDispatch : public IDispatch
     {
     public:
-        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Percent( 
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Percent(
             /* [retval][out] */ float *pVal) = 0;
-        
-        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_Percent( 
+
+        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_Percent(
             /* [in] */ float newVal) = 0;
-        
-        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Duration( 
+
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Duration(
             /* [retval][out] */ float *pVal) = 0;
-        
-        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_Duration( 
+
+        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_Duration(
             /* [in] */ float newVal) = 0;
-        
-        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Enabled( 
+
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Enabled(
             /* [retval][out] */ VARIANT_BOOL *pfVal) = 0;
-        
-        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_Enabled( 
+
+        virtual /* [id][propput] */ HRESULT STDMETHODCALLTYPE put_Enabled(
             /* [in] */ VARIANT_BOOL fVal) = 0;
-        
-        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Status( 
+
+        virtual /* [id][propget] */ HRESULT STDMETHODCALLTYPE get_Status(
             /* [retval][out] */ DXTFILTER_STATUS *peVal) = 0;
-        
+
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE Apply( void) = 0;
-        
-        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Play( 
+
+        virtual /* [id] */ HRESULT STDMETHODCALLTYPE Play(
             /* [optional][in] */ VARIANT varDuration) = 0;
-        
+
         virtual /* [id] */ HRESULT STDMETHODCALLTYPE Stop( void) = 0;
-        
+
     };
-    
+
 #else 	/* C style interface */
 
     typedef struct ICSSFilterDispatchVtbl
     {
         BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )(
             ICSSFilterDispatch * This,
             /* [in] */ REFIID riid,
             /* [iid_is][out] */ void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+
+        ULONG ( STDMETHODCALLTYPE *AddRef )(
             ICSSFilterDispatch * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
+
+        ULONG ( STDMETHODCALLTYPE *Release )(
             ICSSFilterDispatch * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )(
             ICSSFilterDispatch * This,
             /* [out] */ UINT *pctinfo);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )(
             ICSSFilterDispatch * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )(
             ICSSFilterDispatch * This,
             /* [in] */ REFIID riid,
             /* [size_is][in] */ LPOLESTR *rgszNames,
             /* [in] */ UINT cNames,
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
-        
-        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )(
             ICSSFilterDispatch * This,
             /* [in] */ DISPID dispIdMember,
             /* [in] */ REFIID riid,
@@ -5043,45 +5045,45 @@ EXTERN_C const IID IID_ICSSFilterDispatch;
             /* [out] */ VARIANT *pVarResult,
             /* [out] */ EXCEPINFO *pExcepInfo,
             /* [out] */ UINT *puArgErr);
-        
-        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Percent )( 
+
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Percent )(
             ICSSFilterDispatch * This,
             /* [retval][out] */ float *pVal);
-        
-        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Percent )( 
+
+        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Percent )(
             ICSSFilterDispatch * This,
             /* [in] */ float newVal);
-        
-        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Duration )( 
+
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Duration )(
             ICSSFilterDispatch * This,
             /* [retval][out] */ float *pVal);
-        
-        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Duration )( 
+
+        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Duration )(
             ICSSFilterDispatch * This,
             /* [in] */ float newVal);
-        
-        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Enabled )( 
+
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Enabled )(
             ICSSFilterDispatch * This,
             /* [retval][out] */ VARIANT_BOOL *pfVal);
-        
-        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Enabled )( 
+
+        /* [id][propput] */ HRESULT ( STDMETHODCALLTYPE *put_Enabled )(
             ICSSFilterDispatch * This,
             /* [in] */ VARIANT_BOOL fVal);
-        
-        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Status )( 
+
+        /* [id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Status )(
             ICSSFilterDispatch * This,
             /* [retval][out] */ DXTFILTER_STATUS *peVal);
-        
-        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Apply )( 
+
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Apply )(
             ICSSFilterDispatch * This);
-        
-        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Play )( 
+
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Play )(
             ICSSFilterDispatch * This,
             /* [optional][in] */ VARIANT varDuration);
-        
-        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Stop )( 
+
+        /* [id] */ HRESULT ( STDMETHODCALLTYPE *Stop )(
             ICSSFilterDispatch * This);
-        
+
         END_INTERFACE
     } ICSSFilterDispatchVtbl;
 
@@ -5090,7 +5092,7 @@ EXTERN_C const IID IID_ICSSFilterDispatch;
         CONST_VTBL struct ICSSFilterDispatchVtbl *lpVtbl;
     };
 
-    
+
 
 #ifdef COBJMACROS
 
@@ -5155,7 +5157,7 @@ EXTERN_C const IID IID_ICSSFilterDispatch;
 
 
 
-/* [id][propget] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_get_Percent_Proxy( 
+/* [id][propget] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_get_Percent_Proxy(
     ICSSFilterDispatch * This,
     /* [retval][out] */ float *pVal);
 
@@ -5167,7 +5169,7 @@ void __RPC_STUB ICSSFilterDispatch_get_Percent_Stub(
     DWORD *_pdwStubPhase);
 
 
-/* [id][propput] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_put_Percent_Proxy( 
+/* [id][propput] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_put_Percent_Proxy(
     ICSSFilterDispatch * This,
     /* [in] */ float newVal);
 
@@ -5179,7 +5181,7 @@ void __RPC_STUB ICSSFilterDispatch_put_Percent_Stub(
     DWORD *_pdwStubPhase);
 
 
-/* [id][propget] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_get_Duration_Proxy( 
+/* [id][propget] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_get_Duration_Proxy(
     ICSSFilterDispatch * This,
     /* [retval][out] */ float *pVal);
 
@@ -5191,7 +5193,7 @@ void __RPC_STUB ICSSFilterDispatch_get_Duration_Stub(
     DWORD *_pdwStubPhase);
 
 
-/* [id][propput] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_put_Duration_Proxy( 
+/* [id][propput] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_put_Duration_Proxy(
     ICSSFilterDispatch * This,
     /* [in] */ float newVal);
 
@@ -5203,7 +5205,7 @@ void __RPC_STUB ICSSFilterDispatch_put_Duration_Stub(
     DWORD *_pdwStubPhase);
 
 
-/* [id][propget] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_get_Enabled_Proxy( 
+/* [id][propget] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_get_Enabled_Proxy(
     ICSSFilterDispatch * This,
     /* [retval][out] */ VARIANT_BOOL *pfVal);
 
@@ -5215,7 +5217,7 @@ void __RPC_STUB ICSSFilterDispatch_get_Enabled_Stub(
     DWORD *_pdwStubPhase);
 
 
-/* [id][propput] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_put_Enabled_Proxy( 
+/* [id][propput] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_put_Enabled_Proxy(
     ICSSFilterDispatch * This,
     /* [in] */ VARIANT_BOOL fVal);
 
@@ -5227,7 +5229,7 @@ void __RPC_STUB ICSSFilterDispatch_put_Enabled_Stub(
     DWORD *_pdwStubPhase);
 
 
-/* [id][propget] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_get_Status_Proxy( 
+/* [id][propget] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_get_Status_Proxy(
     ICSSFilterDispatch * This,
     /* [retval][out] */ DXTFILTER_STATUS *peVal);
 
@@ -5239,7 +5241,7 @@ void __RPC_STUB ICSSFilterDispatch_get_Status_Stub(
     DWORD *_pdwStubPhase);
 
 
-/* [id] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_Apply_Proxy( 
+/* [id] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_Apply_Proxy(
     ICSSFilterDispatch * This);
 
 
@@ -5250,7 +5252,7 @@ void __RPC_STUB ICSSFilterDispatch_Apply_Stub(
     DWORD *_pdwStubPhase);
 
 
-/* [id] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_Play_Proxy( 
+/* [id] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_Play_Proxy(
     ICSSFilterDispatch * This,
     /* [optional][in] */ VARIANT varDuration);
 
@@ -5262,7 +5264,7 @@ void __RPC_STUB ICSSFilterDispatch_Play_Stub(
     DWORD *_pdwStubPhase);
 
 
-/* [id] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_Stop_Proxy( 
+/* [id] */ HRESULT STDMETHODCALLTYPE ICSSFilterDispatch_Stop_Proxy(
     ICSSFilterDispatch * This);
 
 
@@ -5282,7 +5284,7 @@ void __RPC_STUB ICSSFilterDispatch_Stop_Stub(
 #define __DXTRANSLib_LIBRARY_DEFINED__
 
 /* library DXTRANSLib */
-/* [helpstring][version][uuid] */ 
+/* [helpstring][version][uuid] */
 
 
 EXTERN_C const IID LIBID_DXTRANSLib;
@@ -5346,10 +5348,10 @@ DXTFilter;
 
 /* Additional Prototypes for ALL interfaces */
 
-unsigned long             __RPC_USER  VARIANT_UserSize(     unsigned long *, unsigned long            , VARIANT * ); 
-unsigned char * __RPC_USER  VARIANT_UserMarshal(  unsigned long *, unsigned char *, VARIANT * ); 
-unsigned char * __RPC_USER  VARIANT_UserUnmarshal(unsigned long *, unsigned char *, VARIANT * ); 
-void                      __RPC_USER  VARIANT_UserFree(     unsigned long *, VARIANT * ); 
+unsigned long             __RPC_USER  VARIANT_UserSize(     unsigned long *, unsigned long            , VARIANT * );
+unsigned char * __RPC_USER  VARIANT_UserMarshal(  unsigned long *, unsigned char *, VARIANT * );
+unsigned char * __RPC_USER  VARIANT_UserUnmarshal(unsigned long *, unsigned char *, VARIANT * );
+void                      __RPC_USER  VARIANT_UserFree(     unsigned long *, VARIANT * );
 
 /* end of Additional Prototypes */
 

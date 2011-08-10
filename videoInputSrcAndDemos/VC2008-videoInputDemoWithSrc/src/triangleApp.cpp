@@ -39,9 +39,10 @@ void triangleApp::init(){
 	//VI.setIdealFramerate(dev, 60);
 
 	//we can specifiy the dimensions we want to capture at
-	//if those sizes are not possible VI will look for the next nearest matching size	
-	VI.setupDevice(dev,   320, 240, VI_COMPOSITE); 
-	VI.setupDevice(dev+1, 640, 480, VI_COMPOSITE);	
+	//if those sizes are not possible VI will look for the next nearest matching size
+	VI.setRequestedMediaSubType(MEDIASUBTYPE_MJPG);
+	VI.setupDevice(dev,   1920, 1080, VI_COMPOSITE); 
+	VI.setupDevice(dev+1, 1920, 1080, VI_COMPOSITE);	
 	
 	//once the device is setup you can try and
 	//set the format - this is useful if your device

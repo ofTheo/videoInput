@@ -231,6 +231,10 @@
 			Name="videoInput"
 			>
 			<File
+				RelativePath=".\src\myqedit.h"
+				>
+			</File>
+			<File
 				RelativePath="..\libs\videoInput\videoInput.cpp"
 				>
 			</File>
