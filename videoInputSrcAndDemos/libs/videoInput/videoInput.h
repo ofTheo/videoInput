@@ -117,7 +117,7 @@ Thanks to:
 //STUFF YOU DON'T CHANGE
 
 //videoInput defines
-#define VI_VERSION	 0.2.0
+#define VI_VERSION	 0.200
 #define VI_MAX_CAMERAS  20
 #define VI_NUM_TYPES    19 //DON'T TOUCH
 #define VI_NUM_FORMATS  18 //DON'T TOUCH
