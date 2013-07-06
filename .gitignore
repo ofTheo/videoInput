@@ -12,6 +12,11 @@ obj/
 *.obj
 *.tlog
 *.dep
+*.opensdf
+*.pdb
+*.idb
+*.lastbuildstate
+*.ncb
 *.ipch
 
 #codeblocks files

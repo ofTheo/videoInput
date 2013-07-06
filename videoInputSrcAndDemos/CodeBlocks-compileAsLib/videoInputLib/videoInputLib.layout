@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Release" />
-	<File name="..\..\libs\videoInput\videoInput.cpp" open="1" top="1" tabpos="43">
-		<Cursor position="48381" topLine="1561" />
+	<ActiveTarget name="Debug" />
+	<File name="..\..\libs\videoInput\videoInput.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="48020" topLine="1584" />
 	</File>
-	<File name="..\..\libs\videoInput\videoInput.h" open="1" top="0" tabpos="44">
+	<File name="..\..\libs\videoInput\videoInput.h" open="1" top="0" tabpos="2">
 		<Cursor position="5181" topLine="139" />
 	</File>
 </CodeBlocks_layout_file>

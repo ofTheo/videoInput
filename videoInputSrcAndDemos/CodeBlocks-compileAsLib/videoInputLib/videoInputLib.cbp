@@ -38,7 +38,6 @@
 			<Add directory="..\..\libs\DShow\Include" />
 			<Add directory="..\..\libs\extra" />
 			<Add directory="..\..\libs\glfw" />
-			<Add directory="C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Include" />
 			<Add directory="..\..\libs\DShow\lib" />
 		</Compiler>
 		<Linker>
