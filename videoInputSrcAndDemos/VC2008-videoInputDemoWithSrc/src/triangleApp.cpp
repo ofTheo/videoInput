@@ -40,7 +40,7 @@ void triangleApp::init(){
 
 	//we can specifiy the dimensions we want to capture at
 	//if those sizes are not possible VI will look for the next nearest matching size
-	VI.setRequestedMediaSubType(MEDIASUBTYPE_MJPG);
+	//VI.setRequestedMediaSubType((int)MEDIASUBTYPE_MJPG);
 	VI.setupDevice(dev,   1920, 1080, VI_COMPOSITE); 
 	VI.setupDevice(dev+1, 1920, 1080, VI_COMPOSITE);	
 	

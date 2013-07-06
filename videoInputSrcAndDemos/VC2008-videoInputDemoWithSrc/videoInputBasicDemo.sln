@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "videoInputBasicDemo", "videoInputBasicDemo.vcproj", "{B575FBFC-3E99-4993-9293-74AC0A6802CF}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "videoInputBasicDemo", "videoInputBasicDemo.vcxproj", "{B575FBFC-3E99-4993-9293-74AC0A6802CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
