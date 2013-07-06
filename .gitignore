@@ -5,6 +5,13 @@ obj/
 *.o
 *.exe
 .DS_Store
+*.log
+*.user
+*.sdf
+*.filters
+*.obj
+*.tlog
+*.dep
 
 #codeblocks files
 */*/*.layout
