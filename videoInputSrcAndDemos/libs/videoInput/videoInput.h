@@ -44,6 +44,7 @@ Thanks to:
 #include <math.h>
 #include <string.h>
 #include <wchar.h>
+#include <vector>
 
 //this is for TryEnterCriticalSection
 #ifndef _WIN32_WINNT
@@ -112,20 +113,12 @@ Thanks to:
 //////////////////////////////////////   VARS AND DEFS   //////////////////////////////////
 
 
-//STUFF YOU CAN CHANGE
-
-//change for verbose debug info
-static bool verbose = true;
-
-//if you need VI to use multi threaded com
-//#define VI_COM_MULTI_THREADED
-
 //STUFF YOU DON'T CHANGE
 
 //videoInput defines
 #define VI_VERSION	 0.1995
 #define VI_MAX_CAMERAS  20
-#define VI_NUM_TYPES    19 //DON'T TOUCH (I'm not touching you ;-)
+#define VI_NUM_TYPES    19 //DON'T TOUCH
 #define VI_NUM_FORMATS  18 //DON'T TOUCH
 
 //defines for setPhyCon - tuner is not as well supported as composite and s-video
@@ -268,10 +261,15 @@ class videoInput{
 		//turns off console messages - default is to print messages
 		static void setVerbose(bool _verbose);
 
+		//this allows for multithreaded use of VI ( default is single threaded ).
+		//call this before any videoInput calls. 
+		//note if your app has other COM calls then you should set VIs COM usage to match the other COM mode 
+		static void setComMultiThreaded(bool bMulti);
+
 		//Functions in rough order they should be used.
 		static int listDevices(bool silent = false);
 
-		static int getDeviceIDFromName(char * name); // added by gameover
+		static int getDeviceIDFromName(char * name);
 
 		//needs to be called after listDevices - otherwise returns NULL
 		static char * getDeviceName(int deviceID);

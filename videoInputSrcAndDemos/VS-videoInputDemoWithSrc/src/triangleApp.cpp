@@ -11,6 +11,9 @@ triangleApp::triangleApp(){
 
 void triangleApp::init(){
 
+	//videoInput::setVerbose(false); 
+	//videoInput::setComMultiThreaded(true); 
+
 	//optional static function to list devices
 	//for silent listDevices use listDevices(true);
 	int numDevices = videoInput::listDevices();	

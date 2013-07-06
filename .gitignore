@@ -12,6 +12,7 @@ obj/
 *.obj
 *.tlog
 *.dep
+*.ipch
 
 #codeblocks files
 */*/*.layout

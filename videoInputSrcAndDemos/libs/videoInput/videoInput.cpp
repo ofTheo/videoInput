@@ -19,7 +19,6 @@
 #define __IDxtJpeg_INTERFACE_DEFINED__
 #define __IDxtKey_INTERFACE_DEFINED__
 #include <uuids.h>
-#include <vector>
 #include <Aviriff.h>
 #include <Windows.h>
 
@@ -75,6 +74,12 @@ EXTERN_C const CLSID CLSID_SampleGrabber;
 EXTERN_C const IID IID_ISampleGrabber;
 EXTERN_C const CLSID CLSID_NullRenderer;
 
+//use videoInput::setVerbose to change 
+static bool verbose = true;
+
+//use videoInput::setComMultiThreaded to change 
+static bool VI_COM_MULTI_THREADED = false; 
+
 ///////////////////////////  HANDY FUNCTIONS  /////////////////////////////
 
 void MyFreeMediaType(AM_MEDIA_TYPE& mt){
@@ -127,7 +132,7 @@ public:
 		DeleteCriticalSection(&critSection);
 		CloseHandle(hEvent);
 		if(bufferSetup){
-			delete pixels;
+			delete [] pixels;
 		}
 	}
 
@@ -608,6 +613,23 @@ videoInput::videoInput(){
 
 void videoInput::setVerbose(bool _verbose){
 	verbose = _verbose;
+}
+
+// ----------------------------------------------------------------------
+// static - new in 2013, allow for multithreaded use of VI without recompile. 
+//
+// ----------------------------------------------------------------------
+void videoInput::setComMultiThreaded(bool bMulti){
+	if( bMulti != VI_COM_MULTI_THREADED ){
+		VI_COM_MULTI_THREADED = bMulti; 
+
+		//we should only need one call to comUnInit - but as its reference counting its better to be safe. 
+		int limit = 100; 
+		while(!comUnInit() && limit > 0){
+			limit--; 
+		}
+		comInit(); 
+	}
 }
 
 // ----------------------------------------------------------------------
@@ -1429,11 +1451,11 @@ bool videoInput::comInit(){
 
 	    // Initialize the COM library.
     	//CoInitializeEx so videoInput can run in another thread
-	#ifdef VI_COM_MULTI_THREADED
+	if( VI_COM_MULTI_THREADED ){
 		hr = CoInitializeEx(NULL,COINIT_MULTITHREADED);
-	#else
+	}else{
 		hr = CoInitialize(NULL);
-	#endif
+	}
 		//this is the only case where there might be a problem
 		//if another library has started com as single threaded
 		//and we need it multi-threaded - send warning but don't fail
