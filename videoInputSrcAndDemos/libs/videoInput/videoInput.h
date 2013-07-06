@@ -44,6 +44,7 @@ Thanks to:
 #include <math.h>
 #include <string.h>
 #include <wchar.h>
+#include <string>
 #include <vector>
 
 //this is for TryEnterCriticalSection
@@ -116,7 +117,7 @@ Thanks to:
 //STUFF YOU DON'T CHANGE
 
 //videoInput defines
-#define VI_VERSION	 0.1995
+#define VI_VERSION	 0.2.0
 #define VI_MAX_CAMERAS  20
 #define VI_NUM_TYPES    19 //DON'T TOUCH
 #define VI_NUM_FORMATS  18 //DON'T TOUCH
@@ -268,11 +269,11 @@ class videoInput{
 
 		//Functions in rough order they should be used.
 		static int listDevices(bool silent = false);
-
-		static int getDeviceIDFromName(char * name);
+		static std::vector <std::string> getDeviceList(); 
 
 		//needs to be called after listDevices - otherwise returns NULL
 		static char * getDeviceName(int deviceID);
+		static int getDeviceIDFromName(char * name);
 
 		//choose to use callback based capture - or single threaded
 		void setUseCallback(bool useCallback);
@@ -362,7 +363,6 @@ class videoInput{
 		long propExposure;
 		long propIris;
 		long propFocus;
-
 
 	private:
 

@@ -10,16 +10,22 @@ triangleApp::triangleApp(){
 }
 
 void triangleApp::init(){
-
+	
+	//uncomment for silent setup
 	//videoInput::setVerbose(false); 
+
+	//uncomment for multithreaded setup
 	//videoInput::setComMultiThreaded(true); 
 
 	//optional static function to list devices
 	//for silent listDevices use listDevices(true);
 	int numDevices = videoInput::listDevices();	
 
-	//uncomment for silent setup
-	//videoInput::setVerbose(false);
+	//you can also now get the device list as a vector of strings 
+	std::vector <std::string> list = videoInput::getDeviceList(); 
+	for(int i = 0; i < list.size(); i++){
+		printf("[%i] device is %s\n", i, list[i].c_str());
+	}
 
 	//we allocate our openGL texture objects
 	//we give them a ma size of 1024 by 1024 pixels

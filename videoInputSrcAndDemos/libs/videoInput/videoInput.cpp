@@ -528,7 +528,7 @@ videoInput::videoInput(){
     //setup a max no of device objects
     for(int i=0; i<VI_MAX_CAMERAS; i++)  VDList[i] = new videoDevice();
 
-    if(verbose)printf("\n***** VIDEOINPUT LIBRARY - %2.04f - TFW07 *****\n\n",VI_VERSION);
+    if(verbose)printf("\n***** VIDEOINPUT LIBRARY - %2.04f - TFW2013 *****\n\n",VI_VERSION);
 
 	//added for the pixelink firewire camera
 // 	MEDIASUBTYPE_Y800 = (GUID)FOURCCMap(FCC('Y800'));
@@ -818,6 +818,17 @@ int videoInput::getDeviceIDFromName(char * name) {
 	}
 
 	return deviceID;
+}
+
+std::vector <std::string> videoInput::getDeviceList(){
+	int numDev = videoInput::listDevices(true);
+	std::vector <std::string> deviceList; 
+	for(int i = 0; i < numDev; i++){
+		char * name =  videoInput::getDeviceName(i); 
+		if( name == NULL )break; 
+		deviceList.push_back(name); 
+	}
+	return deviceList;
 }
 
 int videoInput::listDevices(bool silent){
@@ -1191,7 +1202,7 @@ bool videoInput::setVideoSettingFilterPct(int deviceID, long Property, float pct
 	}else{
 		//we need to rasterize the value to the stepping amnt
 		long mod 		= value % stepAmnt;
-		float halfStep 	= (float)stepAmnt * 0.5;
+		double halfStep 	= stepAmnt * 0.5;
 		if( mod < halfStep ) rasterValue -= mod;
 		else rasterValue += stepAmnt - mod;
 		printf("RASTER - pctValue is %f - value is %i - step is %i - mod is %i - rasterValue is %i\n", pctValue, value, stepAmnt, mod, rasterValue);
@@ -1278,7 +1289,7 @@ bool videoInput::setVideoSettingCameraPct(int deviceID, long Property, float pct
 	}else{
 		//we need to rasterize the value to the stepping amnt
 		long mod 		= value % stepAmnt;
-		float halfStep 	= (float)stepAmnt * 0.5;
+		double halfStep 	= stepAmnt * 0.5;
 		if( mod < halfStep ) rasterValue -= mod;
 		else rasterValue += stepAmnt - mod;
 		printf("RASTER - pctValue is %f - value is %i - step is %i - mod is %i - rasterValue is %i\n", pctValue, value, stepAmnt, mod, rasterValue);
