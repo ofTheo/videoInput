@@ -5,23 +5,75 @@
 //LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
-
-#define DEBUG 1
-#define _DEBUG 1
+#include  <iostream>
 
 #include "videoInput.h"
-#include "tchar.h"
+#include <tchar.h>
 
 //Include Directshow stuff here so we don't worry about needing all the h files.
-#include "DShow.h"
-#include "streams.h"
-#include "myqedit.h"
-#include "vector"
-#include "Aviriff.h"
-#include "Windows.h"
+#include <DShow.h>
+//#include "streams.h"
+#pragma include_alias( "dxtrans.h", "qedit.h" )
+#define __IDxtCompositor_INTERFACE_DEFINED__
+#define __IDxtAlphaSetter_INTERFACE_DEFINED__
+#define __IDxtJpeg_INTERFACE_DEFINED__
+#define __IDxtKey_INTERFACE_DEFINED__
+#include <uuids.h>
+#include <vector>
+#include <Aviriff.h>
+#include <Windows.h>
 
 //for threading
 #include <process.h>
+
+// Due to a missing qedit.h in recent Platform SDKs, we've replicated the relevant contents here
+// #include <qedit.h>
+MIDL_INTERFACE("0579154A-2B53-4994-B0D0-E773148EFF85")
+ISampleGrabberCB : public IUnknown
+{
+  public:
+    virtual HRESULT STDMETHODCALLTYPE SampleCB( 
+        double SampleTime,
+        IMediaSample *pSample) = 0;
+    
+    virtual HRESULT STDMETHODCALLTYPE BufferCB( 
+        double SampleTime,
+        BYTE *pBuffer,
+        long BufferLen) = 0;
+    
+};
+
+MIDL_INTERFACE("6B652FFF-11FE-4fce-92AD-0266B5D7C78F")
+ISampleGrabber : public IUnknown
+{
+  public:
+    virtual HRESULT STDMETHODCALLTYPE SetOneShot( 
+        BOOL OneShot) = 0;
+    
+    virtual HRESULT STDMETHODCALLTYPE SetMediaType( 
+        const AM_MEDIA_TYPE *pType) = 0;
+    
+    virtual HRESULT STDMETHODCALLTYPE GetConnectedMediaType( 
+        AM_MEDIA_TYPE *pType) = 0;
+    
+    virtual HRESULT STDMETHODCALLTYPE SetBufferSamples( 
+        BOOL BufferThem) = 0;
+    
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentBuffer( 
+        /* [out][in] */ long *pBufferSize,
+        /* [out] */ long *pBuffer) = 0;
+    
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentSample( 
+        /* [retval][out] */ IMediaSample **ppSample) = 0;
+    
+    virtual HRESULT STDMETHODCALLTYPE SetCallback( 
+        ISampleGrabberCB *pCallback,
+        long WhichMethodToCallback) = 0;
+    
+};
+EXTERN_C const CLSID CLSID_SampleGrabber;
+EXTERN_C const IID IID_ISampleGrabber;
+EXTERN_C const CLSID CLSID_NullRenderer;
 
 ///////////////////////////  HANDY FUNCTIONS  /////////////////////////////
 
@@ -450,6 +502,16 @@ videoDevice::~videoDevice(){
 // media subtypes to check.
 // ----------------------------------------------------------------------
 
+void makeGUID( GUID *guid, unsigned long Data1, unsigned short Data2, unsigned short Data3,
+	unsigned char b0, unsigned char b1, unsigned char b2, unsigned char b3,
+	unsigned char b4, unsigned char b5, unsigned char b6, unsigned char b7 ){
+	guid->Data1 = Data1;
+	guid->Data2 = Data2;
+	guid->Data3 = Data3;
+	guid->Data4[0] = b0; guid->Data4[1] = b1; guid->Data4[2] = b2; guid->Data4[3] = b3;
+	guid->Data4[4] = b4; guid->Data4[5] = b5; guid->Data4[6] = b6; guid->Data4[7] = b7;
+}
+
 videoInput::videoInput(){
 	//start com
 	comInit();
@@ -464,9 +526,10 @@ videoInput::videoInput(){
     if(verbose)printf("\n***** VIDEOINPUT LIBRARY - %2.04f - TFW07 *****\n\n",VI_VERSION);
 
 	//added for the pixelink firewire camera
- 	MEDIASUBTYPE_Y800 = (GUID)FOURCCMap(FCC('Y800'));
- 	MEDIASUBTYPE_Y8   = (GUID)FOURCCMap(FCC('Y8'));
- 	MEDIASUBTYPE_GREY = (GUID)FOURCCMap(FCC('GREY'));
+// 	MEDIASUBTYPE_Y800 = (GUID)FOURCCMap(FCC('Y800'));
+	makeGUID( &MEDIASUBTYPE_Y800, 0x30303859, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xAA, 0x00, 0x38, 0x9B, 0x71 );
+	makeGUID( &MEDIASUBTYPE_Y8, 0x20203859, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xAA, 0x00, 0x38, 0x9B, 0x71 );
+	makeGUID( &MEDIASUBTYPE_GREY, 0x59455247, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xAA, 0x00, 0x38, 0x9B, 0x71 );
 
 	//The video types we support
 	//in order of preference
@@ -1545,28 +1608,28 @@ void videoInput::processPixels(unsigned char * src, unsigned char * dst, int wid
 
 //------------------------------------------------------------------------------------------
 void videoInput::getMediaSubtypeAsString(GUID type, char * typeAsString){
-
-	char tmpStr[8];
-	if( type == MEDIASUBTYPE_RGB24) sprintf(tmpStr, "RGB24");
-	else if(type == MEDIASUBTYPE_RGB32) sprintf(tmpStr, "RGB32");
-	else if(type == MEDIASUBTYPE_RGB555)sprintf(tmpStr, "RGB555");
-	else if(type == MEDIASUBTYPE_RGB565)sprintf(tmpStr, "RGB565");
-	else if(type == MEDIASUBTYPE_YUY2) 	sprintf(tmpStr, "YUY2");
-	else if(type == MEDIASUBTYPE_YVYU) 	sprintf(tmpStr, "YVYU");
-	else if(type == MEDIASUBTYPE_YUYV) 	sprintf(tmpStr, "YUYV");
-	else if(type == MEDIASUBTYPE_IYUV) 	sprintf(tmpStr, "IYUV");
-	else if(type == MEDIASUBTYPE_UYVY)  sprintf(tmpStr, "UYVY");
-	else if(type == MEDIASUBTYPE_YV12)  sprintf(tmpStr, "YV12");
-	else if(type == MEDIASUBTYPE_YVU9)  sprintf(tmpStr, "YVU9");
-	else if(type == MEDIASUBTYPE_Y411) 	sprintf(tmpStr, "Y411");
-	else if(type == MEDIASUBTYPE_Y41P) 	sprintf(tmpStr, "Y41P");
-	else if(type == MEDIASUBTYPE_Y211)  sprintf(tmpStr, "Y211");
-	else if(type == MEDIASUBTYPE_AYUV) 	sprintf(tmpStr, "AYUV");
-	else if(type == MEDIASUBTYPE_Y800) 	sprintf(tmpStr, "Y800");
-	else if(type == MEDIASUBTYPE_Y8)   	sprintf(tmpStr, "Y8");
-	else if(type == MEDIASUBTYPE_GREY) 	sprintf(tmpStr, "GREY");
-	else if(type == MEDIASUBTYPE_MJPG) 	sprintf(tmpStr, "MJPG");
-	else sprintf(tmpStr, "OTHER");
+	
+	static const int maxStr = 8;
+	char tmpStr[maxStr];
+	if( type == MEDIASUBTYPE_RGB24) strncpy(tmpStr, "RGB24", maxStr);
+	else if(type == MEDIASUBTYPE_RGB32) strncpy(tmpStr, "RGB32", maxStr);
+	else if(type == MEDIASUBTYPE_RGB555)strncpy(tmpStr, "RGB555", maxStr);
+	else if(type == MEDIASUBTYPE_RGB565)strncpy(tmpStr, "RGB565", maxStr);	
+	else if(type == MEDIASUBTYPE_YUY2) strncpy(tmpStr, "YUY2", maxStr);
+	else if(type == MEDIASUBTYPE_YVYU) strncpy(tmpStr, "YVYU", maxStr);
+	else if(type == MEDIASUBTYPE_YUYV) strncpy(tmpStr, "YUYV", maxStr);
+	else if(type == MEDIASUBTYPE_IYUV) strncpy(tmpStr, "IYUV", maxStr);
+	else if(type == MEDIASUBTYPE_UYVY) strncpy(tmpStr, "UYVY", maxStr);
+	else if(type == MEDIASUBTYPE_YV12) strncpy(tmpStr, "YV12", maxStr);
+	else if(type == MEDIASUBTYPE_YVU9) strncpy(tmpStr, "YVU9", maxStr);
+	else if(type == MEDIASUBTYPE_Y411) strncpy(tmpStr, "Y411", maxStr);
+	else if(type == MEDIASUBTYPE_Y41P) strncpy(tmpStr, "Y41P", maxStr);
+	else if(type == MEDIASUBTYPE_Y211) strncpy(tmpStr, "Y211", maxStr);
+	else if(type == MEDIASUBTYPE_AYUV) strncpy(tmpStr, "AYUV", maxStr);
+	else if(type == MEDIASUBTYPE_Y800) strncpy(tmpStr, "Y800", maxStr);
+	else if(type == MEDIASUBTYPE_Y8) strncpy(tmpStr, "Y8", maxStr);
+	else if(type == MEDIASUBTYPE_GREY) strncpy(tmpStr, "GREY", maxStr);
+	else strncpy(tmpStr, "OTHER", maxStr);
 
 	memcpy(typeAsString, tmpStr, sizeof(char)*8);
 }
