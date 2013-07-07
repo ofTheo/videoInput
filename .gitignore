@@ -18,6 +18,7 @@ obj/
 *.lastbuildstate
 *.ncb
 *.ipch
+*.suo
 
 #codeblocks files
 */*/*.layout
