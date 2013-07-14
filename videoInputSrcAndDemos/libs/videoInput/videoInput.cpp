@@ -524,6 +524,7 @@ videoInput::videoInput(){
 	devicesFound 		= 0;
 	callbackSetCount 	= 0;
 	bCallback	 		= true;
+	requestedMediaSubType = MEDIASUBTYPE_RGB24;
 
     //setup a max no of device objects
     for(int i=0; i<VI_MAX_CAMERAS; i++)  VDList[i] = new videoDevice();
@@ -1929,7 +1930,7 @@ int videoInput::start(int deviceID, videoDevice *VD){
 		if(verbose)	printf("SETUP: Default Format is set to %i by %i \n", currentWidth, currentHeight);
 
 		char guidStr[8];
-
+		getMediaSubtypeAsString(requestedMediaSubType, guidStr); 
 
 		if(verbose)printf("SETUP: trying requested format %s @ %i by %i\n", guidStr, VD->tryWidth, VD->tryHeight);
 		if( setSizeAndSubtype(VD, VD->tryWidth, VD->tryHeight, requestedMediaSubType) ) {
