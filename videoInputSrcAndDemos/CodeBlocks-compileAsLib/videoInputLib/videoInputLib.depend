@@ -184,3 +184,82 @@
 	<pshpack2.h>
 	<poppack.h>
 
+1373814362 source:c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\videoinput\videoinput.cpp
+	<iostream>
+	"videoInput.h"
+	<tchar.h>
+	<DShow.h>
+	<uuids.h>
+	<Aviriff.h>
+	<Windows.h>
+	<process.h>
+
+1373812707 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\videoinput\videoinput.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<string.h>
+	<wchar.h>
+	<string>
+	<vector>
+	<windows.h>
+
+1373139129 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\dshow.h
+	<windows.h>
+	<windowsx.h>
+	<olectl.h>
+	<ddraw.h>
+	<mmsystem.h>
+	<strmif.h>
+	<amvideo.h>
+	<amaudio.h>
+	<control.h>
+	<evcode.h>
+	<uuids.h>
+	<errors.h>
+	<edevdefs.h>
+	<audevcod.h>
+	<dvdevcod.h>
+
+1373139865 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\ddraw.h
+	<objbase.h>
+
+1373139866 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\strmif.h
+
+1373139129 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\amvideo.h
+	<ddraw.h>
+
+1373139129 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\amaudio.h
+	<mmsystem.h>
+	<dsound.h>
+
+1373139865 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\dsound.h
+	<objbase.h>
+	<float.h>
+
+1373139129 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\control.h
+	"rpc.h"
+	"rpcndr.h"
+
+1373139865 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\evcode.h
+
+1373139866 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\uuids.h
+	"ksuuids.h"
+
+1373139866 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\ksuuids.h
+
+1373139865 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\errors.h
+	<VFWMSGS.H>
+
+1373139866 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\vfwmsgs.h
+
+1373139865 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\edevdefs.h
+
+1373139129 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\audevcod.h
+
+1373139865 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\dvdevcod.h
+
+1373139129 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\aviriff.h
+	<pshpack2.h>
+	<poppack.h>
+
