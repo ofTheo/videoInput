@@ -12,11 +12,15 @@ obj/
 *.obj
 *.tlog
 *.dep
+*.lastbuildstate
+*.ncb
+
+#vs files
+[Dd]ebug/
+[Rr]elease/
 *.opensdf
 *.pdb
 *.idb
-*.lastbuildstate
-*.ncb
 *.ipch
 *.suo
 
