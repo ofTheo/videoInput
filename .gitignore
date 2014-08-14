@@ -5,6 +5,24 @@ obj/
 *.o
 *.exe
 .DS_Store
+*.log
+*.user
+*.sdf
+*.filters
+*.obj
+*.tlog
+*.dep
+*.lastbuildstate
+*.ncb
+
+#vs files
+[Dd]ebug/
+[Rr]elease/
+*.opensdf
+*.pdb
+*.idb
+*.ipch
+*.suo
 
 #codeblocks files
 */*/*.layout

@@ -210,9 +210,11 @@ public:
 // implementation details
 
 protected:
-
+#ifdef __MINGW32_MAJOR_VERSION
+    IMediaSample * Copy(IMediaSample *pSource);
+#else
     IMediaSample * CTransInPlaceFilter::Copy(IMediaSample *pSource);
-
+#endif
 #ifdef PERF
     int m_idTransInPlace;                 // performance measuring id
 #endif // PERF

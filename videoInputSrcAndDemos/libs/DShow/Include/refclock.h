@@ -14,7 +14,11 @@
 
 const UINT RESOLUTION = 1;                      /* High resolution timer */
 const INT ADVISE_CACHE = 4;                     /* Default cache size */
+#ifdef __MINGW32_MAJOR_VERSION
+const LONGLONG MAX_TIME = 0x7FFFFFFFFFFFFFFFLL;
+#else
 const LONGLONG MAX_TIME = 0x7FFFFFFFFFFFFFFF;   /* Maximum LONGLONG value */
+#endif
 
 inline LONGLONG WINAPI ConvertToMilliseconds(const REFERENCE_TIME& RT)
 {
@@ -163,8 +167,11 @@ private:
 
 protected:
     CAMSchedule * const m_pSchedule;
-
+#ifdef __MINGW32_MAJOR_VERSION
+    void Restart (IN REFERENCE_TIME rtMinTime = 0) ;
+#else
     void Restart (IN REFERENCE_TIME rtMinTime = 0I64) ;
+#endif
 };
 
 #endif

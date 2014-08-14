@@ -1,0 +1,265 @@
+# depslib dependency file v1.0
+1312966937 source:c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\videoinput\videoinput.cpp
+	"videoInput.h"
+	"tchar.h"
+	"DShow.h"
+	"streams.h"
+	"myqedit.h"
+	"vector"
+	"Aviriff.h"
+	"Windows.h"
+	<process.h>
+
+1312966388 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\videoinput\videoinput.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<string.h>
+	<wchar.h>
+	<windows.h>
+
+1310625476 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\dshow.h
+	<windows.h>
+	<windowsx.h>
+	<olectl.h>
+	<ddraw.h>
+	<mmsystem.h>
+	<strmif.h>
+	<amvideo.h>
+	<amaudio.h>
+	<control.h>
+	<evcode.h>
+	<uuids.h>
+	<errors.h>
+	<edevdefs.h>
+	<audevcod.h>
+	<dvdevcod.h>
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\ddraw.h
+	<objbase.h>
+
+1312964807 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\strmif.h
+
+1310625476 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\amvideo.h
+	<ddraw.h>
+
+1310625476 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\amaudio.h
+	<mmsystem.h>
+	<dsound.h>
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\dsound.h
+	<objbase.h>
+	<float.h>
+
+1310625476 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\control.h
+	"rpc.h"
+	"rpcndr.h"
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\evcode.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\uuids.h
+	"ksuuids.h"
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\ksuuids.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\errors.h
+	<VFWMSGS.H>
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\vfwmsgs.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\edevdefs.h
+
+1310625476 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\audevcod.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\dvdevcod.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\streams.h
+	<windows.h>
+	<windowsx.h>
+	<olectl.h>
+	<ddraw.h>
+	<mmsystem.h>
+	<strmif.h>
+	<reftime.h>
+	<wxdebug.h>
+	<amvideo.h>
+	<wxutil.h>
+	<combase.h>
+	<dllsetup.h>
+	<measure.h>
+	<comlite.h>
+	<cache.h>
+	<wxlist.h>
+	<msgthrd.h>
+	<mtype.h>
+	<fourcc.h>
+	<control.h>
+	<ctlutil.h>
+	<evcode.h>
+	<amfilter.h>
+	<transfrm.h>
+	<transip.h>
+	<uuids.h>
+	<source.h>
+	<outputq.h>
+	<errors.h>
+	<renbase.h>
+	<winutil.h>
+	<winctrl.h>
+	<videoctl.h>
+	<refclock.h>
+	<sysclock.h>
+	<pstream.h>
+	<vtrans.h>
+	<amextra.h>
+	<cprop.h>
+	<strmctl.h>
+	<edevdefs.h>
+	<audevcod.h>
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\reftime.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\wxdebug.h
+
+1312964920 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\wxutil.h
+
+1312965028 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\combase.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\dllsetup.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\measure.h
+
+1310625476 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\comlite.h
+
+1310625476 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\cache.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\wxlist.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\msgthrd.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\mtype.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\fourcc.h
+
+1312965063 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\ctlutil.h
+
+1310625476 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\amfilter.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\transfrm.h
+
+1312965222 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\transip.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\source.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\outputq.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\renbase.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\winutil.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\winctrl.h
+
+1312965250 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\videoctl.h
+
+1312965362 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\refclock.h
+	"dsschedule.h"
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\dsschedule.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\sysclock.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\pstream.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\vtrans.h
+
+1310625476 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\amextra.h
+
+1310625476 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\cprop.h
+
+1310625477 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\strmctl.h
+
+1310629243 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\extra\myqedit.h
+
+1310625476 c:\users\gameover\code\videoinput\videoinputsrcanddemos\libs\dshow\include\aviriff.h
+	<pshpack2.h>
+	<poppack.h>
+
+1373814362 source:c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\videoinput\videoinput.cpp
+	<iostream>
+	"videoInput.h"
+	<tchar.h>
+	<DShow.h>
+	<uuids.h>
+	<Aviriff.h>
+	<Windows.h>
+	<process.h>
+
+1373812707 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\videoinput\videoinput.h
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+	<string.h>
+	<wchar.h>
+	<string>
+	<vector>
+	<windows.h>
+
+1373139129 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\dshow.h
+	<windows.h>
+	<windowsx.h>
+	<olectl.h>
+	<ddraw.h>
+	<mmsystem.h>
+	<strmif.h>
+	<amvideo.h>
+	<amaudio.h>
+	<control.h>
+	<evcode.h>
+	<uuids.h>
+	<errors.h>
+	<edevdefs.h>
+	<audevcod.h>
+	<dvdevcod.h>
+
+1373139865 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\ddraw.h
+	<objbase.h>
+
+1373139866 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\strmif.h
+
+1373139129 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\amvideo.h
+	<ddraw.h>
+
+1373139129 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\amaudio.h
+	<mmsystem.h>
+	<dsound.h>
+
+1373139865 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\dsound.h
+	<objbase.h>
+	<float.h>
+
+1373139129 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\control.h
+	"rpc.h"
+	"rpcndr.h"
+
+1373139865 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\evcode.h
+
+1373139866 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\uuids.h
+	"ksuuids.h"
+
+1373139866 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\ksuuids.h
+
+1373139865 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\errors.h
+	<VFWMSGS.H>
+
+1373139866 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\vfwmsgs.h
+
+1373139865 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\edevdefs.h
+
+1373139129 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\audevcod.h
+
+1373139865 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\dvdevcod.h
+
+1373139129 c:\users\theo\documents\github\videoinput\videoinputsrcanddemos\libs\dshow\include\aviriff.h
+	<pshpack2.h>
+	<poppack.h>
+

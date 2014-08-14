@@ -237,7 +237,7 @@ public:
     STDMETHODIMP_(ULONG) NonDelegatingRelease();
 };
 
-#if (_MSC_VER <= 1200)
+#if (_MSC_VER <= 1200) && !defined(__MINGW32_MAJOR_VERSION)
 #pragma warning(disable:4211)
 
 /* The standard InterlockedXXX functions won't take volatiles */

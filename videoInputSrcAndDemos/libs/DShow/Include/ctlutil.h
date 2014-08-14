@@ -275,7 +275,11 @@ private:
     //  Prevent bugs from constructing from LONG (which gets
     //  converted to double and then multiplied by 10000000
     COARefTime(LONG);
+#ifdef __MINGW32_MAJOR_VERSION
+    void operator=(LONG);
+#else
     operator=(LONG);
+#endif
 };
 
 
