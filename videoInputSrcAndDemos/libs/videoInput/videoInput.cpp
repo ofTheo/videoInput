@@ -805,7 +805,7 @@ char * videoInput::getDeviceName(int deviceID){
 //
 // ----------------------------------------------------------------------
 
-int videoInput::getDeviceIDFromName(char * name) {
+int videoInput::getDeviceIDFromName(const char * name) {
 
 	if (listDevices(true) == 0) return -1;
 
