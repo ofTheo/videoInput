@@ -360,7 +360,7 @@ void videoDevice::destroyGraph(){
 
 			while( FilterInfo.achName[count] != 0x00 )
 			{
-				buffer[count] = FilterInfo.achName[count];
+				buffer[count] = static_cast<char>(FilterInfo.achName[count]);
 				count++;
 			}
 
@@ -887,7 +887,7 @@ int videoInput::listDevices(bool silent){
 					int count = 0;
 					int maxLen = sizeof(deviceNames[0])/sizeof(deviceNames[0][0]) - 2;
 					while( varName.bstrVal[count] != 0x00 && count < maxLen) {
-						deviceNames[deviceCounter][count] = varName.bstrVal[count];
+						deviceNames[deviceCounter][count] = static_cast<char>(varName.bstrVal[count]);
 						count++;
 					}
 					deviceNames[deviceCounter][count] = 0;
