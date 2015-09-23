@@ -25,6 +25,10 @@
 //for threading
 #include <process.h>
 
+#ifndef HEADER
+#define HEADER(pVideoInfo) (&(((VIDEOINFOHEADER *) (pVideoInfo))->bmiHeader))
+#endif
+
 // Due to a missing qedit.h in recent Platform SDKs, we've replicated the relevant contents here
 // #include <qedit.h>
 MIDL_INTERFACE("0579154A-2B53-4994-B0D0-E773148EFF85")
