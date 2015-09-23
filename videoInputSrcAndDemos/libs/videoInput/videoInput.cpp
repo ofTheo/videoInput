@@ -487,17 +487,6 @@ videoDevice::~videoDevice(){
 								(pGraph) = 0;
 	}
 
-	//delete our pointers
-	delete pDestFilter;
-	delete pVideoInputFilter;
-	delete pGrabberF;
-	delete pGrabber;
-	delete pControl;
-	delete streamConf;
-	delete pMediaEvent;
-	delete pCaptureGraph;
-	delete pGraph;
-
 	if(verbose)printf("SETUP: Device %i disconnected and freed\n\n",myID);
 }
 
