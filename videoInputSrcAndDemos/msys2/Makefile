@@ -1,7 +1,7 @@
 all: ../../compiledLib/msys2/libvideoinput.a
 
 ../libs/videoInput/videoInput.o: ../libs/videoInput/videoInput.cpp Makefile
-	@clang++ -c $< -o "$@" -O1 -I../libs/videoInput/
+	@g++ -c $< -o "$@" -O3 -I../libs/videoInput/
 
 ../../compiledLib/msys2/libvideoinput.a: ../libs/videoInput/videoInput.o
 	@mkdir -p ../../compiledLib/msys2
