@@ -376,7 +376,7 @@ void videoDevice::destroyGraph(){
 			pFilter->Release();
 			pFilter = NULL;
 		}
-		else break;
+		else hr = 1;
 		pEnum->Release();
 		pEnum = NULL;
 		i++;
