@@ -785,7 +785,7 @@ bool videoInput::setFormat(int deviceNumber, int format){
 // ----------------------------------------------------------------------
 char videoInput::deviceNames[VI_MAX_CAMERAS][255]={{0}};
 
-char * videoInput::getDeviceName(int deviceID){
+const char * videoInput::getDeviceName(int deviceID){
 	if( deviceID >= VI_MAX_CAMERAS ){
 		return NULL;
 	}
@@ -798,7 +798,7 @@ char * videoInput::getDeviceName(int deviceID){
 //
 // ----------------------------------------------------------------------
 
-int videoInput::getDeviceIDFromName(char * name) {
+int videoInput::getDeviceIDFromName(const char * name) {
 
 	if (listDevices(true) == 0) return -1;
 

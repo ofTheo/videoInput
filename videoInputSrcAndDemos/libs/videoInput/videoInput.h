@@ -272,8 +272,8 @@ class videoInput{
 		static std::vector <std::string> getDeviceList(); 
 
 		//needs to be called after listDevices - otherwise returns NULL
-		static char * getDeviceName(int deviceID);
-		static int getDeviceIDFromName(char * name);
+		static const char * getDeviceName(int deviceID);
+		static int getDeviceIDFromName(const char * name);
 
 		//choose to use callback based capture - or single threaded
 		void setUseCallback(bool useCallback);
