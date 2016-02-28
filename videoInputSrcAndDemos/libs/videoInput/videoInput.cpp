@@ -35,54 +35,54 @@ MIDL_INTERFACE("0579154A-2B53-4994-B0D0-E773148EFF85")
 ISampleGrabberCB : public IUnknown
 {
   public:
-    virtual HRESULT STDMETHODCALLTYPE SampleCB( 
+    virtual HRESULT STDMETHODCALLTYPE SampleCB(
         double SampleTime,
         IMediaSample *pSample) = 0;
-    
-    virtual HRESULT STDMETHODCALLTYPE BufferCB( 
+
+    virtual HRESULT STDMETHODCALLTYPE BufferCB(
         double SampleTime,
         BYTE *pBuffer,
         long BufferLen) = 0;
-    
+
 };
 
 MIDL_INTERFACE("6B652FFF-11FE-4fce-92AD-0266B5D7C78F")
 ISampleGrabber : public IUnknown
 {
   public:
-    virtual HRESULT STDMETHODCALLTYPE SetOneShot( 
+    virtual HRESULT STDMETHODCALLTYPE SetOneShot(
         BOOL OneShot) = 0;
-    
-    virtual HRESULT STDMETHODCALLTYPE SetMediaType( 
+
+    virtual HRESULT STDMETHODCALLTYPE SetMediaType(
         const AM_MEDIA_TYPE *pType) = 0;
-    
-    virtual HRESULT STDMETHODCALLTYPE GetConnectedMediaType( 
+
+    virtual HRESULT STDMETHODCALLTYPE GetConnectedMediaType(
         AM_MEDIA_TYPE *pType) = 0;
-    
-    virtual HRESULT STDMETHODCALLTYPE SetBufferSamples( 
+
+    virtual HRESULT STDMETHODCALLTYPE SetBufferSamples(
         BOOL BufferThem) = 0;
-    
-    virtual HRESULT STDMETHODCALLTYPE GetCurrentBuffer( 
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentBuffer(
         /* [out][in] */ long *pBufferSize,
         /* [out] */ long *pBuffer) = 0;
-    
-    virtual HRESULT STDMETHODCALLTYPE GetCurrentSample( 
+
+    virtual HRESULT STDMETHODCALLTYPE GetCurrentSample(
         /* [retval][out] */ IMediaSample **ppSample) = 0;
-    
-    virtual HRESULT STDMETHODCALLTYPE SetCallback( 
+
+    virtual HRESULT STDMETHODCALLTYPE SetCallback(
         ISampleGrabberCB *pCallback,
         long WhichMethodToCallback) = 0;
-    
+
 };
 EXTERN_C const CLSID CLSID_SampleGrabber;
 EXTERN_C const IID IID_ISampleGrabber;
 EXTERN_C const CLSID CLSID_NullRenderer;
 
-//use videoInput::setVerbose to change 
+//use videoInput::setVerbose to change
 static bool verbose = true;
 
-//use videoInput::setComMultiThreaded to change 
-static bool VI_COM_MULTI_THREADED = false; 
+//use videoInput::setComMultiThreaded to change
+static bool VI_COM_MULTI_THREADED = false;
 
 ///////////////////////////  HANDY FUNCTIONS  /////////////////////////////
 
@@ -610,19 +610,19 @@ void videoInput::setVerbose(bool _verbose){
 }
 
 // ----------------------------------------------------------------------
-// static - new in 2013, allow for multithreaded use of VI without recompile. 
+// static - new in 2013, allow for multithreaded use of VI without recompile.
 //
 // ----------------------------------------------------------------------
 void videoInput::setComMultiThreaded(bool bMulti){
 	if( bMulti != VI_COM_MULTI_THREADED ){
-		VI_COM_MULTI_THREADED = bMulti; 
+		VI_COM_MULTI_THREADED = bMulti;
 
-		//we should only need one call to comUnInit - but as its reference counting its better to be safe. 
-		int limit = 100; 
+		//we should only need one call to comUnInit - but as its reference counting its better to be safe.
+		int limit = 100;
 		while(!comUnInit() && limit > 0){
-			limit--; 
+			limit--;
 		}
-		comInit(); 
+		comInit();
 	}
 }
 
@@ -805,7 +805,7 @@ int videoInput::getDeviceIDFromName(const char * name) {
 	int deviceID = -1;
 
 	for (int i = 0; i < VI_MAX_CAMERAS; i++) {
-		if (deviceNames[i] == name) {
+		if( !strcmp( deviceNames[i] , name ) ) {
 			deviceID = i;
 			break;
 		}
@@ -816,11 +816,11 @@ int videoInput::getDeviceIDFromName(const char * name) {
 
 std::vector <std::string> videoInput::getDeviceList(){
 	int numDev = videoInput::listDevices(true);
-	std::vector <std::string> deviceList; 
+	std::vector <std::string> deviceList;
 	for(int i = 0; i < numDev; i++){
-		char * name =  videoInput::getDeviceName(i); 
-		if( name == NULL )break; 
-		deviceList.push_back(name); 
+		const char * name =  videoInput::getDeviceName(i);
+		if( name == NULL )break;
+		deviceList.push_back(name);
 	}
 	return deviceList;
 }
@@ -1635,13 +1635,13 @@ void videoInput::processPixels(unsigned char * src, unsigned char * dst, int wid
 
 //------------------------------------------------------------------------------------------
 void videoInput::getMediaSubtypeAsString(GUID type, char * typeAsString){
-	
+
 	static const int maxStr = 8;
 	char tmpStr[maxStr];
 	if( type == MEDIASUBTYPE_RGB24) strncpy(tmpStr, "RGB24", maxStr);
 	else if(type == MEDIASUBTYPE_RGB32) strncpy(tmpStr, "RGB32", maxStr);
 	else if(type == MEDIASUBTYPE_RGB555)strncpy(tmpStr, "RGB555", maxStr);
-	else if(type == MEDIASUBTYPE_RGB565)strncpy(tmpStr, "RGB565", maxStr);	
+	else if(type == MEDIASUBTYPE_RGB565)strncpy(tmpStr, "RGB565", maxStr);
 	else if(type == MEDIASUBTYPE_YUY2) strncpy(tmpStr, "YUY2", maxStr);
 	else if(type == MEDIASUBTYPE_YVYU) strncpy(tmpStr, "YVYU", maxStr);
 	else if(type == MEDIASUBTYPE_YUYV) strncpy(tmpStr, "YUYV", maxStr);
@@ -1923,7 +1923,7 @@ int videoInput::start(int deviceID, videoDevice *VD){
 		if(verbose)	printf("SETUP: Default Format is set to %i by %i \n", currentWidth, currentHeight);
 
 		char guidStr[8];
-		getMediaSubtypeAsString(requestedMediaSubType, guidStr); 
+		getMediaSubtypeAsString(requestedMediaSubType, guidStr);
 
 		if(verbose)printf("SETUP: trying requested format %s @ %i by %i\n", guidStr, VD->tryWidth, VD->tryHeight);
 		if( setSizeAndSubtype(VD, VD->tryWidth, VD->tryHeight, requestedMediaSubType) ) {
