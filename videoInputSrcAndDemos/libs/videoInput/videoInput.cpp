@@ -801,7 +801,7 @@ std::vector <std::string> videoInput::getDeviceList(){
 	int numDev = videoInput::listDevices(true);
 	std::vector <std::string> deviceList; 
 	for(int i = 0; i < numDev; i++){
-		char * name =  videoInput::getDeviceName(i); 
+		const char * name =  videoInput::getDeviceName(i);
 		if( name == NULL )break; 
 		deviceList.push_back(name); 
 	}
