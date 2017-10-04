@@ -1746,9 +1746,6 @@ static bool setSizeAndSubtype(videoDevice * VD, int attemptWidth, int attemptHei
 	VIDEOINFOHEADER *pVih =  reinterpret_cast<VIDEOINFOHEADER*>(VD->pAmMediaType->pbFormat);
 
 	//store current size
-	// XX: Should they be reset somewhere?
-	int tmpWidth  = HEADER(pVih)->biWidth;
-	int tmpHeight = HEADER(pVih)->biHeight;
 	AM_MEDIA_TYPE * tmpType = NULL;
 
 	HRESULT	hr = VD->streamConf->GetFormat(&tmpType);
