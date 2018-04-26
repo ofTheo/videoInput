@@ -839,6 +839,12 @@ int videoInput::listDevices(bool silent){
 
 			while (pEnum->Next(1, &pMoniker, NULL) == S_OK){
 
+				if (deviceCounter >= VI_MAX_CAMERAS) {
+					if (!silent) printf("SETUP: Too many video inputs! Stop listing at %d\n", deviceCounter);
+					pMoniker->Release();
+					break;			// Stop enumerating, hit limit
+				}
+
 			    IPropertyBag *pPropBag;
 			    hr = pMoniker->BindToStorage(0, 0, IID_IPropertyBag,
 			        (void**)(&pPropBag));
