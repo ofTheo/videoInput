@@ -18,6 +18,7 @@ obj/
 #vs files
 [Dd]ebug/
 [Rr]elease/
+.vs/
 *.opensdf
 *.pdb
 *.idb
