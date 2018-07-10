@@ -6,6 +6,7 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //THE SOFTWARE.
 #include  <iostream>
+#include <algorithm>
 
 #include "videoInput.h"
 #include <tchar.h>
@@ -775,6 +776,7 @@ const char * videoInput::getDeviceName(int deviceID){
 	return deviceNames[deviceID];
 }
 
+std::vector<std::wstring> videoInput::deviceUniqueNames;
 
 // ----------------------------------------------------------------------
 // Our static function for finding num devices available etc
@@ -795,6 +797,29 @@ int videoInput::getDeviceIDFromName(const char * name) {
 	}
 
 	return deviceID;
+}
+
+const std::wstring& videoInput::getUniqueDeviceName(int deviceID)
+{
+	static const std::wstring dummy;
+	if (deviceID < 0 || deviceID >= (int)deviceUniqueNames.size()) {
+		if (verbose) printf("ERROR: Unknown device unique name - device index is out of range\n");
+		return dummy;
+	}
+	return deviceUniqueNames[deviceID];
+}
+
+int videoInput::getDeviceIDFromUniqueName(const std::wstring &uniqueName)
+{
+	std::vector<std::wstring>::const_iterator iter = 
+		std::find(deviceUniqueNames.begin(), deviceUniqueNames.end(), uniqueName);
+
+	if (iter != deviceUniqueNames.end())
+		return iter - deviceUniqueNames.begin();
+	else
+		if (verbose) printf("ERROR: Unknown unique device name requested\n");
+
+	return -1;
 }
 
 std::vector <std::string> videoInput::getDeviceList(){
@@ -837,6 +862,8 @@ int videoInput::listDevices(bool silent){
 			 if(!silent)printf("SETUP: Looking For Capture Devices\n");
 			IMoniker *pMoniker = NULL;
 
+			deviceUniqueNames.clear();
+
 			while (pEnum->Next(1, &pMoniker, NULL) == S_OK){
 
 				if (deviceCounter >= VI_MAX_CAMERAS) {
@@ -854,6 +881,25 @@ int videoInput::listDevices(bool silent){
 			        continue;  // Skip this one, maybe the next one will work.
 			    }
 
+				// Find unique name
+				bool hasUniqueName = false;
+
+				IMalloc *pMalloc = NULL;
+				hr = CoGetMalloc(1, (LPMALLOC*)&pMalloc);
+
+				if (SUCCEEDED(hr)){
+					BSTR uniqueName = NULL;
+					hr = pMoniker->GetDisplayName(NULL, NULL, &uniqueName);
+					if (SUCCEEDED(hr)) {
+						deviceUniqueNames.push_back(uniqueName);
+						hasUniqueName = true;
+						pMalloc->Free(uniqueName);
+					}
+					pMalloc->Release();
+				}
+
+				if (!hasUniqueName)
+					deviceUniqueNames.push_back(std::wstring());
 
  				// Find the description or friendly name.
 			    VARIANT varName;
