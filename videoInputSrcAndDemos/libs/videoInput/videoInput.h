@@ -37,7 +37,9 @@ Thanks to:
 */
 /////////////////////////////////////////////////////////
 
+#ifdef _MSC_VER
 #pragma comment(lib,"Strmiids.lib") 
+#endif
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -325,15 +327,15 @@ class videoInput{
 
 		//Manual control over settings thanks.....
 		//These are experimental for now.
-		bool setVideoSettingFilter(int deviceID, long Property, long lValue, long Flags = NULL, bool useDefaultValue = false);
-		bool setVideoSettingFilterPct(int deviceID, long Property, float pctValue, long Flags = NULL);
+		bool setVideoSettingFilter(int deviceID, long Property, long lValue, long Flags = 0, bool useDefaultValue = false);
+		bool setVideoSettingFilterPct(int deviceID, long Property, float pctValue, long Flags = 0);
 		bool getVideoSettingFilter(int deviceID, long Property, long &min, long &max, long &SteppingDelta, long &currentValue, long &flags, long &defaultValue);
 
-		bool setVideoSettingCamera(int deviceID, long Property, long lValue, long Flags = NULL, bool useDefaultValue = false);
-		bool setVideoSettingCameraPct(int deviceID, long Property, float pctValue, long Flags = NULL);
+		bool setVideoSettingCamera(int deviceID, long Property, long lValue, long Flags = 0, bool useDefaultValue = false);
+		bool setVideoSettingCameraPct(int deviceID, long Property, float pctValue, long Flags = 0);
 		bool getVideoSettingCamera(int deviceID, long Property, long &min, long &max, long &SteppingDelta, long &currentValue, long &flags, long &defaultValue);
 
-		//bool setVideoSettingCam(int deviceID, long Property, long lValue, long Flags = NULL, bool useDefaultValue = false);
+		//bool setVideoSettingCam(int deviceID, long Property, long lValue, long Flags = 0, bool useDefaultValue = false);
 
 		//get width, height and number of pixels
 		int  getWidth(int deviceID);
