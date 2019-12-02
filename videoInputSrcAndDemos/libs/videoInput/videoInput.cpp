@@ -925,11 +925,12 @@ std::vector<videoSizes> videoInput::getSizes(int deviceNumber)
 	{
 		if (verbose)printf("SETUP: device[%i] not found - you have %i devices available\n", deviceNumber, devicesFound);
 		if (devicesFound >= 0) if (verbose)printf("SETUP: this means that the last device you can use is device[%i] \n", devicesFound - 1);
-		listSizes(deviceNumber);
 		return std::vector<videoSizes>();
 	}
-	else
+	else{ 
+		listSizes(deviceNumber);
 		return VFList[deviceNumber];
+	}
 }
 
 // ----------------------------------------------------------------------
