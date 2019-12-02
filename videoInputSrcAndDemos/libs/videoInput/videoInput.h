@@ -189,6 +189,12 @@ typedef _AMMediaType AM_MEDIA_TYPE;
 //don't touch
 static int comInitCount = 0;
 
+//Size and medya sub-type
+struct videoSizes {
+	std::string strSubType;
+	int			nHeight;
+	int			nWidth;
+};
 
 ////////////////////////////////////////   VIDEO DEVICE   ///////////////////////////////////
 
@@ -268,6 +274,10 @@ class videoInput{
 		//call this before any videoInput calls. 
 		//note if your app has other COM calls then you should set VIs COM usage to match the other COM mode 
 		static void setComMultiThreaded(bool bMulti);
+
+		//Get list of sizes and formats available
+		void listSizes(int deviceNumber);
+		std::vector<videoSizes> getSizes(int deviceNumber);
 
 		//Functions in rough order they should be used.
 		static int listDevices(bool silent = false);
@@ -411,6 +421,7 @@ class videoInput{
 
 		static std::vector<std::wstring> deviceUniqueNames;
 
+		std::vector<videoSizes> VFList[VI_MAX_CAMERAS];
 };
 
  #endif

@@ -28,3 +28,6 @@ obj/
 */*/*.layout
 */*/*.depend
 
+/.vs
+/videoInputSrcAndDemos/VS-videoInputcompileAsLib/.vs/videoInput/v16
+/videoInputSrcAndDemos/VS-videoInputDemoWithSrc/.vs/videoInputBasicDemo/v16

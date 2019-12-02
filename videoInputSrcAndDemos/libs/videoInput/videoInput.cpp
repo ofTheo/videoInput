@@ -767,6 +767,176 @@ bool videoInput::setFormat(int deviceNumber, int format){
 // Must call listDevices first.
 //
 // ----------------------------------------------------------------------
+
+void videoInput::listSizes(int deviceNumber)
+{
+	devicesFound = getDeviceCount();
+
+	if (deviceNumber > devicesFound - 1)
+	{
+		if (verbose)printf("SETUP: device[%i] not found - you have %i devices available\n", deviceNumber, devicesFound);
+		if (devicesFound >= 0) if (verbose)printf("SETUP: this means that the last device you can use is device[%i] \n", devicesFound - 1);
+		return;
+	}
+
+	if (VDList[deviceNumber]->readyToCapture)
+	{
+		if (verbose)printf("SETUP: can't check, device %i is currently being used\n", VDList[deviceNumber]->myID);
+		return;
+	}
+
+	HRESULT hr = NULL;
+	VDList[deviceNumber]->myID = deviceNumber;
+	VDList[deviceNumber]->setupStarted = true;
+	CAPTURE_MODE = PIN_CATEGORY_CAPTURE; //Don't worry - it ends up being preview (which is faster)
+	callbackSetCount = 1;  //make sure callback method is not changed after setup called
+
+	if (verbose)printf("SETUP: Setting up device %i\n", deviceNumber);
+
+	// CREATE THE GRAPH BUILDER //
+	// Create the filter graph manager and query for interfaces.
+	hr = CoCreateInstance(CLSID_CaptureGraphBuilder2, NULL, CLSCTX_INPROC_SERVER, IID_ICaptureGraphBuilder2, (void**)& VDList[deviceNumber]->pCaptureGraph);
+	if (FAILED(hr))	// FAILED is a macro that tests the return value
+	{
+		if (verbose)printf("ERROR - Could not create the Filter Graph Manager\n");
+		return;
+	}
+
+	//FITLER GRAPH MANAGER//
+	// Create the Filter Graph Manager.
+	hr = CoCreateInstance(CLSID_FilterGraph, 0, CLSCTX_INPROC_SERVER, IID_IGraphBuilder, (void**)& VDList[deviceNumber]->pGraph);
+	if (FAILED(hr))
+	{
+		if (verbose)printf("ERROR - Could not add the graph builder!\n");
+		stopDevice(deviceNumber);
+		return;
+	}
+
+	//SET THE FILTERGRAPH//
+	hr = VDList[deviceNumber]->pCaptureGraph->SetFiltergraph(VDList[deviceNumber]->pGraph);
+	if (FAILED(hr))
+	{
+		if (verbose)printf("ERROR - Could not set filtergraph\n");
+		stopDevice(deviceNumber);
+		return;
+	}
+
+	//MEDIA CONTROL (START/STOPS STREAM)//
+	// Using QueryInterface on the graph builder,
+	// Get the Media Control object.
+	hr = VDList[deviceNumber]->pGraph->QueryInterface(IID_IMediaControl, (void**)& VDList[deviceNumber]->pControl);
+	if (FAILED(hr))
+	{
+		if (verbose)printf("ERROR - Could not create the Media Control object\n");
+		stopDevice(deviceNumber);
+		return;
+	}
+
+
+	//FIND VIDEO DEVICE AND ADD TO GRAPH//
+	//gets the device specified by the second argument.
+	hr = getDevice(&VDList[deviceNumber]->pVideoInputFilter, deviceNumber, VDList[deviceNumber]->wDeviceName, VDList[deviceNumber]->nDeviceName);
+
+	if (SUCCEEDED(hr)) {
+		if (verbose)printf("SETUP: %s\n", VDList[deviceNumber]->nDeviceName);
+		hr = VDList[deviceNumber]->pGraph->AddFilter(VDList[deviceNumber]->pVideoInputFilter, VDList[deviceNumber]->wDeviceName);
+	}
+	else {
+		if (verbose)printf("ERROR - Could not find specified video device\n");
+		stopDevice(deviceNumber);
+		return;
+	}
+
+	//LOOK FOR PREVIEW PIN IF THERE IS NONE THEN WE USE CAPTURE PIN AND THEN SMART TEE TO PREVIEW
+	IAMStreamConfig* streamConfTest = NULL;
+	hr = VDList[deviceNumber]->pCaptureGraph->FindInterface(&PIN_CATEGORY_PREVIEW, &MEDIATYPE_Video, VDList[deviceNumber]->pVideoInputFilter, IID_IAMStreamConfig, (void**)& streamConfTest);
+	if (FAILED(hr)) {
+		if (verbose)printf("SETUP: Couldn't find preview pin using SmartTee\n");
+	}
+	else {
+		CAPTURE_MODE = PIN_CATEGORY_PREVIEW;
+		streamConfTest->Release();
+		streamConfTest = NULL;
+	}
+
+	//CROSSBAR (SELECT PHYSICAL INPUT TYPE)//
+	//my own function that checks to see if the device can support a crossbar and if so it routes it.
+	//webcams tend not to have a crossbar so this function will also detect a webcams and not apply the crossbar
+	if (VDList[deviceNumber]->useCrossbar)
+	{
+		if (verbose)printf("SETUP: Checking crossbar\n");
+		routeCrossbar(&VDList[deviceNumber]->pCaptureGraph, &VDList[deviceNumber]->pVideoInputFilter, VDList[deviceNumber]->connection, CAPTURE_MODE);
+	}
+
+
+	//we do this because webcams don't have a preview mode
+	hr = VDList[deviceNumber]->pCaptureGraph->FindInterface(&CAPTURE_MODE, &MEDIATYPE_Video, VDList[deviceNumber]->pVideoInputFilter, IID_IAMStreamConfig, (void**)& VDList[deviceNumber]->streamConf);
+	if (FAILED(hr)) {
+		if (verbose)printf("ERROR: Couldn't config the stream!\n");
+		stopDevice(deviceNumber);
+		return;
+	}
+
+	int iCount = 0, iSize = 0;
+	hr = VDList[deviceNumber]->streamConf->GetNumberOfCapabilities(&iCount, &iSize);
+
+	// Check the size to make sure we pass in the correct structure.
+	if (iSize == sizeof(VIDEO_STREAM_CONFIG_CAPS))
+	{
+		// Use the video capabilities structure.
+		VFList[deviceNumber].clear();
+		for (int iFormat = 0; iFormat < iCount; iFormat++)
+		{
+			VIDEO_STREAM_CONFIG_CAPS scc;
+			AM_MEDIA_TYPE* pmtConfig;
+			hr = VDList[deviceNumber]->streamConf->GetStreamCaps(iFormat, &pmtConfig, (BYTE*)& scc);
+			if (SUCCEEDED(hr))
+			{
+				if ((pmtConfig->majortype == MEDIATYPE_Video) &&
+					//(pmtConfig->subtype == MEDIASUBTYPE_RGB24) &&		// Used to fix subtype to RGB24
+					(pmtConfig->formattype == FORMAT_VideoInfo) &&
+					(pmtConfig->cbFormat >= sizeof(VIDEOINFOHEADER)) &&
+					(pmtConfig->pbFormat != NULL))
+				{
+					VIDEOINFOHEADER* pVih = (VIDEOINFOHEADER*)pmtConfig->pbFormat;
+					videoSizes formats;
+					char guidStr[8];
+					getMediaSubtypeAsString(pmtConfig->subtype, guidStr);
+					formats.strSubType = guidStr;
+					formats.nWidth = pVih->bmiHeader.biWidth;
+					formats.nHeight = pVih->bmiHeader.biHeight;
+					if (verbose)printf("SubType: %s @ %d by %d\n", formats.strSubType.c_str(), formats.nWidth, formats.nHeight);
+					VFList[deviceNumber].push_back(formats);
+				}
+
+				// Delete the media type when you are done.
+				MyFreeMediaType((*pmtConfig));
+			}
+		}
+	}
+}
+
+// Return the list of subtypes available and the sizes available for each subtype.
+std::vector<videoSizes> videoInput::getSizes(int deviceNumber)
+{
+	devicesFound = getDeviceCount();
+
+	if (deviceNumber > devicesFound - 1)
+	{
+		if (verbose)printf("SETUP: device[%i] not found - you have %i devices available\n", deviceNumber, devicesFound);
+		if (devicesFound >= 0) if (verbose)printf("SETUP: this means that the last device you can use is device[%i] \n", devicesFound - 1);
+		listSizes(deviceNumber);
+		return std::vector<videoSizes>();
+	}
+	else
+		return VFList[deviceNumber];
+}
+
+// ----------------------------------------------------------------------
+// Our static function for returning device names - thanks Peter!
+// Must call listDevices first.
+//
+// ----------------------------------------------------------------------
 char videoInput::deviceNames[VI_MAX_CAMERAS][255]={{0}};
 
 const char * videoInput::getDeviceName(int deviceID){
