@@ -48,6 +48,7 @@ Thanks to:
 #include <wchar.h>
 #include <string>
 #include <vector>
+#include <mfapi.h>
 
 //this is for TryEnterCriticalSection
 #ifndef _WIN32_WINNT
@@ -191,9 +192,9 @@ static int comInitCount = 0;
 
 //Size and medya sub-type
 struct videoSizes {
-	std::string strSubType;
-	int			nHeight;
-	int			nWidth;
+	std::string strSubType = "";
+	int			nHeight = 0;
+	int			nWidth = 0;
 };
 
 ////////////////////////////////////////   VIDEO DEVICE   ///////////////////////////////////
@@ -389,6 +390,10 @@ class videoInput{
 		int  start(int deviceID, videoDevice * VD);
 		int  getDeviceCount();
 		void getMediaSubtypeAsString(GUID type, char * typeAsString);
+	public:
+		void getMediaSubtypeFromString(GUID& type, const char* typeAsString);
+		void setRequestedMediaSubType(GUID type);
+	private:
 
 		HRESULT getDevice(IBaseFilter **pSrcFilter, int deviceID, WCHAR * wDeviceName, char * nDeviceName);
 		static HRESULT ShowFilterPropertyPages(IBaseFilter *pFilter);
