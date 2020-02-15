@@ -118,10 +118,13 @@ class SampleGrabberCallback : public ISampleGrabberCB{
 public:
 
 	//------------------------------------------------
-	SampleGrabberCallback(){
+	SampleGrabberCallback() :
+		ptrBuffer(NULL)
+		, pixels(NULL)
+		, numBytes(0)
+	{
 		InitializeCriticalSection(&critSection);
 		freezeCheck = 0;
-
 
 		bufferSetup 		= false;
 		newFrame			= false;
@@ -767,6 +770,177 @@ bool videoInput::setFormat(int deviceNumber, int format){
 // Must call listDevices first.
 //
 // ----------------------------------------------------------------------
+
+void videoInput::listSizes(int deviceNumber)
+{
+	devicesFound = getDeviceCount();
+
+	if (deviceNumber > devicesFound - 1)
+	{
+		if (verbose)printf("SETUP: device[%i] not found - you have %i devices available\n", deviceNumber, devicesFound);
+		if (devicesFound >= 0) if (verbose)printf("SETUP: this means that the last device you can use is device[%i] \n", devicesFound - 1);
+		return;
+	}
+
+	if (VDList[deviceNumber]->readyToCapture)
+	{
+		if (verbose)printf("SETUP: can't check, device %i is currently being used\n", VDList[deviceNumber]->myID);
+		return;
+	}
+
+	HRESULT hr = NULL;
+	VDList[deviceNumber]->myID = deviceNumber;
+	VDList[deviceNumber]->setupStarted = true;
+	CAPTURE_MODE = PIN_CATEGORY_CAPTURE; //Don't worry - it ends up being preview (which is faster)
+	callbackSetCount = 1;  //make sure callback method is not changed after setup called
+
+	if (verbose)printf("SETUP: Setting up device %i\n", deviceNumber);
+
+	// CREATE THE GRAPH BUILDER //
+	// Create the filter graph manager and query for interfaces.
+	hr = CoCreateInstance(CLSID_CaptureGraphBuilder2, NULL, CLSCTX_INPROC_SERVER, IID_ICaptureGraphBuilder2, (void**)& VDList[deviceNumber]->pCaptureGraph);
+	if (FAILED(hr))	// FAILED is a macro that tests the return value
+	{
+		if (verbose)printf("ERROR - Could not create the Filter Graph Manager\n");
+		return;
+	}
+
+	//FITLER GRAPH MANAGER//
+	// Create the Filter Graph Manager.
+	hr = CoCreateInstance(CLSID_FilterGraph, 0, CLSCTX_INPROC_SERVER, IID_IGraphBuilder, (void**)& VDList[deviceNumber]->pGraph);
+	if (FAILED(hr))
+	{
+		if (verbose)printf("ERROR - Could not add the graph builder!\n");
+		stopDevice(deviceNumber);
+		return;
+	}
+
+	//SET THE FILTERGRAPH//
+	hr = VDList[deviceNumber]->pCaptureGraph->SetFiltergraph(VDList[deviceNumber]->pGraph);
+	if (FAILED(hr))
+	{
+		if (verbose)printf("ERROR - Could not set filtergraph\n");
+		stopDevice(deviceNumber);
+		return;
+	}
+
+	//MEDIA CONTROL (START/STOPS STREAM)//
+	// Using QueryInterface on the graph builder,
+	// Get the Media Control object.
+	hr = VDList[deviceNumber]->pGraph->QueryInterface(IID_IMediaControl, (void**)& VDList[deviceNumber]->pControl);
+	if (FAILED(hr))
+	{
+		if (verbose)printf("ERROR - Could not create the Media Control object\n");
+		stopDevice(deviceNumber);
+		return;
+	}
+
+
+	//FIND VIDEO DEVICE AND ADD TO GRAPH//
+	//gets the device specified by the second argument.
+	hr = getDevice(&VDList[deviceNumber]->pVideoInputFilter, deviceNumber, VDList[deviceNumber]->wDeviceName, VDList[deviceNumber]->nDeviceName);
+
+	if (SUCCEEDED(hr)) {
+		if (verbose)printf("SETUP: %s\n", VDList[deviceNumber]->nDeviceName);
+		hr = VDList[deviceNumber]->pGraph->AddFilter(VDList[deviceNumber]->pVideoInputFilter, VDList[deviceNumber]->wDeviceName);
+	}
+	else {
+		if (verbose)printf("ERROR - Could not find specified video device\n");
+		stopDevice(deviceNumber);
+		return;
+	}
+
+	//LOOK FOR PREVIEW PIN IF THERE IS NONE THEN WE USE CAPTURE PIN AND THEN SMART TEE TO PREVIEW
+	IAMStreamConfig* streamConfTest = NULL;
+	hr = VDList[deviceNumber]->pCaptureGraph->FindInterface(&PIN_CATEGORY_PREVIEW, &MEDIATYPE_Video, VDList[deviceNumber]->pVideoInputFilter, IID_IAMStreamConfig, (void**)& streamConfTest);
+	if (FAILED(hr)) {
+		if (verbose)printf("SETUP: Couldn't find preview pin using SmartTee\n");
+	}
+	else {
+		CAPTURE_MODE = PIN_CATEGORY_PREVIEW;
+		streamConfTest->Release();
+		streamConfTest = NULL;
+	}
+
+	//CROSSBAR (SELECT PHYSICAL INPUT TYPE)//
+	//my own function that checks to see if the device can support a crossbar and if so it routes it.
+	//webcams tend not to have a crossbar so this function will also detect a webcams and not apply the crossbar
+	if (VDList[deviceNumber]->useCrossbar)
+	{
+		if (verbose)printf("SETUP: Checking crossbar\n");
+		routeCrossbar(&VDList[deviceNumber]->pCaptureGraph, &VDList[deviceNumber]->pVideoInputFilter, VDList[deviceNumber]->connection, CAPTURE_MODE);
+	}
+
+
+	//we do this because webcams don't have a preview mode
+	hr = VDList[deviceNumber]->pCaptureGraph->FindInterface(&CAPTURE_MODE, &MEDIATYPE_Video, VDList[deviceNumber]->pVideoInputFilter, IID_IAMStreamConfig, (void**)& VDList[deviceNumber]->streamConf);
+	if (FAILED(hr)) {
+		if (verbose)printf("ERROR: Couldn't config the stream!\n");
+		stopDevice(deviceNumber);
+		return;
+	}
+
+	int iCount = 0, iSize = 0;
+	hr = VDList[deviceNumber]->streamConf->GetNumberOfCapabilities(&iCount, &iSize);
+
+	// Check the size to make sure we pass in the correct structure.
+	if (iSize == sizeof(VIDEO_STREAM_CONFIG_CAPS))
+	{
+		// Use the video capabilities structure.
+		VFList[deviceNumber].clear();
+		for (int iFormat = 0; iFormat < iCount; iFormat++)
+		{
+			VIDEO_STREAM_CONFIG_CAPS scc;
+			AM_MEDIA_TYPE* pmtConfig;
+			hr = VDList[deviceNumber]->streamConf->GetStreamCaps(iFormat, &pmtConfig, (BYTE*)& scc);
+			if (SUCCEEDED(hr))
+			{
+				if ((pmtConfig->majortype == MEDIATYPE_Video) &&
+					//(pmtConfig->subtype == MEDIASUBTYPE_RGB24) &&		// Used to fix subtype to RGB24
+					(pmtConfig->formattype == FORMAT_VideoInfo) &&
+					(pmtConfig->cbFormat >= sizeof(VIDEOINFOHEADER)) &&
+					(pmtConfig->pbFormat != NULL))
+				{
+					VIDEOINFOHEADER* pVih = (VIDEOINFOHEADER*)pmtConfig->pbFormat;
+					videoSizes formats;
+					char guidStr[8];
+					getMediaSubtypeAsString(pmtConfig->subtype, guidStr);
+					formats.strSubType = guidStr;
+					formats.nWidth = pVih->bmiHeader.biWidth;
+					formats.nHeight = pVih->bmiHeader.biHeight;
+					if (verbose)printf("SubType: %s @ %d by %d\n", formats.strSubType.c_str(), formats.nWidth, formats.nHeight);
+					VFList[deviceNumber].push_back(formats);
+				}
+
+				// Delete the media type when you are done.
+				MyFreeMediaType((*pmtConfig));
+			}
+		}
+	}
+}
+
+// Return the list of subtypes available and the sizes available for each subtype.
+std::vector<videoSizes> videoInput::getSizes(int deviceNumber)
+{
+	devicesFound = getDeviceCount();
+
+	if (deviceNumber > devicesFound - 1)
+	{
+		if (verbose)printf("SETUP: device[%i] not found - you have %i devices available\n", deviceNumber, devicesFound);
+		if (devicesFound >= 0) if (verbose)printf("SETUP: this means that the last device you can use is device[%i] \n", devicesFound - 1);
+		return std::vector<videoSizes>();
+	}
+	else{ 
+		listSizes(deviceNumber);
+		return VFList[deviceNumber];
+	}
+}
+
+// ----------------------------------------------------------------------
+// Our static function for returning device names - thanks Peter!
+// Must call listDevices first.
+//
+// ----------------------------------------------------------------------
 char videoInput::deviceNames[VI_MAX_CAMERAS][255]={{0}};
 
 const char * videoInput::getDeviceName(int deviceID){
@@ -873,7 +1047,7 @@ int videoInput::listDevices(bool silent){
 				}
 
 			    IPropertyBag *pPropBag;
-			    hr = pMoniker->BindToStorage(0, 0, IID_IPropertyBag,
+			    hr = pMoniker->BindToStorage( NULL, NULL, IID_IPropertyBag,
 			        (void**)(&pPropBag));
 
 			    if (FAILED(hr)){
@@ -1665,32 +1839,63 @@ void videoInput::processPixels(unsigned char * src, unsigned char * dst, int wid
 void videoInput::getMediaSubtypeAsString(GUID type, char * typeAsString){
 	
 	static const int maxStr = 8;
-	char tmpStr[maxStr];
-	if( type == MEDIASUBTYPE_RGB24) strncpy(tmpStr, "RGB24", maxStr);
-	else if(type == MEDIASUBTYPE_RGB32) strncpy(tmpStr, "RGB32", maxStr);
-	else if(type == MEDIASUBTYPE_RGB555)strncpy(tmpStr, "RGB555", maxStr);
-	else if(type == MEDIASUBTYPE_RGB565)strncpy(tmpStr, "RGB565", maxStr);	
-	else if(type == MEDIASUBTYPE_YUY2) strncpy(tmpStr, "YUY2", maxStr);
-	else if(type == MEDIASUBTYPE_YVYU) strncpy(tmpStr, "YVYU", maxStr);
-	else if(type == MEDIASUBTYPE_YUYV) strncpy(tmpStr, "YUYV", maxStr);
-	else if(type == MEDIASUBTYPE_IYUV) strncpy(tmpStr, "IYUV", maxStr);
-	else if(type == MEDIASUBTYPE_UYVY) strncpy(tmpStr, "UYVY", maxStr);
-	else if(type == MEDIASUBTYPE_YV12) strncpy(tmpStr, "YV12", maxStr);
-	else if(type == MEDIASUBTYPE_YVU9) strncpy(tmpStr, "YVU9", maxStr);
-	else if(type == MEDIASUBTYPE_Y411) strncpy(tmpStr, "Y411", maxStr);
-	else if(type == MEDIASUBTYPE_Y41P) strncpy(tmpStr, "Y41P", maxStr);
-	else if(type == MEDIASUBTYPE_Y211) strncpy(tmpStr, "Y211", maxStr);
-	else if(type == MEDIASUBTYPE_AYUV) strncpy(tmpStr, "AYUV", maxStr);
-	else if(type == MEDIASUBTYPE_Y800) strncpy(tmpStr, "Y800", maxStr);
-	else if(type == MEDIASUBTYPE_Y8) strncpy(tmpStr, "Y8", maxStr);
-	else if(type == MEDIASUBTYPE_GREY) strncpy(tmpStr, "GREY", maxStr);
-	else strncpy(tmpStr, "OTHER", maxStr);
+	char tmpStr[maxStr] = { '\0' };
+	if( type == MEDIASUBTYPE_RGB24) strncpy_s(tmpStr, "RGB24", maxStr);
+	else if(type == MEDIASUBTYPE_RGB32) strncpy_s(tmpStr, "RGB32", maxStr);
+	else if(type == MEDIASUBTYPE_RGB555)strncpy_s(tmpStr, "RGB555", maxStr);
+	else if(type == MEDIASUBTYPE_RGB565)strncpy_s(tmpStr, "RGB565", maxStr);
+	else if(type == MEDIASUBTYPE_YUY2) strncpy_s(tmpStr, "YUY2", maxStr);
+	else if(type == MEDIASUBTYPE_YVYU) strncpy_s(tmpStr, "YVYU", maxStr);
+	else if(type == MEDIASUBTYPE_YUYV) strncpy_s(tmpStr, "YUYV", maxStr);
+	else if(type == MEDIASUBTYPE_IYUV) strncpy_s(tmpStr, "IYUV", maxStr);
+	else if(type == MEDIASUBTYPE_UYVY) strncpy_s(tmpStr, "UYVY", maxStr);
+	else if(type == MEDIASUBTYPE_YV12) strncpy_s(tmpStr, "YV12", maxStr);
+	else if(type == MEDIASUBTYPE_YVU9) strncpy_s(tmpStr, "YVU9", maxStr);
+	else if(type == MEDIASUBTYPE_Y411) strncpy_s(tmpStr, "Y411", maxStr);
+	else if(type == MEDIASUBTYPE_Y41P) strncpy_s(tmpStr, "Y41P", maxStr);
+	else if(type == MEDIASUBTYPE_Y211) strncpy_s(tmpStr, "Y211", maxStr);
+	else if(type == MEDIASUBTYPE_AYUV) strncpy_s(tmpStr, "AYUV", maxStr);
+	else if(type == MEDIASUBTYPE_Y800) strncpy_s(tmpStr, "Y800", maxStr);
+	else if(type == MEDIASUBTYPE_Y8) strncpy_s(tmpStr, "Y8", maxStr);
+	else if(type == MEDIASUBTYPE_GREY) strncpy_s(tmpStr, "GREY", maxStr);
+	else if(type == MEDIASUBTYPE_MJPG) strncpy_s(tmpStr, "MJPG", maxStr);
+	else strncpy_s(tmpStr, "OTHER", maxStr);
 
 	memcpy(typeAsString, tmpStr, sizeof(char)*8);
 }
 
+void videoInput::getMediaSubtypeFromString(GUID &type, const char* typeAsString) {
+
+	static const int maxStr = 8;
+	char tmpStr[maxStr] = {'\0'};
+	memcpy( tmpStr, (void*)typeAsString, sizeof(char) * 8);
+	if (!strncmp(tmpStr, "RGB24", 5)) type = MEDIASUBTYPE_RGB24;
+	else if (!strcmp(tmpStr, "RGB32"))type = MEDIASUBTYPE_RGB32;
+	else if (!strcmp(tmpStr, "RGB555"))type = MEDIASUBTYPE_RGB555;
+	else if (!strcmp(tmpStr, "RGB565"))type = MEDIASUBTYPE_RGB565;
+	else if (!strcmp(tmpStr, "YUY2"))type = MEDIASUBTYPE_YUY2;
+	else if (!strcmp(tmpStr, "YVYU"))type = MEDIASUBTYPE_YVYU;
+	else if (!strcmp(tmpStr, "YUYV"))type = MEDIASUBTYPE_YUYV;
+	else if (!strcmp(tmpStr, "IYUV"))type = MEDIASUBTYPE_IYUV;
+	else if (!strcmp(tmpStr, "UYVY"))type = MEDIASUBTYPE_UYVY;
+	else if (!strcmp(tmpStr, "YV12"))type = MEDIASUBTYPE_YV12;
+	else if (!strcmp(tmpStr, "YVU9"))type = MEDIASUBTYPE_YVU9;
+	else if (!strcmp(tmpStr, "Y411"))type = MEDIASUBTYPE_Y411;
+	else if (!strcmp(tmpStr, "Y41P"))type = MEDIASUBTYPE_Y41P;
+	else if (!strcmp(tmpStr, "Y211"))type = MEDIASUBTYPE_Y211;
+	else if (!strcmp(tmpStr, "AYUV"))type = MEDIASUBTYPE_AYUV;
+	else if (!strcmp(tmpStr, "Y800"))type = MEDIASUBTYPE_Y800;
+	else if (!strcmp(tmpStr, "Y8"))type = MEDIASUBTYPE_Y8;
+	else if (!strcmp(tmpStr, "GREY"))type = MEDIASUBTYPE_GREY;
+	else if (!strcmp(tmpStr, "MJPG"))type = MEDIASUBTYPE_MJPG;
+}
+
 void videoInput::setRequestedMediaSubType(int mediatype) {
 	requestedMediaSubType = mediaSubtypes[mediatype];
+}
+
+void videoInput::setRequestedMediaSubType(GUID type) {
+	requestedMediaSubType = type;
 }
 
 
@@ -2192,7 +2397,7 @@ int videoInput::getDeviceCount(){
 			while (pEnum->Next(1, &pMoniker, NULL) == S_OK){
 
 			    IPropertyBag *pPropBag;
-			    hr = pMoniker->BindToStorage(0, 0, IID_IPropertyBag,
+			    hr = pMoniker->BindToStorage( nullptr, 0, IID_IPropertyBag,
 			        (void**)(&pPropBag));
 
 			    if (FAILED(hr)){

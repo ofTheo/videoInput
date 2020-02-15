@@ -47,6 +47,9 @@ void triangleApp::init(){
 	//specify it here, you are not guaranteed to get this fps though.
 	//VI.setIdealFramerate(dev, 60);
 
+	//Get supported medya subtypes and sizes
+	std::vector<videoSizes> subTpes = VI.getSizes(dev);
+
 	//we can specifiy the dimensions we want to capture at
 	//if those sizes are not possible VI will look for the next nearest matching size
 	//VI.setRequestedMediaSubType((int)MEDIASUBTYPE_MJPG);

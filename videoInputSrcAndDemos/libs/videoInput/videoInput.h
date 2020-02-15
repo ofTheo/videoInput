@@ -48,6 +48,7 @@ Thanks to:
 #include <wchar.h>
 #include <string>
 #include <vector>
+#include <mfapi.h>
 
 //this is for TryEnterCriticalSection
 #ifndef _WIN32_WINNT
@@ -189,6 +190,12 @@ typedef _AMMediaType AM_MEDIA_TYPE;
 //don't touch
 static int comInitCount = 0;
 
+//Size and medya sub-type
+struct videoSizes {
+	std::string strSubType = "";
+	int			nHeight = 0;
+	int			nWidth = 0;
+};
 
 ////////////////////////////////////////   VIDEO DEVICE   ///////////////////////////////////
 
@@ -268,6 +275,10 @@ class videoInput{
 		//call this before any videoInput calls. 
 		//note if your app has other COM calls then you should set VIs COM usage to match the other COM mode 
 		static void setComMultiThreaded(bool bMulti);
+
+		//Get list of sizes and formats available
+		void listSizes(int deviceNumber);
+		std::vector<videoSizes> getSizes(int deviceNumber);
 
 		//Functions in rough order they should be used.
 		static int listDevices(bool silent = false);
@@ -379,6 +390,10 @@ class videoInput{
 		int  start(int deviceID, videoDevice * VD);
 		int  getDeviceCount();
 		void getMediaSubtypeAsString(GUID type, char * typeAsString);
+	public:
+		void getMediaSubtypeFromString(GUID& type, const char* typeAsString);
+		void setRequestedMediaSubType(GUID type);
+	private:
 
 		HRESULT getDevice(IBaseFilter **pSrcFilter, int deviceID, WCHAR * wDeviceName, char * nDeviceName);
 		static HRESULT ShowFilterPropertyPages(IBaseFilter *pFilter);
@@ -411,6 +426,7 @@ class videoInput{
 
 		static std::vector<std::wstring> deviceUniqueNames;
 
+		std::vector<videoSizes> VFList[VI_MAX_CAMERAS];
 };
 
  #endif
