@@ -83,7 +83,11 @@ EXTERN_C const CLSID CLSID_NullRenderer;
 static bool verbose = true;
 
 //use videoInput::setComMultiThreaded to change 
-static bool VI_COM_MULTI_THREADED = false; 
+static bool VI_COM_MULTI_THREADED = false;
+
+//keeps track of how many instances of VI are being used
+//don't touch
+static int comInitCount = 0;
 
 ///////////////////////////  HANDY FUNCTIONS  /////////////////////////////
 
