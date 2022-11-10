@@ -185,9 +185,7 @@ struct _AMMediaType;
 class SampleGrabberCallback;
 typedef _AMMediaType AM_MEDIA_TYPE;
 
-//keeps track of how many instances of VI are being used
-//don't touch
-static int comInitCount = 0;
+
 
 
 ////////////////////////////////////////   VIDEO DEVICE   ///////////////////////////////////
