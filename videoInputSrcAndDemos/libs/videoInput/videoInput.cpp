@@ -542,6 +542,7 @@ videoInput::videoInput(){
     mediaSubtypes[16]	= MEDIASUBTYPE_Y8;
 	mediaSubtypes[17]	= MEDIASUBTYPE_GREY;
 	mediaSubtypes[18]	= MEDIASUBTYPE_MJPG; // added by gameover
+	mediaSubtypes[19]	= MEDIASUBTYPE_H264;
 
 	//The video formats we support
 	formatTypes[VI_NTSC_M]		= AnalogVideo_NTSC_M;
@@ -1688,6 +1689,7 @@ void videoInput::getMediaSubtypeAsString(GUID type, char * typeAsString){
 	else if(type == MEDIASUBTYPE_Y800) strncpy(tmpStr, "Y800", maxStr);
 	else if(type == MEDIASUBTYPE_Y8) strncpy(tmpStr, "Y8", maxStr);
 	else if(type == MEDIASUBTYPE_GREY) strncpy(tmpStr, "GREY", maxStr);
+	else if (type == MEDIASUBTYPE_H264) strncpy(tmpStr, "H264", maxStr);
 	else strncpy(tmpStr, "OTHER", maxStr);
 
 	memcpy(typeAsString, tmpStr, sizeof(char)*8);
