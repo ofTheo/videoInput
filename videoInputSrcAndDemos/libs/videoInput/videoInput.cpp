@@ -510,13 +510,14 @@ videoInput::videoInput(){
     //setup a max no of device objects
     for(int i=0; i<VI_MAX_CAMERAS; i++)  VDList[i] = new videoDevice();
 
-    if(verbose)printf("\n***** VIDEOINPUT LIBRARY - %2.04f - TFW2013 *****\n\n",VI_VERSION);
+    if(verbose)printf("\n***** VIDEOINPUT LIBRARY - %2.04f *****\n\n",VI_VERSION);
 
 	//added for the pixelink firewire camera
 // 	MEDIASUBTYPE_Y800 = (GUID)FOURCCMap(FCC('Y800'));
 	makeGUID( &MEDIASUBTYPE_Y800, 0x30303859, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xAA, 0x00, 0x38, 0x9B, 0x71 );
 	makeGUID( &MEDIASUBTYPE_Y8, 0x20203859, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xAA, 0x00, 0x38, 0x9B, 0x71 );
 	makeGUID( &MEDIASUBTYPE_GREY, 0x59455247, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xAA, 0x00, 0x38, 0x9B, 0x71 );
+	makeGUID( &MEDIASUBTYPE_H264, 0x34363248, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71 );
 
 	//The video types we support
 	//in order of preference
@@ -1689,6 +1690,7 @@ void videoInput::getMediaSubtypeAsString(GUID type, char * typeAsString){
 	else if(type == MEDIASUBTYPE_Y800) strncpy(tmpStr, "Y800", maxStr);
 	else if(type == MEDIASUBTYPE_Y8) strncpy(tmpStr, "Y8", maxStr);
 	else if(type == MEDIASUBTYPE_GREY) strncpy(tmpStr, "GREY", maxStr);
+	else if (type == MEDIASUBTYPE_MJPG) strncpy(tmpStr, "MJPG", maxStr);
 	else if (type == MEDIASUBTYPE_H264) strncpy(tmpStr, "H264", maxStr);
 	else strncpy(tmpStr, "OTHER", maxStr);
 
