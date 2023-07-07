@@ -887,6 +887,26 @@ int videoInput::listDevices(bool silent){
 			        continue;  // Skip this one, maybe the next one will work.
 			    }
 
+				// Find unique name
+				bool hasUniqueName = false;
+
+				IMalloc *pMalloc = NULL;
+				hr = CoGetMalloc(1, (LPMALLOC*)&pMalloc);
+
+				if (SUCCEEDED(hr)){
+					BSTR uniqueName = NULL;
+					hr = pMoniker->GetDisplayName(NULL, NULL, &uniqueName);
+					if (SUCCEEDED(hr)) {
+						deviceUniqueNames.push_back(uniqueName);
+						hasUniqueName = true;
+						pMalloc->Free(uniqueName);
+					}
+					pMalloc->Release();
+				}
+
+				if (!hasUniqueName)
+					deviceUniqueNames.push_back(std::wstring());
+
  				// Find the description or friendly name.
 			    VARIANT varName;
 			    VariantInit(&varName);
@@ -907,26 +927,6 @@ int videoInput::listDevices(bool silent){
 					deviceNames[deviceCounter][count] = 0;
 
 			        if(!silent)printf("SETUP: %i) %s \n",deviceCounter, deviceNames[deviceCounter]);
-
-					// Find unique name
-					bool hasUniqueName = false;
-
-					IMalloc *pMalloc = NULL;
-					hr = CoGetMalloc(1, (LPMALLOC*)&pMalloc);
-
-					if (SUCCEEDED(hr)) {
-						BSTR uniqueName = NULL;
-						hr = pMoniker->GetDisplayName(NULL, NULL, &uniqueName);
-						if (SUCCEEDED(hr)) {
-							deviceUniqueNames.push_back(uniqueName);
-							hasUniqueName = true;
-							pMalloc->Free(uniqueName);
-						}
-						pMalloc->Release();
-					}
-
-					if (!hasUniqueName)
-						deviceUniqueNames.push_back(std::wstring());
 			    }
 
 			    pPropBag->Release();
