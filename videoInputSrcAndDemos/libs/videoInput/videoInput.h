@@ -37,7 +37,9 @@ Thanks to:
 */
 /////////////////////////////////////////////////////////
 
+#ifdef _MSC_VER
 #pragma comment(lib,"Strmiids.lib") 
+#endif
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -119,7 +121,7 @@ Thanks to:
 //videoInput defines
 #define VI_VERSION	 0.200
 #define VI_MAX_CAMERAS  20
-#define VI_NUM_TYPES    19 //DON'T TOUCH
+#define VI_NUM_TYPES    20 //DON'T TOUCH
 #define VI_NUM_FORMATS  18 //DON'T TOUCH
 
 //defines for setPhyCon - tuner is not as well supported as composite and s-video
@@ -169,6 +171,7 @@ Thanks to:
 #define VI_MEDIASUBTYPE_Y8      16
 #define VI_MEDIASUBTYPE_GREY    17
 #define VI_MEDIASUBTYPE_MJPG    18
+#define VI_MEDIASUBTYPE_H264    19
 
 //allows us to directShow classes here with the includes in the cpp
 struct ICaptureGraphBuilder2;
@@ -183,9 +186,7 @@ struct _AMMediaType;
 class SampleGrabberCallback;
 typedef _AMMediaType AM_MEDIA_TYPE;
 
-//keeps track of how many instances of VI are being used
-//don't touch
-static int comInitCount = 0;
+
 
 
 ////////////////////////////////////////   VIDEO DEVICE   ///////////////////////////////////
@@ -325,15 +326,15 @@ class videoInput{
 
 		//Manual control over settings thanks.....
 		//These are experimental for now.
-		bool setVideoSettingFilter(int deviceID, long Property, long lValue, long Flags = NULL, bool useDefaultValue = false);
-		bool setVideoSettingFilterPct(int deviceID, long Property, float pctValue, long Flags = NULL);
+		bool setVideoSettingFilter(int deviceID, long Property, long lValue, long Flags = 0, bool useDefaultValue = false);
+		bool setVideoSettingFilterPct(int deviceID, long Property, float pctValue, long Flags = 0);
 		bool getVideoSettingFilter(int deviceID, long Property, long &min, long &max, long &SteppingDelta, long &currentValue, long &flags, long &defaultValue);
 
-		bool setVideoSettingCamera(int deviceID, long Property, long lValue, long Flags = NULL, bool useDefaultValue = false);
-		bool setVideoSettingCameraPct(int deviceID, long Property, float pctValue, long Flags = NULL);
+		bool setVideoSettingCamera(int deviceID, long Property, long lValue, long Flags = 0, bool useDefaultValue = false);
+		bool setVideoSettingCameraPct(int deviceID, long Property, float pctValue, long Flags = 0);
 		bool getVideoSettingCamera(int deviceID, long Property, long &min, long &max, long &SteppingDelta, long &currentValue, long &flags, long &defaultValue);
 
-		//bool setVideoSettingCam(int deviceID, long Property, long lValue, long Flags = NULL, bool useDefaultValue = false);
+		//bool setVideoSettingCam(int deviceID, long Property, long lValue, long Flags = 0, bool useDefaultValue = false);
 
 		//get width, height and number of pixels
 		int  getWidth(int deviceID);
@@ -398,6 +399,7 @@ class videoInput{
 		GUID MEDIASUBTYPE_Y800;
 		GUID MEDIASUBTYPE_Y8;
 		GUID MEDIASUBTYPE_GREY;
+		GUID MEDIASUBTYPE_H264;
 
 		videoDevice * VDList[VI_MAX_CAMERAS];
 		GUID mediaSubtypes[VI_NUM_TYPES];
